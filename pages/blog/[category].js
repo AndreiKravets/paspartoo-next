@@ -7,9 +7,7 @@ import Link from "next/link"
 const Index = ({blog, category, productId}) => {
     blog = blog.results
     category = category.results
-    console.log(blog)
-    console.log(category)
-    console.log(productId)
+
     let categoryBlog = blog.filter((item) => item.data.categories[0].category.slug == productId)
     return (
         <>
@@ -42,7 +40,7 @@ const Index = ({blog, category, productId}) => {
                                     <article className="col-md-4" key={item.id} >
                                         <div className="blog_item_inner">
                                             <img src={item.data.background_image.url} alt={item.data.background_image.alt}/>
-                                            <a href={`/blog/${item.data.categories[0].category.slug}/${item.id}`} className="h3">{item.data.title[0].text}</a>
+                                            <a href={`/blog/${item.data.categories[0].category.slug}/${item.uid}`} className="h3">{item.data.title[0].text}</a>
                                         </div>
                                     </article>
                                     )

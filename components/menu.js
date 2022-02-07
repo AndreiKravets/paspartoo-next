@@ -5,6 +5,9 @@ const Menu = ()=>  {
         return (
             <ul>
                 <li>
+                    <Link href="/services">Services</Link>
+                </li>
+                <li>
                     <Link href="/about">About Us</Link>
                 </li>
                 <li>

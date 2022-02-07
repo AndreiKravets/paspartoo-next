@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import MainContainer from "../../components/MainContainer";
 import Prismic from "@prismicio/client";
-import Link from "next/link"
+import Link from "next/link";
 
 
 const Index = ({blog, category}) => {
@@ -9,6 +9,41 @@ const Index = ({blog, category}) => {
     category = category.results
     console.log(blog)
     console.log(category)
+
+    const [posts, setPosts] = useState(() => blog);
+
+    function createPagination (posts, count)  {
+        let paginationLength = [];
+        for (let i = 1; i < posts.length / count + 1; i++) {
+            paginationLength.push(i);
+        }
+        if (paginationLength.length > 1) {
+            return(
+                <section>
+                    <div className="container">
+                        <div className="row posts_pagination">
+                            <ul>
+                                {paginationLength.map((index) => {
+                                    return (
+                                        <li key={index} onClick={() => setPosts(currentPosts(posts, count, index))}>
+                                            {index}
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+        return false
+    }
+
+    function currentPosts(posts, count, current_page ) {
+        console.log(posts.slice(current_page * count - count, current_page * count))
+        let newPosts = posts.slice(current_page * count - count, current_page * count)
+        return (newPosts)
+    }
     return (
         <>
             <MainContainer>
@@ -35,13 +70,12 @@ const Index = ({blog, category}) => {
                         </ul>
                         <div className="row">
                             {
-                                (blog.map((item) => {
-                                    console.log(item)
+                                (posts.map((item) => {
                                     return(
                                         <article className="col-md-4" key={item.id} >
                                             <div className="blog_item_inner">
                                                 <img src={item.data.background_image.url} alt={item.data.background_image.alt}/>
-                                                <a href={`/blog/${item.id}`} className="h3">{item.data.title[0].text}</a>
+                                                <a href={`/blog/all/${item.uid}`} className="h3">{item.data.title[0].text}</a>
                                             </div>
                                         </article>
                                     )
@@ -52,6 +86,7 @@ const Index = ({blog, category}) => {
                     </div>
 
                 </section>
+                    {createPagination(blog,6)}
             </MainContainer>
         </>
     )

@@ -4,8 +4,8 @@ import Prismic from "@prismicio/client";
 
 
 
-const Works = () => {
-
+const Works = ({data}) => {
+console.log(data)
     return (
         <>
         <MainContainer>
@@ -18,7 +18,7 @@ const Works = () => {
 export default Works
 
 export async function getServerSideProps() {
-    const client = Prismic.client("https://sikacci.prismic.io/api/v2", {})
-    const data = await client.query(Prismic.Predicates.at('document.type', 'contacts'))
-    return {props: {data: data}}
+    const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
+    const blog = await client.query(Prismic.Predicates.at('document.type', 'blog_post'))
+    return {props: {data: blog}}
 }

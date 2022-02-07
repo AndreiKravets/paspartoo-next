@@ -5,11 +5,9 @@ import {RichText} from "prismic-reactjs";
 
 
 
-const Post = ({post, productId}) => {
-    productId = productId
-    post = post
-    console.log(productId)
-    console.log(post)
+const Post = ({blog}) => {
+    blog = blog
+    console.log(blog)
     return (
         <>
             <MainContainer>
@@ -19,7 +17,7 @@ const Post = ({post, productId}) => {
                 <section className="blog_section">
                     <div className="container">
                         <div className="row">
-                            {RichText.render(post.results[0].data.content)}
+                          {RichText.render(blog.results[0].data.content)}
                         </div>
                     </div>
 
@@ -34,9 +32,9 @@ export default Post
 export async function getServerSideProps({ query }) {
     const productId = query.slug;
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
-    const post = await client.query(Prismic.Predicates.at('document.id', productId))
+    const blog = await client.query(Prismic.Predicates.at('my.blog_post.uid', productId))
     return {props: {
-            post: post,
-            productId: productId
+            productId: productId,
+            blog: blog
         }}
 }
