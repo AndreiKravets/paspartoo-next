@@ -228,3 +228,36 @@ td {
   border: 1px solid grey;
   padding: 7px;
 }
+
+.white_btn{
+  background: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #6E8999;
+  font-weight: 700;
+  font-size: 18px;
+  width: 218px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease-in-out;
+  max-width: 48%;
+}
+.orange_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF6D1B;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  height: 58px;
+  transition: all .2s ease-in-out;
+  font-size: 18px;
+  width: 218px;
+  max-width: 48%;
+  a{
+    color: white;
+  }
+}

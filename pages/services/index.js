@@ -25,8 +25,8 @@ const Services = ({services}) => {
                                         <article className="col-md-4" key={item.id} >
                                             <div className="blog_item_inner">
                                                 <img src={item.data.banner.url} alt={item.data.banner.alt}/>
-                                                <a href={`/services/${item.uid}`} className="h3">{item.data.title[0].text}</a>
-                                            </div>
+                                                <Link href={`/services/${item.uid}`}>{item.data.title[0].text}</Link>
+                                           </div>
                                         </article>
                                     )
                                 }))
