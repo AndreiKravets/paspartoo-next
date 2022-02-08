@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspree/react": "^2.2.4",
     "@prismicio/client": "^5.1.0",
     "framer-motion": "^5.3.3",
     "next": "11.1.0",
