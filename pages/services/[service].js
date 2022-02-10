@@ -18,6 +18,7 @@ const Service = ({data}) => {
             <MainContainer>
                 <section className="container service_top_section">
                     {RichText.render(service.title)}
+                    {RichText.render(service.description)}
                     <Image
                         loader={myLoader}
                         src={`${service.banner.url}`}

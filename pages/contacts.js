@@ -13,34 +13,9 @@ function ContactForm() {
     }
     return (
         <form onSubmit={handleSubmit} className="contact_form">
-            <input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Your Name"
-            />
-            <ValidationError
-                prefix="Name"
-                field="name"
-                errors={state.errors}
-            />
-            <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Your Email"
-            />
-            <ValidationError
-                prefix="Email"
-                field="email"
-                errors={state.errors}
-            />
-            <input
-                id="Phone"
-                type="phone"
-                name="phone"
-                placeholder="Phone"
-            />
+            <input id="name" type="text" name="name" placeholder="Your Name"/>
+            <input id="email" type="email" name="email" placeholder="Your Email"/>
+            <input id="Phone" type="phone" name="phone" placeholder="Phone"/>
             <ValidationError
                 prefix="Phone"
                 field="phone"

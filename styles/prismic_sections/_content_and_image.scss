@@ -1,0 +1,11 @@
+.section_image_row{
+  padding: 30px 0;
+}
+.image_left_block{
+  .image_block{
+    order: 1;
+    @include _media-small-down() {
+      order: 0;
+    }
+  }
+}

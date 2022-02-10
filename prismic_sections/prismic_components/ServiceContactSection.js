@@ -3,16 +3,17 @@ import Image from 'next/image'
 import {RichText} from "prismic-reactjs";
 import Link from "next/link";
 
-const ServiceContactSection = (section, index) =>  {
+const ServiceContactSection = (section) =>  {
     section = section.section
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
     return (
-        <section key={index} className={`${section.primary.section} ${section.primary.individual_class_name != null ? section.primary.individual_class_name : ''}`}>
+        <section className={`${section.primary.section} ${section.primary.individual_class_name != null ? section.primary.individual_class_name : ''}`}>
             <div className="container services_contact">
                 <div className="row">
                     <div className="col-md-2">
+                        {section.primary.logo.url != null ?
                         <Image
                             loader={myLoader}
                             src={`${section.primary.logo.url}`}
@@ -20,6 +21,7 @@ const ServiceContactSection = (section, index) =>  {
                             width={section.primary.logo.dimensions.width}
                             height={section.primary.logo.dimensions.height}
                         />
+                        : false}
                     </div>
                     <div className="col-md-6">
                         {RichText.render(section.primary.content)}

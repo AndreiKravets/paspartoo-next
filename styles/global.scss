@@ -1,15 +1,7 @@
-@import "settings.scss";
-@import "mobmenu.scss";
-@import "header.scss";
-@import "main.scss";
-@import "home.scss";
-@import "popup.scss";
-@import "blog.scss";
-@import "service.scss";
-@import "sections_width_cards.scss";
-@import "forms.scss";
-@import "about.scss";
-@import "footer.scss";
+@import "settings";
+@import "prismic_sections";
+@import "components";
+@import "pages";
 body{
   padding: 0;
   margin: 0;
