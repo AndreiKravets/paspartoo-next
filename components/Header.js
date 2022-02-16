@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaPinterestP } from 'react-icons/fa'
+import { AiOutlineCloseSquare } from "react-icons/ai";
 import Menu from "./menu";
 import Link from "next/link"
+import ContactForm from "./ContactForm";
 
 
 const Header = ()=> {
@@ -9,6 +11,7 @@ const Header = ()=> {
 
     const [activeMenu, setActiveMenu] = useState(false)
     const [activeStickyMenu, setActiveStickyMenu] = useState(false)
+    const [popup, setPopup] = useState(false);
 
     const menuScroll = () => {
         if(window.scrollY > 90){
@@ -22,6 +25,13 @@ const Header = ()=> {
         window.addEventListener('scroll', menuScroll);
     }
     return(
+        <>
+            {popup == true ? <div className="popup active" onClick={() => {
+                setPopup(false)
+            }}>
+                <div onClick={() => {setPopup(false)}}  className="product_popup_close"><AiOutlineCloseSquare/></div>
+                <ContactForm />
+            </div> : <div className="popup"></div>}
     <header>
         <div className="header_fluid">
             <div className="container-fluid">
@@ -43,7 +53,9 @@ const Header = ()=> {
                     </div>
                     <div className="col-auto header_btn">
                             <span>Let`s Talk: </span> <a href="tel:7029704043">702-970-4043</a>
-                            <button className="quote app_form">Get a Quote</button>
+                            <button className="quote app_form" onClick={() => {
+                                setPopup(true)
+                            }}>Get a Quote</button>
                     </div>
                 </div>
             </div>
@@ -85,6 +97,7 @@ const Header = ()=> {
             </div>
         </div>
     </header>
+            </>
     )
 }
 export default Header

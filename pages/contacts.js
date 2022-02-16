@@ -3,50 +3,7 @@ import Prismic from "@prismicio/client";
 import React from "react";
 import Image from 'next/image'
 import {RichText} from "prismic-reactjs";
-import { useForm, ValidationError } from '@formspree/react';
-
-
-function ContactForm() {
-    const [state, handleSubmit] = useForm("mrgjpdan");
-    if (state.succeeded) {
-        return <p>Thanks for joining!</p>;
-    }
-    return (
-        <form onSubmit={handleSubmit} className="contact_form">
-            <input id="name" type="text" name="name" placeholder="Your Name"/>
-            <input id="email" type="email" name="email" placeholder="Your Email"/>
-            <input id="Phone" type="phone" name="phone" placeholder="Phone"/>
-            <ValidationError
-                prefix="Phone"
-                field="phone"
-                errors={state.errors}
-            />
-            <input
-                id="company"
-                type="text"
-                name="company"
-                placeholder="Your Company"
-            />
-            <ValidationError
-                prefix="Company"
-                field="company"
-                errors={state.errors}
-            />
-            <textarea
-                id="message"
-                name="message"
-            />
-            <ValidationError
-                prefix="Your message"
-                field="message"
-                errors={state.errors}
-            />
-            <button type="submit" disabled={state.submitting}>
-                Submit
-            </button>
-        </form>
-    );
-}
+import ContactForm from '../components/ContactForm'
 
 export default function Contacts({ data }) {
     return (

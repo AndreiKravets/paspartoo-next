@@ -1,3 +1,29 @@
+.form{
+  .field_form{
+    position: relative;
+    margin: 27px 0;
+    span{
+      position: absolute;
+      bottom: 0;
+      z-index: -1;
+      transition: 0.5s ease;
+      font-size: 15px;
+      letter-spacing: 0.6px;
+      font-weight: 500;
+      color: red;
+      padding-left: 15px;
+      &.active{
+        z-index: 1;
+        bottom: -18px;
+      }
+    }
+  }
+  .form_footer{
+    cursor: pointer;
+  }
+}
+
+
 .contact_form{
   max-width: 600px;
   padding-top: 20px;
@@ -7,7 +33,6 @@
     font-size: 16px;
     display: flex;
     height: 50px;
-    margin: 20px 0;
     width: 100%;
     padding: 0 15px;
   }
@@ -24,6 +49,9 @@
     font-weight: 800;
     font-size: 20px;
     border-radius: 5px;
+    &:disabled{
+      pointer-events: none;
+    }
   }
 }
 .form_container{
