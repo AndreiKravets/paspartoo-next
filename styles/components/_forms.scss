@@ -19,7 +19,7 @@
     }
   }
   .form_footer{
-    cursor: pointer;
+    cursor: help;
   }
 }
 
@@ -38,6 +38,7 @@
   }
   textarea{
     height: 200px;
+    padding-top: 15px;
   }
   button{
     background: linear-gradient(240.82deg,#FF872E 0,#FF3A2E 100%);
