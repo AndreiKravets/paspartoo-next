@@ -3,49 +3,61 @@ import MainContainer from "../components/MainContainer";
 import Prismic from "@prismicio/client";
 import {RichText} from 'prismic-reactjs';
 import Image from "next/image";
+import Link from "next/link"
 
 
 export default function Home({homepage}) {
     homepage = homepage.results[0].data
+    const meta = homepage.body_meta[0].primary
     console.log(homepage)
 
-    const myLoader = ({ src, width, quality }) => {
+    const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
 
     return (
-        <MainContainer>
-            <section className="container-fluid home_top_section">
-                <video autoPlay muted loop id="myVideo">
-                    <source src={`${homepage.home_top_background.url}`} type="video/mp4"/>
-                </video>
-                <div>
-                    {RichText.render(homepage.home_top_content)}
-                </div>
-            </section>
-            <section className="container-fluid home_content_section">
-                <div className="container">
-                    {RichText.render(homepage.key_services_title)}
-                    <div className="row">
-                    {(homepage.key_services_group).map((key_service,index) =>{
-                        return(
-                            <div className="col-md-3" key={index}>
-                                <Image
-                                    loader={myLoader}
-                                    src={key_service.icon.url}
-                                    alt={key_service.title[0].text}
-                                    width={200}
-                                    height={200}
-                                />
-                                <h3>{key_service.title[0].text}</h3>
-                            </div>
-                        )
-                    })
-                    }
+        <MainContainer title={meta.title} isVisible={meta.is_visible} description={meta.description}>
+            <section className="container home_top_section">
+                <div className="row">
+                    <div className="col-md-6">
+                        {RichText.render(homepage.title)}
+                    </div>
+                    <div className="col-md-6">
+                        <Image
+                            loader={myLoader}
+                            src={homepage.banner.url}
+                            alt={homepage.banner.alt}
+                            width={homepage.banner.dimensions.width}
+                            height={homepage.banner.dimensions.height}
+                        />
                     </div>
                 </div>
             </section>
-
+            <section className="container home_key_section">
+               <h2 className="h4">{homepage.key_services_title}</h2>
+                <div className="row">
+                    {(homepage.body_key).map((key_service,index) =>{
+                        return(
+                            <div className={key_service.primary.block} key={index}>
+                    <Image
+                        loader={myLoader}
+                        src={key_service.primary.card_background.url}
+                        alt={key_service.primary.card_background.alt}
+                        width={key_service.primary.card_background.dimensions.width}
+                        height={key_service.primary.card_background.dimensions.height}
+                    />
+                    <h3>{key_service.primary.card_title}</h3>
+                       </div>
+                      )
+                      })
+                    }
+                </div>
+            </section>
+            <section className="home_video_section">
+                <video autoPlay muted loop id="myVideo">
+                    <source src={`${homepage.video.url}`} type="video/mp4"/>
+                </video>
+            </section>
 
             {/*<InstagramEmbed*/}
             {/*    url='https://www.instagram.com/p/B8qn8hJFD5K/'*/}

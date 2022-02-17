@@ -2,7 +2,6 @@
   height: auto;
 }
 .header_fluid{
-  background: linear-gradient(192.8deg,rgba(13,86,164 ,1) .48%,rgba(13,86,164 ,1) 98.77%);
   width: 100%;
   z-index: 9999;
   padding: 0 40px;
@@ -266,7 +265,7 @@
 
 .fixed-bar {
   display: none;
-  background: linear-gradient(192.8deg,rgba(13,86,164 ,1) .48%,rgba(13,86,164 ,1) 98.77%);
+  background: #151515;
   box-shadow: 0px 0px 1px #000;
   box-shadow: 0px 0px 20px rgba(0,0,0,.1);
   position: fixed;

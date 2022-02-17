@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 
 
-export default function MainContainer({children, title,isVisible}){
+export default function MainContainer({children, title = 'Paspartoo', isVisible = 'noindex, nofollow', description}){
     useEffect(() => {
         window.scrollTo(0, 1);
     },[])
@@ -27,12 +27,13 @@ export default function MainContainer({children, title,isVisible}){
         <>
             <Head>
                 <meta keywords="shopify next"></meta>
-                <meta key="robots" name="robots" content="noindex,follow" />
-                <meta key="googlebot" name="googlebot" content="noindex,follow" />
-                <title>Paspartoo</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+                <meta key="robots" name="robots" content={isVisible} />
+                <meta name="description" content={description} />
+                <title>{title}</title>
             </Head>
             <div id="root">
-                    <Header/>
+                    <Header />
                           <motion.main
                               variants={variants} // Pass the variant object into Framer Motion
                               initial="hidden" // Set the initial state to variants.hidden
@@ -43,7 +44,7 @@ export default function MainContainer({children, title,isVisible}){
                           >
                               {children}
                           </motion.main>
-                    <Footer/>
+                    <Footer />
             </div>
         </>
     )

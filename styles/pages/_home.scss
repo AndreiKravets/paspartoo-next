@@ -1,4 +1,6 @@
-.home_top_section {
+
+
+.home_video_section {
   position: relative;
   height: 700px;
   display: flex;
@@ -15,17 +17,4 @@
     object-fit: cover;
     z-index: -1;
   }
-  h1,h3{
-    color: white;
-  }
-  h1{
-    margin-bottom: 15px;
-  }
-}
-.home_content_section {
-  text-align: center;
-  padding-top: 70px;
-  border-radius: 20px 20px 0 0;
-  margin-top: -35px;
-  background: #F7F9FA;
 }

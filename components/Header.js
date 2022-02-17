@@ -34,7 +34,7 @@ const Header = ()=> {
             </div> : <div className="popup"></div>}
     <header>
         <div className="header_fluid">
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row head_menu">
                     <button id="hamb_button"
                             className={activeMenu ? "hamburger hamburger--collapse is-active" : "hamburger hamburger--collapse"}
@@ -79,7 +79,7 @@ const Header = ()=> {
 
 
         <div className={activeStickyMenu ? "fixed-bar animated-quick fadeInDown header_fluid" : "fixed-bar animated-quick fadeOutUp header_fluid"}>
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row head_menu valign-wrapper">
                     <div className="col-auto header_logo">
                         <img src="/logo_paspartoo.svg" alt=""/>
