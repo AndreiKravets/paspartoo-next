@@ -4,7 +4,7 @@ import Prismic from "@prismicio/client";
 import {RichText} from 'prismic-reactjs';
 import Image from "next/image";
 import Link from "next/link"
-import {motion} from "framer-motion";
+import { useViewportScroll,useTransform,motion} from "framer-motion";
 
 
 export default function Home({homepage}) {
@@ -12,17 +12,21 @@ export default function Home({homepage}) {
     const meta = homepage.body_meta[0].primary
     console.log(homepage)
 
+    const { scrollY } = useViewportScroll();
+    const y1 = useTransform(scrollY, [0, 300], [0, 200]);
+    const y2 = useTransform(scrollY, [0, 300], [0, -100]);
+
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
 
     const variants = {
         hidden_1: {scale: 1, y: -1000, opacity: 0.5},
-        enter_1: {scale: 1, y: 0, opacity: 1, transition: {duration: 0.35, ease: [0.48, 0.15, 0.25, 0.96]}},
+        enter_1: {scale: 1, y: 0, opacity: 1, transition: {type: "spring", bounce: 0.4, duration: 0.7}},
         hidden_2: {scale: 1, x: -1000, opacity: 0.5},
-        enter_2: {scale: 1, x: 0, opacity: 1, transition: {duration: 0.55, ease: [0.48, 0.15, 0.25, 0.96]}},
-        hidden_3: {scale: 1, y: 1000, opacity: 0.5},
-        enter_3: {scale: 1, y: 0, opacity: 1, transition: {duration: 0.45, ease: [0.48, 0.15, 0.25, 0.96]}},
+        enter_2: {scale: 1, x: 0, opacity: 1, transition: {type: "spring", bounce: 0.4, duration: 0.8}},
+        hidden_3: {scale: 1, rotate:-30, y: 1000, opacity: 0.5},
+        enter_3: {scale: 1, rotate: 0, y: 0, opacity: 1, transition: {type: "spring", bounce: 0.4, duration: 0.14}},
 
     }
 
@@ -86,7 +90,9 @@ export default function Home({homepage}) {
                 <div className="row">
                     {(homepage.body_key).map((key_service, index) => {
                         return (
-                            <motion.div className={key_service.primary.block} initial="hidden" whileInView="visible" key={index} variants={{
+                            <motion.div className={key_service.primary.block}
+                                        initial="hidden" whileInView="visible"
+                                        viewport={{ once: true }} key={index} variants={{
                                 hidden: {
                                     scale: .5,
                                     opacity: 0,
@@ -98,7 +104,9 @@ export default function Home({homepage}) {
                                     opacity: 1,
                                     transition: {
                                         delay: .2,
-                                        duration: .3, ease: [0.48, 0.15, 0.25, 0.96]
+                                        type: "spring",
+                                        bounce: 0.4,
+                                        duration: 0.8
                                     }
                                 }
                             }}>
