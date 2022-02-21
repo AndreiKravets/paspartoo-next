@@ -46,16 +46,18 @@
       }
     }
     button{
-      background: linear-gradient(254.47deg,#FF872E 0,#FF3A2E 100%);
+      background: $brand-btn;
       -webkit-border-radius: 5px;
-      border-radius: 5px;
+      border-radius: 40px;
       border: 0;
       font-weight: 600;
-      font-size: 18px;
-      color: #fff;
-      text-shadow: 0 2px 1px rgb(0 0 0 / 25%);
+      font-size: 15px;
+      color: $brand-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 185px;
-      height: 52px;
+      height: 38px;
       text-transform: uppercase;
       margin-left: 15px;
     }

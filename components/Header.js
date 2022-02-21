@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaPinterestP } from 'react-icons/fa'
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaPinterestP, FaPhone } from 'react-icons/fa'
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import Menu from "./menu";
 import Link from "next/link"
@@ -90,7 +90,7 @@ const Header = ()=> {
                         </div>
                     </div>
                     <div className="col-auto header_btn">
-                        <span>Let`s Talk: </span> <a href="tel:7029704043">702-970-4043</a>
+                       <a href="tel:7029704043">702-970-4043</a>
                         <button className="quote app_form">Get a Quote</button>
                     </div>
                 </div>
