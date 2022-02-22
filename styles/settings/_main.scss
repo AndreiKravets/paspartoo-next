@@ -263,11 +263,15 @@ td {
 }
 
 .name_section{
-  h1,h2,h3,h4,h5,h6{
-    color: $brand-hover;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
+  .col-12 {
+    h1, h2, h3, h4, h5, h6 {
+      color: $brand-hover;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    padding-top: 50px;
+      padding-bottom: 50px;
   }
-  padding: 50px 0;
 }

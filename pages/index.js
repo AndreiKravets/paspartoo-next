@@ -16,6 +16,8 @@ export default function Home({homepage}) {
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
 
+    console.log(scrollY)
+
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
@@ -133,21 +135,45 @@ export default function Home({homepage}) {
                     <source src={`${homepage.video.url}`} type="video/mp4"/>
                 </video>
             </section>
-            <section className="container home_why_us">
-                <div className="row name_section">
+            <section className="container-fluid home_why_us">
+                <div className="container">
+                  <div className="row name_section">
                     <div className="col-12">
                         <h2 className="h4">{homepage.why_us_title}</h2>
                     </div>
                     {(homepage.why_us_content).map((why_us_item, index) => {
                         return (
-                            <div className="col-md-3" key={index}>
+                            <motion.div className="col-md-3" key={index}
+                                        initial="hidden" whileInView="visible"
+                                        viewport={{ once: true }} key={index} variants={{
+                                hidden: {
+                                    scale: .5,
+                                    opacity: 0,
+                                    y: -100,
+                                    rotate: 80
+                                },
+                                visible: {
+                                    scale: 1,
+                                    y: 0,
+                                    opacity: 1,
+                                    rotate: 0,
+                                    transition: {
+                                        delay: .2 * index,
+                                        type: "spring",
+                                        bounce: 0.4,
+                                        duration: .8
+                                    }
+                                }
+                            }}>
+                                <div className="home_why_us_inner">
                                 <span>0{index + 1}</span>
-                                {why_us_item.why_us_item}
-                            </div>
+                               <h3>{why_us_item.why_us_item}</h3>
+                                </div>
+                            </motion.div>
                         )
                     })
                     }
-
+                  </div>
                 </div>
             </section>
         </MainContainer>
