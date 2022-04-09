@@ -1,4 +1,4 @@
-body{font-size:$base;line-height:1.1;font-weight:400; font-family: $family-base;margin: 0;padding:0; height: 100%;  min-height: 100%;color: $grey100; background: $white;}
+body{font-size:$base;line-height:1.1;font-weight:400; font-family: $family-base;margin: 0;padding:0; height: 100%;  min-height: 100%;color: $grey100; background: $background;}
 html { height: 100%; min-height: 100%;      }
 ul{margin:0;padding:0}
 ul li{list-style-type:none}
@@ -181,7 +181,6 @@ button:focus {
 }
 body{
   min-width: 320px;
-  background: #151515;
 }
 .container{
   max-width: 1300px;
@@ -265,7 +264,7 @@ td {
 .name_section{
   .col-12 {
     h1, h2, h3, h4, h5, h6 {
-      color: $brand-hover;
+      color: $brand-primary;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 600;

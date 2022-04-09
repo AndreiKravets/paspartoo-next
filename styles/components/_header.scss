@@ -1,5 +1,6 @@
 .header{
   height: auto;
+  background-color: white;
 }
 .header_fluid{
   width: 100%;
@@ -18,7 +19,7 @@
   }
 
   .header_btn{
-    color: white;
+    color: $brand-primary;
     display: flex;
     align-items: center;
     font-size: 17px;
@@ -33,7 +34,7 @@
       font-weight: 600;
       margin-left: 10px;
       font-size: 18px;
-      color: $white;
+      color: $brand-primary;
       cursor: pointer;
       @include _media-big-down() {
         font-size: 18px;
@@ -133,10 +134,10 @@
           }
           a{
             vertical-align:bottom;
-            color: $white;
+            color: $brand-primary;
             font-weight: 500;
             font-size: 18px;
-            text-transform: capitalize;
+            text-transform: uppercase;
             height: 100%;
             display: flex;
             align-items: center;
@@ -267,7 +268,7 @@
 
 .fixed-bar {
   display: none;
-  background: #151515;
+  background: $brand-secondary;
   box-shadow: 0px 0px 1px #000;
   box-shadow: 0px 0px 20px rgba(0,0,0,.1);
   position: fixed;
@@ -277,11 +278,18 @@
   top: 0;
   padding: 0;
   padding: 0 40px;
+  color: white !important;
+  .header_btn{
+    color: white !important;
+  }
   .menu-menu-container{
     height: 70px !important;
   }
   li{
     padding: 12px 0 !important;
+    a{
+      color: white !important;
+    }
     &:hover{
       .sub-menu{
         top: 40px !important;

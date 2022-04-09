@@ -66,7 +66,16 @@ const ContactForm = () => {
                     <ValidationError prefix="Email" field="email" errors={state.errors}/>
                     {(emailDirty && emailError) ? <span className="active">{emailError}</span> : <span>{emailError}</span>}
                 </div>
+                <div className="field_form">
+                    <input value={email} onBlur={blurHandler} onChange={emailHandler} id="email" type="email" name="email" placeholder="Your Email"/>
+                    <ValidationError prefix="Email" field="email" errors={state.errors}/>
+                    {(emailDirty && emailError) ? <span className="active">{emailError}</span> : <span>{emailError}</span>}
+                </div>
 
+                <div className="field_form">
+                    <input id="Phone" type="phone" name="phone" placeholder="Phone"/>
+                    <ValidationError prefix="Phone" field="phone" errors={state.errors}/>
+                </div>
                 <div className="field_form">
                     <input id="Phone" type="phone" name="phone" placeholder="Phone"/>
                     <ValidationError prefix="Phone" field="phone" errors={state.errors}/>
