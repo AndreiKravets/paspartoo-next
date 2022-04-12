@@ -11,7 +11,7 @@ const Menu = ()=>  {
                     <Link href="/about">About Us</Link>
                 </li>
                 <li>
-                    <Link href="/works">Our Works</Link>
+                    <Link href="/our-projects">Our Projects</Link>
                 </li>
                 <li>
                     <Link href="/blog">Blog</Link>
