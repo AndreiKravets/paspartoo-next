@@ -1,0 +1,221 @@
+.about_top_section{
+  padding-top: 50px;
+  .about_top_section_content{
+    h1{
+      margin-bottom: 35px;
+      line-height: 0.9;
+      strong{
+        color: $brand-hover;
+        font-weight: 400;
+        display: block;
+      }
+    }
+    p{
+      max-width: 520px;
+    }
+    .slick-slider{
+      margin-top: 40px;
+      max-width: 520px;
+      img{
+      }
+      .slick-dots{
+        text-align: left;
+        top: 80px;
+        li{
+          width: auto;
+          margin: 0 3px;
+          button{
+            width:6px;
+            height: 6px;
+
+            background-color: $brand-btn;
+            &:before{
+              font-size: 0;
+            }
+          }
+          &.slick-active{
+            button{
+              background-color: $brand-hover;
+            }
+            button:focus{
+              background-color: $brand-hover;
+            }
+          }
+          button:focus{
+            background-color: $brand-hover !important;
+          }
+        }
+      }
+    }
+  }
+  .about_top_section_image{
+
+  }
+}
+
+.our_postulate_section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #0E0E0E;
+  h3{
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    color: white;
+  }
+  h2{
+    color: white;
+    margin-bottom: 80px;
+  }
+  .col-md-3{
+    div{
+      margin-right: 30px;
+      &:first-child{
+        h3{
+          text-transform: uppercase;
+          color: $brand-btn;
+          margin-bottom: 0;
+          span{
+            color: white;
+          }
+        }
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid $brand-btn;
+      }
+      &:last-child{
+        h4{
+          color: white;
+          line-height: 1.6em;
+        }
+      }
+    }
+  }
+}
+
+.our_team_section{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  h3{
+    margin-bottom: 35px;
+    text-transform: uppercase;
+  }
+  .our_team_slider{
+    .our_team_slide{
+      padding: 15px;
+      .our_team_slide_inner {
+        position: relative;
+        height: 635px;
+        border-radius: 15px;
+        overflow: hidden;
+        img {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          height: 90%;
+          width: auto;
+        }
+
+        .team_slide_top {
+          height: 270px;
+          background-color: #F3F3F3;
+          padding: 20px;
+        }
+
+        .team_slide_bottom {
+          height: 365px;
+          position: relative;
+          padding: 20px;
+
+          &.male {
+            background-color: $brand-btn;
+
+            .slide_bottom_years {
+              span {
+                color: $brand-hover;
+              }
+            }
+          }
+
+          &.female {
+            background-color: $brand-hover;
+
+            .slide_bottom_years {
+              span {
+                color: $brand-btn;
+              }
+            }
+          }
+
+          .slide_bottom_years {
+            position: absolute;
+            top: -70px;
+
+            h3 {
+              font-size: 140px;
+            }
+          }
+
+          .slide_bottom_team {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+          }
+        }
+      }
+    }
+  }
+  .slick-dots{
+    bottom: -50px;
+    li{
+      width: auto;
+      button{
+        width:8px;
+        height: 8px;
+        background-color: $brand-btn;
+        &:before{
+          font-size: 0;
+        }
+      }
+     &.slick-active{
+       button{
+         background-color: $brand-hover;
+       }
+       button:focus{
+         background-color: $brand-hover;
+       }
+     }
+      button:focus{
+        background-color: $brand-hover !important;
+      }
+    }
+  }
+}
+
+.our_project_build{
+  background-color: $brand-btn;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .h4{
+    color: white;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+  }
+  h2{
+    margin-bottom: 30px;
+    font-weight: 500;
+    line-height: 1.1;
+    padding-right: 100px;
+  }
+  .build_count{
+    font-size: 90px;
+    margin-bottom: 10px;
+   span{
+     color: $brand-hover;
+   }
+  }
+  h3{
+    font-weight: 600;
+    max-width: 170px;
+    text-transform: uppercase;
+  }
+}

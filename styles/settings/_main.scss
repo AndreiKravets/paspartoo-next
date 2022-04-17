@@ -8,9 +8,18 @@ p{padding: 0px;margin: 0;line-height: 1.7em;padding-bottom: 10px;}
 h1, .h1 {font-size:$h1;}
 h2, .h2 {font-size:$h2;}
 h3, .h3{font-size:$h3;}
-h4, .h4{font-size:$h4;}
-h5, .h5{font-size:$h5;}
-h6, .h6{font-size:$h6;}
+h4, .h4{
+  font-size:$h4;
+  font-family: $family-base;
+}
+h5, .h5{
+  font-size:$h5;
+  font-family: $family-base;
+}
+h6, .h6{
+  font-size:$h6;
+  font-family: $family-base;
+}
 @include  _media-big-down() {
   h1, .h1 {font-size:$h1-big;}
   h2, .h2 {font-size:$h2-big;}

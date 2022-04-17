@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {useForm, ValidationError} from '@formspree/react';
 import {loadGetInitialProps} from "next/dist/shared/lib/utils";
 
-
-const ContactForm = () => {
-    const [state, handleSubmit] = useForm("mrgjpdan");
+const ProjectForm = () => {
+    const [state, handleSubmit] = useForm("xnqwgdby");
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -51,7 +50,7 @@ const ContactForm = () => {
         return <p>Thanks for joining!</p>;
     } else {
         return (
-            <form onSubmit={handleSubmit} className="contact_form form" onClick={
+            <form onSubmit={handleSubmit} className="project_form form" onClick={
                 (e => e.stopPropagation()
                 )}>
 
@@ -68,23 +67,18 @@ const ContactForm = () => {
                 </div>
 
                 <div className="field_form">
-                    <input id="Phone" type="phone" name="phone" placeholder="Phone"/>
-                    <ValidationError prefix="Phone" field="phone" errors={state.errors}/>
-                </div>
-
-                <div className="field_form">
                     <input id="company" type="text" name="company" placeholder="Your Company"/>
-                    <ValidationError prefix="Company" field="company" errors={state.errors}/>
+                    <ValidationError prefix="Name Company" field="company" errors={state.errors}/>
                 </div>
 
                 <div className="field_form">
                     <textarea id="message" name="message" placeholder="Your Message"/>
-                    <ValidationError prefix="Your message" field="message" errors={state.errors}/>
+                    <ValidationError prefix="Project Details (Optional)" field="message" errors={state.errors}/>
                 </div>
 
                 <div className="form_footer" onClick={() => {setNameDirty(true), setEmailDirty(true), console.log('dssds')}}>
                     <button type="submit" disabled={!formValid}>
-                        Submit
+                        Send Form
                     </button>
                 </div>
             </form>
@@ -93,4 +87,4 @@ const ContactForm = () => {
     }
 }
 
-export default ContactForm
+export default ProjectForm
