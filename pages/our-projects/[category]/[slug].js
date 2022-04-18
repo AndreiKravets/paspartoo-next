@@ -5,7 +5,8 @@ import {RichText} from "prismic-reactjs";
 import Image from "next/image";
 
 
-const Post = ({project}) => {
+const Post = ({project, header_footer}) => {
+    header_footer = header_footer
     project = project.results[0].data
     console.log(project)
     const myLoader = ({ src, width, quality }) => {
@@ -13,7 +14,7 @@ const Post = ({project}) => {
         }
     return (
         <>
-            <MainContainer>
+            <MainContainer header_footer={header_footer}>
                 <section className="container-fluid project_top_section" style={{backgroundImage: "url(" + project.banner.url + ")"}}>
                    <div className="container">
                         <h1>{project.title}</h1>
@@ -109,8 +110,10 @@ export default Post
 export async function getServerSideProps({ query }) {
     const productId = query.slug;
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
+    const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const project = await client.query(Prismic.Predicates.at('my.project.uid', productId))
     return {props: {
+            header_footer:header_footer,
             productId: productId,
             project: project
         }}

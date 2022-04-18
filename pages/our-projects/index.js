@@ -8,7 +8,8 @@ import {RichText} from "prismic-reactjs";
 import ProjectForm from '../../components/OurProjectsForm'
 
 
-export default function OurProjects ({our_projects, projects, category}) {
+export default function OurProjects ({our_projects, projects, category, header_footer}) {
+    header_footer = header_footer
     our_projects = our_projects.results[0].data
     projects = projects.results
     category = category.results
@@ -30,7 +31,7 @@ export default function OurProjects ({our_projects, projects, category}) {
     }
     return (
         <>
-            <MainContainer>
+            <MainContainer header_footer={header_footer}>
                 <section className="container_fluid our_projects_section">
                     <div className="container">
                         <div className="col-12">
@@ -144,11 +145,13 @@ export default function OurProjects ({our_projects, projects, category}) {
 
 export async function getServerSideProps() {
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
+    const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const our_projects = await client.query(Prismic.Predicates.at('document.type', 'our_projects'))
     const project = await client.query(Prismic.Predicates.at('document.type', 'project'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
     return {
         props: {
+            header_footer:header_footer,
             our_projects:our_projects,
             projects: project,
             category: category

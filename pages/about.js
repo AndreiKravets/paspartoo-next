@@ -7,7 +7,8 @@ import {motion} from "framer-motion";
 import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
 import Slider from "react-slick";
 
-export default function About({ about, our_projects }) {
+export default function About ({ about, our_projects, header_footer }) {
+    header_footer = header_footer
     about = about.results[0].data
     our_projects = our_projects.results[0].data
     console.log(about)
@@ -53,7 +54,7 @@ export default function About({ about, our_projects }) {
     }
 
     return (
-        <MainContainer>
+        <MainContainer  header_footer={header_footer}>
             <section className="container-fluid about_top_section">
                 <div className="container">
                     <div className="row">
@@ -221,9 +222,11 @@ export default function About({ about, our_projects }) {
 
 export async function getServerSideProps() {
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
+    const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const our_projects = await client.query(Prismic.Predicates.at('document.type', 'our_projects'))
     const about = await client.query(Prismic.Predicates.at('document.type', 'about_us'))
     return {props: {
+            header_footer:header_footer,
             our_projects: our_projects,
             about: about
     }}

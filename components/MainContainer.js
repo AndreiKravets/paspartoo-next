@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 
 
-export default function MainContainer({children, title = 'Paspartoo', isVisible = 'noindex, nofollow', description}){
+export default function MainContainer({children, header_footer = '', title = 'Paspartoo', isVisible = 'noindex, nofollow', description}){
     useEffect(() => {
         window.scrollTo(0, 1);
     },[])
@@ -33,7 +33,7 @@ export default function MainContainer({children, title = 'Paspartoo', isVisible 
                 <title>{title}</title>
             </Head>
             <div id="root">
-                    <Header />
+                    <Header header = {header_footer}/>
                           <motion.main
                               variants={variants}
                               initial="hidden"
@@ -44,7 +44,7 @@ export default function MainContainer({children, title = 'Paspartoo', isVisible 
                           >
                               {children}
                           </motion.main>
-                    <Footer />
+                    <Footer footer = {header_footer}/>
             </div>
         </>
     )

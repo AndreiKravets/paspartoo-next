@@ -9,7 +9,8 @@ import {BsChevronCompactRight, BsChevronCompactLeft} from "react-icons/bs";
 import Slider from "react-slick";
 
 
-export default function Home({homepage, projects, category}) {
+export default function Home({homepage, projects, category, header_footer}) {
+    header_footer = header_footer
     homepage = homepage.results[0].data
     projects = projects.results
     category = category.results
@@ -58,7 +59,7 @@ export default function Home({homepage, projects, category}) {
     }
 
     return (
-        <MainContainer title={meta.title} isVisible={meta.is_visible} description={meta.description}>
+        <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible} description={meta.description}>
 
             <section className="home_top_main_section">
                 <div className="container home_top_section">
@@ -386,8 +387,10 @@ export async function getServerSideProps() {
     const homepage = await client.query(Prismic.Predicates.at('document.type', 'homepage'))
     const project = await client.query(Prismic.Predicates.at('document.type', 'project'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
+    const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     return {
         props: {
+            header_footer:header_footer,
             homepage: homepage,
             projects: project,
             category: category

@@ -5,12 +5,13 @@ import {RichText} from "prismic-reactjs";
 
 
 
-const Post = ({blog}) => {
+const Post = ({blog, header_footer}) => {
+    header_footer = header_footer
     blog = blog
     console.log(blog)
     return (
         <>
-            <MainContainer>
+            <MainContainer header_footer={header_footer}>
                 <section className="container post_top_section">
 
                 </section>
@@ -32,8 +33,10 @@ export default Post
 export async function getServerSideProps({ query }) {
     const productId = query.slug;
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
+    const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const blog = await client.query(Prismic.Predicates.at('my.blog_post.uid', productId))
     return {props: {
+            header_footer:header_footer,
             productId: productId,
             blog: blog
         }}

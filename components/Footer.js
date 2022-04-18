@@ -5,7 +5,9 @@ import { FiMapPin, FiMail} from 'react-icons/fi'
 
 
 
-export default function Footer () {
+export default function Footer ({footer}) {
+    footer = footer
+    console.log(footer)
     return(
         <footer>
             <div className="container-fluid footer_top_fluid">
@@ -17,7 +19,7 @@ export default function Footer () {
                             <li><a href="#"><FaLinkedinIn/></a></li>
                             <li><a href="#"><FaPinterestP/></a></li>
                         </ul>
-                        <img src="footer_logo.svg" alt=""/>
+                        {footer ? <img src={footer.results[0].data.light_logo.url} alt=""/> :''}
                         <ul id="menu-social-link" className="footer_social">
                             <li><a href="#"><FaFacebookF/></a></li>
                             <li><a href="#"><FaTwitter/></a></li>

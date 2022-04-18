@@ -6,9 +6,10 @@ import Link from "next/link"
 import ContactForm from "./ContactForm";
 
 
-const Header = ()=> {
+const Header = ({header})=> {
 
-
+    header = header
+    console.log(header)
     const [activeMenu, setActiveMenu] = useState(false)
     const [activeStickyMenu, setActiveStickyMenu] = useState(false)
     const [popup, setPopup] = useState(false);
@@ -44,7 +45,7 @@ const Header = ()=> {
                             type="button"><span className="hamburger-box"><span
                              className="hamburger-inner"></span></span></button>
                     <div className="col-auto header_logo">
-                        <Link href="/"><a><img src="/logo_dark.svg" alt=""/></a></Link>
+                        {header ? <Link href="/"><a><img src={header.results[0].data.dark_logo.url} alt=""/></a></Link> : ''}
                     </div>
                     <div className="col head_menu_col">
                         <div className="menu-menu-container">
@@ -82,7 +83,7 @@ const Header = ()=> {
             <div className="container">
                 <div className="row head_menu valign-wrapper">
                     <div className="col-auto header_logo">
-                        <img src="/logo_paspartoo.svg" alt=""/>
+                        {header ? <img src={header.results[0].data.light_logo.url} alt=""/> : ''}
                     </div>
                     <div className="col head_menu_col">
                         <div className="menu-menu-container">

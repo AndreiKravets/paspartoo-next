@@ -4,14 +4,15 @@ import Prismic from "@prismicio/client";
 import Link from "next/link"
 
 
-const Index = ({blog, category, productId}) => {
+const Index = ({blog, category, productId, header_footer}) => {
+    header_footer = header_footer
     blog = blog.results
     category = category.results
 
     let categoryBlog = blog.filter((item) => item.data.categories[0].category.slug == productId)
     return (
         <>
-            <MainContainer>
+            <MainContainer header_footer={header_footer}>
                 <section className="container blog_top_section">
                     <div>
                         <h1>Blog</h1>
@@ -61,9 +62,11 @@ export default Index
 export async function getServerSideProps({ query }) {
     const productId = query.category;
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
+    const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const blog = await client.query(Prismic.Predicates.at('document.type', 'blog_post'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'category_blog'))
     return {props: {
+            header_footer:header_footer,
             blog: blog,
             category: category,
             productId: productId
