@@ -43,6 +43,28 @@ export default function Home({homepage, projects, category, header_footer}) {
         nextArrow: <BsChevronCompactRight/>,
         prevArrow: <BsChevronCompactLeft/>
     }
+    const settings_logo = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        nextArrow: <BsChevronCompactRight/>,
+        prevArrow: <BsChevronCompactLeft/>
+    }
+    const settings_review = {
+        dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        autoplay: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        nextArrow: <BsChevronCompactRight/>,
+        prevArrow: <BsChevronCompactLeft/>
+    }
 
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
@@ -59,105 +81,121 @@ export default function Home({homepage, projects, category, header_footer}) {
     }
 
     return (
-        <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible} description={meta.description}>
+        <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+                       description={meta.description}>
 
             <section className="home_top_main_section">
                 <div className="container home_top_section">
-                <div className="row">
-                    <div className="col-md-6">
-                        {RichText.render(homepage.title)}
-                        <h2 className="h4 home_subtitle">{homepage.subtitle}</h2>
-                    </div>
-                    <div className="col-md-6 home_top_image">
-                        {homepage.top_image_1.hasOwnProperty('url') ?
-                            <motion.div
-                                variants={variants}
-                                initial="hidden_1"
-                                animate="enter_1"
-                                transition={{type: 'linear'}}
-                            ><Image
-                                loader={myLoader}
-                                src={homepage.top_image_1.url}
-                                alt={homepage.top_image_1.alt}
-                                width={homepage.top_image_1.dimensions.width}
-                                height={homepage.top_image_1.dimensions.height}
-                            /></motion.div> : ''}
-                        {homepage.top_image_2.hasOwnProperty('url') ?
-                            <motion.div
-                                variants={variants}
-                                initial="hidden_2"
-                                animate="enter_2"
-                                transition={{type: 'linear'}}
-                            ><Image
-                                loader={myLoader}
-                                src={homepage.top_image_2.url}
-                                alt={homepage.top_image_2.alt}
-                                width={homepage.top_image_2.dimensions.width}
-                                height={homepage.top_image_2.dimensions.height}
-                            /></motion.div> : ''}
-                        {homepage.top_image_3.hasOwnProperty('url') ?
-                            <motion.div
-                                variants={variants}
-                                initial="hidden_3"
-                                animate="enter_3"
-                                transition={{type: 'linear'}}
-                            ><Image
-                                loader={myLoader}
-                                src={homepage.top_image_3.url}
-                                alt={homepage.top_image_3.alt}
-                                width={homepage.top_image_3.dimensions.width}
-                                height={homepage.top_image_3.dimensions.height}
-                            /></motion.div> : ''}
+                    <div className="row">
+                        <div className="col-md-6">
+                            {RichText.render(homepage.title)}
+                            <h2 className="h4 home_subtitle">{homepage.subtitle}</h2>
+                        </div>
+                        <div className="col-md-6 home_top_image_warship">
+                            {homepage.warship.hasOwnProperty('url') ?
+                                <motion.div
+                                    variants={variants}
+                                    initial="hidden_1"
+                                    animate="enter_1"
+                                    transition={{type: 'linear'}}
+                                ><Image
+                                    loader={myLoader}
+                                    src={homepage.warship.url}
+                                    alt={homepage.warship.alt}
+                                    width={homepage.warship.dimensions.width}
+                                    height={homepage.warship.dimensions.height}
+                                /></motion.div> : ''}
+                        </div>
+                        {/*<div className="col-md-6 home_top_image">*/}
+                        {/*    {homepage.top_image_1.hasOwnProperty('url') ?*/}
+                        {/*        <motion.div*/}
+                        {/*            variants={variants}*/}
+                        {/*            initial="hidden_1"*/}
+                        {/*            animate="enter_1"*/}
+                        {/*            transition={{type: 'linear'}}*/}
+                        {/*        ><Image*/}
+                        {/*            loader={myLoader}*/}
+                        {/*            src={homepage.top_image_1.url}*/}
+                        {/*            alt={homepage.top_image_1.alt}*/}
+                        {/*            width={homepage.top_image_1.dimensions.width}*/}
+                        {/*            height={homepage.top_image_1.dimensions.height}*/}
+                        {/*        /></motion.div> : ''}*/}
+                        {/*    {homepage.top_image_2.hasOwnProperty('url') ?*/}
+                        {/*        <motion.div*/}
+                        {/*            variants={variants}*/}
+                        {/*            initial="hidden_2"*/}
+                        {/*            animate="enter_2"*/}
+                        {/*            transition={{type: 'linear'}}*/}
+                        {/*        ><Image*/}
+                        {/*            loader={myLoader}*/}
+                        {/*            src={homepage.top_image_2.url}*/}
+                        {/*            alt={homepage.top_image_2.alt}*/}
+                        {/*            width={homepage.top_image_2.dimensions.width}*/}
+                        {/*            height={homepage.top_image_2.dimensions.height}*/}
+                        {/*        /></motion.div> : ''}*/}
+                        {/*    {homepage.top_image_3.hasOwnProperty('url') ?*/}
+                        {/*        <motion.div*/}
+                        {/*            variants={variants}*/}
+                        {/*            initial="hidden_3"*/}
+                        {/*            animate="enter_3"*/}
+                        {/*            transition={{type: 'linear'}}*/}
+                        {/*        ><Image*/}
+                        {/*            loader={myLoader}*/}
+                        {/*            src={homepage.top_image_3.url}*/}
+                        {/*            alt={homepage.top_image_3.alt}*/}
+                        {/*            width={homepage.top_image_3.dimensions.width}*/}
+                        {/*            height={homepage.top_image_3.dimensions.height}*/}
+                        {/*        /></motion.div> : ''}*/}
+                        {/*</div>*/}
                     </div>
                 </div>
-                </div>
-            <div className="container home_key_section">
-                <div className="row name_section">
-                    <div className="col-12">
-                        <h2 className="h4">{homepage.key_services_title}</h2>
+                <div className="container home_key_section">
+                    <div className="row name_section">
+                        <div className="col-12">
+                            <h2 className="h4">{homepage.key_services_title}</h2>
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    {(homepage.body_key).map((key_service, index) => {
-                        return (
-                            <motion.div className={key_service.primary.block}
-                                        initial="hidden" whileInView="visible"
-                                        viewport={{once: true}} key={index} variants={{
-                                hidden: {
-                                    scale: .5,
-                                    opacity: 0,
-                                    y: -100
-                                },
-                                visible: {
-                                    scale: 1,
-                                    y: 0,
-                                    opacity: 1,
-                                    transition: {
-                                        delay: .2,
-                                        type: "spring",
-                                        bounce: 0.4,
-                                        duration: 0.8
+                    <div className="row">
+                        {(homepage.body_key).map((key_service, index) => {
+                            return (
+                                <motion.div className={key_service.primary.block}
+                                            initial="hidden" whileInView="visible"
+                                            viewport={{once: true}} key={index} variants={{
+                                    hidden: {
+                                        scale: .5,
+                                        opacity: 0,
+                                        y: -100
+                                    },
+                                    visible: {
+                                        scale: 1,
+                                        y: 0,
+                                        opacity: 1,
+                                        transition: {
+                                            delay: .2,
+                                            type: "spring",
+                                            bounce: 0.4,
+                                            duration: 0.8
+                                        }
                                     }
-                                }
-                            }}>
-                                <div className="key_service_inner"
-                                     style={{backgroundImage: "url(" + key_service.primary.card_background.url + ")"}}>
-                                    <h2 className="h3">{key_service.primary.card_title}</h2>
-                                    <ul>
-                                        {(key_service.items).map((link_item, index) => {
-                                            return (
-                                                <li key={index}><Link
-                                                    href={link_item.page_link}>{link_item.link_text}</Link></li>
-                                            )
-                                        })}
-                                    </ul>
-                                </div>
-                            </motion.div>
-                        )
-                    })
-                    }
+                                }}>
+                                    <div className="key_service_inner"
+                                         style={{backgroundImage: "url(" + key_service.primary.card_background.url + ")"}}>
+                                        <h2 className="h3">{key_service.primary.card_title}</h2>
+                                        <ul>
+                                            {(key_service.items).map((link_item, index) => {
+                                                return (
+                                                    <li key={index}><Link
+                                                        href={link_item.page_link}>{link_item.link_text}</Link></li>
+                                                )
+                                            })}
+                                        </ul>
+                                    </div>
+                                </motion.div>
+                            )
+                        })
+                        }
+                    </div>
                 </div>
-            </div>
             </section>
             <section className="home_video_section">
                 <video autoPlay muted loop id="myVideo">
@@ -170,34 +208,48 @@ export default function Home({homepage, projects, category, header_footer}) {
                         <div className="col-12">
                             <h2 className="h4">{homepage.why_us_title}</h2>
                         </div>
-                        {(homepage.why_us_content).map((why_us_item, index) => {
-                            return (
-                                <motion.div className="col-md-3" key={index}
-                                            initial="hidden" whileInView="visible"
-                                            viewport={{once: true}} key={index} variants={{
-                                    hidden: {
-                                        opacity: 0,
-                                        y: 100
-                                    },
-                                    visible: {
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            delay: .2 * index,
-                                            type: "spring",
-                                            bounce: 0.4,
-                                            duration: .8
-                                        }
+                    </div>
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="why_us_container">
+                                <div className="why_us_content_left">
+                                    {(homepage.why_us_content_left).map((why_us_item, index) => {
+                                        return (
+                                            <div className="home_why_us_inner" key={index}>
+                                                <img src={why_us_item.why_us_image_left.url} alt={why_us_item.why_us_image_left.alt}/>
+                                                {RichText.render(why_us_item.why_us_item_left)}
+                                            </div>
+
+                                        )
+                                    })
                                     }
-                                }}>
-                                    <div className="home_why_us_inner">
-                                        <span>0{index + 1}</span>
-                                        <h3>{why_us_item.why_us_item}</h3>
-                                    </div>
-                                </motion.div>
-                            )
-                        })
-                        }
+                                </div>
+                                <div className="why_us_content_center">
+                                    {(homepage.why_us_content_center).map((why_us_item, index) => {
+                                        return (
+                                            <div className="home_why_us_inner" key={index}>
+                                                <img src={why_us_item.why_us_image_center.url} alt={why_us_item.why_us_image_center.alt}/>
+                                                {RichText.render(why_us_item.why_us_item_center)}
+                                            </div>
+
+                                        )
+                                    })
+                                    }
+                                </div> 
+                                <div className="why_us_content_right">
+                                    {(homepage.why_us_content_right).map((why_us_item, index) => {
+                                        return (
+                                            <div className="home_why_us_inner" key={index}>
+                                                <img src={why_us_item.why_us_image_right.url} alt={why_us_item.why_us_image_right.alt}/>
+                                                {RichText.render(why_us_item.why_us_item_right)}
+                                            </div>
+
+                                        )
+                                    })
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -261,47 +313,47 @@ export default function Home({homepage, projects, category, header_footer}) {
                 </div>
             </section>
             <section className="home_success_logo_section">
-                <div className="container">
-                    <div className="row">
-                        {(homepage.success_logo).map((success_logo, index) => {
-                            return (
-                                <motion.div
-                                    initial="hidden" whileInView="visible"
-                                    viewport={{once: true}} key={index} variants={{
-                                    hidden: {
-                                        scale: .5,
-                                        opacity: 0,
-                                        y: -100
-                                    },
-                                    visible: {
-                                        scale: 1,
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            delay: .2,
-                                            type: "spring",
-                                            bounce: 0.4,
-                                            duration: 0.8
-                                        }
-                                    }
-                                }}>
-                                    <div className="home_success_logo_img">
-                                        {success_logo.success_link.link_type == "Web" ? <a href="#"><img src={success_logo.success_logo_image.url} alt=""/></a> : <img src={success_logo.success_logo_image.url} alt=""/>}
-                                    </div>
-                                </motion.div>
-                            )
-                        })
+                <motion.div
+                    initial="hidden" whileInView="visible"
+                    viewport={{once: true}} variants={{
+                    hidden: {
+                        opacity: 0,
+                        y: -100
+                    },
+                    visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                            delay: .2,
+                            type: "spring",
+                            bounce: 0.4,
+                            duration: 0.8
                         }
-                    </div>
-                </div>
-            </section>
+                    }
+                }}>
+                <Slider {...settings_logo}>
+                        {
+                            (homepage.success_logo).map((success_logo, index) => {
+                                return (
+                                        <div className="home_success_logo_img" key={index}>
+                                            {success_logo.success_link.link_type == "Web" ?
+                                                <a href="#"><img src={success_logo.success_logo_image.url} alt=""/></a> :
+                                                <img src={success_logo.success_logo_image.url} alt=""/>}
+                                        </div>
+                                )
+                            })
+                        }
+                </Slider>
+                            </motion.div>
+                            </section>
             <section className="home_our_clients_section">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8">
+                        <div className="col-md-6">
                             <h2 className="h4">{homepage.clients_title}</h2>
+                            <Slider {...settings_review}>
                             {(homepage.reviews).map((review, index) => {
-                                return(
+                                return (
                                     <div className="home_review" key={index}>
                                         <div className="home_review_logo">
                                             <img src={review.review_logo.url} alt={review.review_logo.alt}/>
@@ -313,17 +365,27 @@ export default function Home({homepage, projects, category, header_footer}) {
                                         <div className="home_review_position">
                                             <img src={review.review_foto.url} alt={review.review_foto.alt}/>
                                             <div>
-                                               <h6>{review.review_name}</h6>
+                                                <h6>{review.review_name}</h6>
                                                 <p>{review.review_position}</p>
                                             </div>
                                         </div>
                                     </div>
                                 )
                             })}
+                            </Slider>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-6">
                             <div className="home_our_clients_white_block">
                                 {RichText.render(homepage.clients_white_section)}
+                                <div className="home_our_clients_white_block_logo">
+                                {(homepage.clients_white_section_logo).map((section_logo, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <img src={section_logo.white_section_logo.url} alt="" />
+                                        </div>
+                                    )
+                                })}
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -359,24 +421,24 @@ export default function Home({homepage, projects, category, header_footer}) {
                     /></motion.div> : ''}
             </section>
             <section className="home_about_as">
-                 <div className="container">
-                     <div className="row">
-                         <div className="col-12">
-                             <h2 className="h4">{homepage.about_title}</h2>
-                         </div>
-                         <div className="col-md-8">
-                             {RichText.render(homepage.about_content)}
-                             <div className="d-flex">
-                                 <a href="#">Get In Touch</a>
-                                 <a href="#">Go To Blog</a>
-                             </div>
-                         </div>
-                         <div className="col-md-4">
-                             <a href="https://www.instagram.com/paspartooteam/">@paspartooteam</a>
-                             <h5>Follow us on Instagram</h5>
-                         </div>
-                     </div>
-                 </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h2 className="h4">{homepage.about_title}</h2>
+                        </div>
+                        <div className="col-md-8">
+                            {RichText.render(homepage.about_content)}
+                            <div className="d-flex">
+                                <a href="#">Get In Touch</a>
+                                <a href="#">Go To Blog</a>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <a href="https://www.instagram.com/paspartooteam/">@paspartooteam</a>
+                            <h5>Follow us on Instagram</h5>
+                        </div>
+                    </div>
+                </div>
             </section>
         </MainContainer>
     )
@@ -390,7 +452,7 @@ export async function getServerSideProps() {
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     return {
         props: {
-            header_footer:header_footer,
+            header_footer: header_footer,
             homepage: homepage,
             projects: project,
             category: category

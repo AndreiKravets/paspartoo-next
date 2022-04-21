@@ -114,7 +114,7 @@
 }
 
 .home_why_us_section{
-  background-color: $brand-btn;
+  background-color: $brand-primary;
   padding: 100px 0 150px;
   .name_section{
     .col-12{
@@ -124,30 +124,44 @@
       }
     }
   }
-  .home_why_us_inner{
-    span{
-      display: block;
-      padding-bottom: 25px;
-      margin-bottom: 25px;
-      font-weight: 800;
-      font-size: 35px;
-      font-weight: 600;
-      border-bottom: 1px solid $brand-primary;
-      padding-left: 15px;
-      position: relative;
-      &:before{
-        content: " ";
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background-color: $brand-hover;
-        left: 0;
-        bottom: 32px;
+  .why_us_container{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    border-radius: 7px;
+  }
+  .why_us_content_left, .why_us_content_center, .why_us_content_right{
+    width: 33.33339%;
+    .home_why_us_inner{
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      p{
+        margin-bottom: 0;
+      }
+      img{
+        width: 50px;
+        height: auto;
+        margin-right: 15px;
       }
     }
-    h1,h2,h3,h4,h5,h6 {
-      line-height: 1.4;
-      font-weight: 400;
+  }
+  .why_us_content_left, .why_us_content_right{
+    .home_why_us_inner{
+      &:first-child{
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+  .why_us_content_center{
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    .home_why_us_inner{
+      display: block;
+      img{
+        margin-bottom: 15px;
+      }
     }
   }
 }
@@ -184,16 +198,19 @@
 .home_success_logo_section{
   padding-top: 80px;
   padding-bottom: 80px;
-  .row > div{
-    width: 25%;
-    display: flex;
+  .slick-track{
+    display: flex !important;
     align-items: center;
-    margin-bottom: 30px;
+  }
+  .slick-slide img {
+    margin: auto;
+  }
+  .home_success_logo_img{
+    text-align: center;
+    display: flex !important;
+    align-items: center;
     justify-content: center;
-    padding: 15px;
-    .home_success_logo_img{
-
-    }
+    height: 70px;
   }
 
 }
@@ -253,9 +270,22 @@
     p{
       margin-bottom: 30px;
     }
-    .block-img{
-      text-align: center;
-      margin-bottom: 10px;
+    .home_our_clients_white_block_logo{
+      display: flex;
+      flex-wrap: wrap;
+      div{
+        text-align: center;
+        width: 33%;
+        padding: 10px;
+        &:first-child{
+          width: 50%;
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+
     }
   }
 }
