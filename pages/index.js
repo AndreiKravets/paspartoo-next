@@ -14,9 +14,9 @@ export default function Home({homepage, projects, category, header_footer}) {
     homepage = homepage.results[0].data
     projects = projects.results
     category = category.results
-    console.log(homepage)
+    // console.log(homepage)
     console.log(projects)
-    console.log(category)
+    // console.log(category)
     const meta = homepage.body_meta[0].primary
     const top_slider = projects.slice(0, projects.length / 2)
     const bottom_slider = projects.slice(projects.length / 2, projects.length + 1)
@@ -38,6 +38,7 @@ export default function Home({homepage, projects, category, header_footer}) {
         infinite: true,
         speed: 500,
         autoplay: true,
+        rtl:true,
         slidesToShow: 4,
         slidesToScroll: 1,
         nextArrow: <BsChevronCompactRight/>,
@@ -47,7 +48,9 @@ export default function Home({homepage, projects, category, header_footer}) {
         dots: false,
         arrows: false,
         infinite: true,
-        speed: 500,
+        speed: 3000,
+        autoplaySpeed: 1,
+        cssEase: 'linear',
         autoplay: true,
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -87,11 +90,11 @@ export default function Home({homepage, projects, category, header_footer}) {
             <section className="home_top_main_section">
                 <div className="container home_top_section">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-4">
                             {RichText.render(homepage.title)}
-                            <h2 className="h4 home_subtitle">{homepage.subtitle}</h2>
+                            {homepage.subtitle ? <h2 className="h4 home_subtitle">{homepage.subtitle}</h2> : ''}
                         </div>
-                        <div className="col-md-6 home_top_image_warship">
+                        <div className="col-md-8 home_top_image_warship">
                             {homepage.warship.hasOwnProperty('url') ?
                                 <motion.div
                                     variants={variants}
@@ -150,11 +153,11 @@ export default function Home({homepage, projects, category, header_footer}) {
                     </div>
                 </div>
                 <div className="container home_key_section">
-                    <div className="row name_section">
-                        <div className="col-12">
-                            <h2 className="h4">{homepage.key_services_title}</h2>
-                        </div>
-                    </div>
+                    {/*<div className="row name_section">*/}
+                    {/*    <div className="col-12">*/}
+                    {/*        <h2 className="h4">{homepage.key_services_title}</h2>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                     <div className="row">
                         {(homepage.body_key).map((key_service, index) => {
                             return (
@@ -269,7 +272,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                                 (category.map((category) => {
                                     return (
                                         <li key={category.id}>
-                                            <Link href={`/blog/${category.slugs[0]}`}>{category.data.name}</Link>
+                                            <Link href={`/our-projects/${category.slugs[0]}`}>{category.data.name}</Link>
                                         </li>
                                     )
                                 }))
@@ -286,7 +289,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                                         <div
                                             className='projects_slider_item'
                                             style={{backgroundImage: "url(" + project.data.slider_image.url + ")"}}>
-                                            <h2>{project.data.title}</h2>
+                                            <h3>{project.data.title}</h3>
                                         </div>
                                     </div>
                                 )
@@ -303,7 +306,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                                         <div
                                             className='projects_slider_item'
                                             style={{backgroundImage: "url(" + project.data.slider_image.url + ")"}}>
-                                            <h2>{project.data.title}</h2>
+                                            <h3>{project.data.title}</h3>
                                         </div>
                                     </div>
                                 )

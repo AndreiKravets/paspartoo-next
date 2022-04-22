@@ -17,7 +17,7 @@
     width: auto;
     height: 45px;
     margin-bottom: 15px;
-    background-color: #ECECEC;
+    border: 1.5px solid $brand-primary;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -28,15 +28,12 @@
     transition: all .3s ease-in-out;
     padding: 0 35px;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     cursor: pointer;
     &:hover{
-      background-color: #FF6D1B;
-      color: white;
+      background-color: $brand-btn;
       transition: all .3s ease-in-out;
-      a{
-        color: white;
-      }
+      border: 1.5px solid $brand-btn;
     }
   }
 }
