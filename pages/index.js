@@ -209,7 +209,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                 <div className="container">
                     <div className="row name_section">
                         <div className="col-12">
-                            <h2 className="h4">{homepage.why_us_title}</h2>
+                            <h2 className="h5">{homepage.why_us_title}</h2>
                         </div>
                     </div>
                     <div className="row">
@@ -260,7 +260,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                 <div className="container">
                     <div className="row name_section">
                         <div className="col-12">
-                            <h2 className="h4">Success Cases</h2>
+                            <h2 className="h5">Success Cases</h2>
                         </div>
                     </div>
                     <div className="row">
@@ -353,7 +353,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-                            <h2 className="h4">{homepage.clients_title}</h2>
+                            <h2 className="h5">{homepage.clients_title}</h2>
                             <Slider {...settings_review}>
                             {(homepage.reviews).map((review, index) => {
                                 return (
@@ -427,7 +427,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <h2 className="h4">{homepage.about_title}</h2>
+                            <h2 className="h5">{homepage.about_title}</h2>
                         </div>
                         <div className="col-md-8">
                             {RichText.render(homepage.about_content)}
@@ -438,7 +438,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                         </div>
                         <div className="col-md-4">
                             <a href="https://www.instagram.com/paspartooteam/">@paspartooteam</a>
-                            <h5>Follow us on Instagram</h5>
+                            <h5>+ Follow us on Instagram</h5>
                         </div>
                     </div>
                 </div>

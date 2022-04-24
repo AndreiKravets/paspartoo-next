@@ -23,9 +23,25 @@
     display: flex;
     align-items: center;
     font-size: 17px;
+    a{
+      display: flex;
+      align-items: center;
+      span{
+        display:inline-flex;
+        margin-right: 10px;
+      }
+    }
     @include _media-md-down() {
       position: absolute;
       right: 55px;
+    }
+    @include _media-small-down() {
+      a{
+        font-size: 0 !important;
+        span{
+          font-size: 20px;
+        }
+      }
     }
     @include _media-xss-down() {
       display: none;
@@ -107,7 +123,10 @@
         justify-content: left;
         margin-left: 30px;
         height: 90px;
-        @include _media-md-down() {display:none;}
+        @include _media-big-down() {
+          margin-left: 10px;
+        }
+          @include _media-lg-down() {display:none;}
         ul{
           height: 100%;
         }
@@ -117,7 +136,10 @@
           align-items: center;
           height: 100%;
           margin-left: 26px;
-          &:hover {
+          @include _media-big-down() {
+            margin-left: 16px;
+          }
+            &:hover {
             a{
               color: $brand-hover;
             }
@@ -257,7 +279,7 @@
   display: none;
   position: absolute;
   right: 5px;
-  @include _media-md-down() {
+  @include _media-lg-down() {
     display: block;
     z-index: 999999;
     height: 40px;
@@ -305,7 +327,7 @@
     margin-bottom: 0 !important;
     height: 75px;
   }
-  @include _media-md-down() {
+  @include _media-lg-down() {
     display: none !important;
   }
 }
@@ -773,7 +795,7 @@
   transition-property: transform,-webkit-transform;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background-color: $white;
+  background-color: $brand-primary;
 }
 .hamburger--collapse .hamburger-inner {
   top: auto;
@@ -797,7 +819,7 @@
   transition-timing-function: cubic-bezier(.215,.61,.355,1);
   -webkit-transform: translate3d(0,-6px,0) rotate(-45deg);
   transform: translate3d(0,-6px,0) rotate(-45deg);
-  background-color: white;
+  background-color: $brand-primary;
 }
 .hamburger--collapse .hamburger-inner::before {
   -webkit-transition: top .12s cubic-bezier(.33333,.66667,.66667,1) .2s,-webkit-transform .13s cubic-bezier(.55,.055,.675,.19);
@@ -814,7 +836,7 @@
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
-  background-color: white;
+  background-color: $brand-primary;
 }
 .hamburger-inner::after {
   bottom: -6px;
