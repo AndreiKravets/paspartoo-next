@@ -15,7 +15,12 @@ footer{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      ul{
+      position: relative;
+      @include _media-small-down() {
+      padding-top: 70px;
+        min-height: 150px;
+      }
+        ul{
         display: flex;
         li{
           margin-right: 15px;
@@ -28,6 +33,14 @@ footer{
           }
         }
       }
+      img{
+        @include _media-small-down() {
+        position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 30px;
+        }
+        }
     }
 
   }

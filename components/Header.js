@@ -91,7 +91,7 @@ const Header = ({header})=> {
                         </div>
                     </div>
                     <div className="col-auto header_btn">
-                       <a href="tel:7029704043">702-970-4043</a>
+                        <a href="tel:7029704043"><span><FaPhoneAlt /></span> 702-970-4043</a>
                         <button className="quote app_form">Get a Quote</button>
                     </div>
                 </div>

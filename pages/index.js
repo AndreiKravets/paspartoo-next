@@ -29,8 +29,39 @@ export default function Home({homepage, projects, category, header_footer}) {
         autoplay: true,
         slidesToShow: 4,
         slidesToScroll: 1,
+        swipeToSlide: true,
         nextArrow: <BsChevronCompactRight/>,
-        prevArrow: <BsChevronCompactLeft/>
+        prevArrow: <BsChevronCompactLeft/>,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 1000,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 790,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                }
+            }
+        ]
     }
     const settings_bottom = {
         dots: false,
@@ -41,8 +72,39 @@ export default function Home({homepage, projects, category, header_footer}) {
         rtl:true,
         slidesToShow: 4,
         slidesToScroll: 1,
+        swipeToSlide: true,
         nextArrow: <BsChevronCompactRight/>,
-        prevArrow: <BsChevronCompactLeft/>
+        prevArrow: <BsChevronCompactLeft/>,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 1000,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 790,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                }
+            }
+        ]
     }
     const settings_logo = {
         dots: false,
@@ -54,8 +116,29 @@ export default function Home({homepage, projects, category, header_footer}) {
         autoplay: true,
         slidesToShow: 5,
         slidesToScroll: 1,
+        swipeToSlide: true,
         nextArrow: <BsChevronCompactRight/>,
-        prevArrow: <BsChevronCompactLeft/>
+        prevArrow: <BsChevronCompactLeft/>,
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+            {
+                breakpoint: 790,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }
+        ]
     }
     const settings_review = {
         dots: false,
@@ -232,7 +315,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                                         return (
                                             <div className="home_why_us_inner" key={index}>
                                                 <img src={why_us_item.why_us_image_center.url} alt={why_us_item.why_us_image_center.alt}/>
-                                                {RichText.render(why_us_item.why_us_item_center)}
+                                                <div>{RichText.render(why_us_item.why_us_item_center)}</div>
                                             </div>
 
                                         )
@@ -320,16 +403,13 @@ export default function Home({homepage, projects, category, header_footer}) {
                     initial="hidden" whileInView="visible"
                     viewport={{once: true}} variants={{
                     hidden: {
-                        opacity: 0,
-                        y: -100
+                        opacity: 0
                     },
                     visible: {
-                        y: 0,
                         opacity: 1,
                         transition: {
                             delay: .2,
                             type: "spring",
-                            bounce: 0.4,
                             duration: 0.8
                         }
                     }

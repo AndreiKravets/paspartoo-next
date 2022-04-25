@@ -6,13 +6,15 @@
   width: 100%;
   z-index: 9999;
   padding: 0 40px;
-  @include _media-md-down() {
+  @include _media-lg-down() {
     top: 0px;
     width: 100%;
     z-index: 9999 !important;
     padding: 0px;
     position: fixed;
     padding: 0 15px;
+    padding-right: 40px;
+    background-color: #f9f9f9;
   }
   @include _media-small-down() {
     z-index: auto;
@@ -43,7 +45,7 @@
         }
       }
     }
-    @include _media-xss-down() {
+    @include _media-xs-down() {
       display: none;
     }
     a{
@@ -278,7 +280,7 @@
 #hamb_button{
   display: none;
   position: absolute;
-  right: 5px;
+  right: 14px;
   @include _media-lg-down() {
     display: block;
     z-index: 999999;
@@ -303,6 +305,10 @@
   color: white !important;
   .header_btn{
     color: white !important;
+    a{
+      color: white;
+      font-weight: 400;
+    }
   }
   .menu-menu-container{
     height: 70px !important;
@@ -311,6 +317,7 @@
     padding: 12px 0 !important;
     a{
       color: white !important;
+      font-weight: 400;
     }
     &:hover{
       .sub-menu{
@@ -379,7 +386,7 @@
   -o-animation-name: fadeInDown;
   animation-name: fadeInDown;
   display: block !important;
-  @include _media-md-down() {
+  @include _media-lg-down() {
     display: none !important;
   }
 }

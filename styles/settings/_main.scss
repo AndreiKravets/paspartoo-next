@@ -279,9 +279,11 @@ td {
       font-weight: 600;
     }
 
-    padding-top: 50px;
       padding-bottom: 50px;
-  }
+    @include _media-small-down() {
+      padding-bottom: 40px;
+    }
+    }
 }
 
 section{
