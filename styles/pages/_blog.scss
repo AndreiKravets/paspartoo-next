@@ -13,8 +13,11 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  justify-content: center;
-  li{
+  justify-content: flex-start;
+  @include _media-md-down() {
+    margin-bottom: 15px;
+  }
+    li{
     width: auto;
     height: 45px;
     margin-bottom: 15px;
@@ -36,7 +39,12 @@
       transition: all .3s ease-in-out;
       border: 1.5px solid $brand-btn;
     }
-  }
+    @include _media-md-down() {
+      margin-left: 6px;
+      margin-right: 6px;
+      padding: 0 15px;
+    }
+    }
 }
 .blog_section{
   .blog_item_inner{

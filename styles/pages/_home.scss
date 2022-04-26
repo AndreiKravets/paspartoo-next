@@ -1,7 +1,11 @@
 .home_top_section{
   padding-top: 40px;
   padding-bottom: 60px;
-  h1,h2,h3,h4,h5,h6{
+  @include _media-xs-down() {
+    padding-top: 23px;
+    padding-bottom: 0;
+  }
+    h1,h2,h3,h4,h5,h6{
     color: $brand-primary;
   }
   h1{
@@ -15,6 +19,9 @@
       margin: auto;
       margin-bottom: 30px;
       font-size: 43px;
+    }
+    @include _media-xs-down() {
+      margin-bottom: 0;
     }
     }
   .home_subtitle{
@@ -402,7 +409,10 @@ img{
     background-color: white;
     padding: 40px;
     border-radius: 8px;
-    h2{
+    @include _media-xs-down() {
+      padding: 25px;
+    }
+      h2{
       font-weight: 800;
       margin-bottom: 20px;
       letter-spacing: 1px;
@@ -414,7 +424,10 @@ img{
     .home_our_clients_white_block_logo{
       display: flex;
       flex-wrap: wrap;
-      div{
+      @include _media-xs-down() {
+      justify-content: center;
+      }
+        div{
         text-align: center;
         width: 33%;
         padding: 10px;
@@ -425,7 +438,11 @@ img{
           width: 100%;
           height: auto;
         }
-      }
+          @include _media-xs-down() {
+          width: 50%;
+            padding: 6px;
+          }
+          }
 
     }
   }
