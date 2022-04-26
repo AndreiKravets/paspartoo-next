@@ -174,8 +174,26 @@ export default function Home({homepage, projects, category, header_footer}) {
                 <div className="container home_top_section">
                     <div className="row">
                         <div className="col-md-4">
+                            <motion.div initial="hidden" whileInView="visible"
+                                        viewport={{once: true}} variants={{
+                                hidden: {
+                                    scale: .8,
+                                    opacity: 0,
+                                },
+                                visible: {
+                                    scale: 1,
+                                    opacity: 1,
+                                    transition: {
+                                        delay: .2,
+                                        type: "spring",
+                                        bounce: 0.4,
+                                        duration: 0.7
+                                    }
+                                }
+                            }}>
                             {RichText.render(homepage.title)}
                             {homepage.subtitle ? <h2 className="h4 home_subtitle">{homepage.subtitle}</h2> : ''}
+                            </motion.div>
                         </div>
                         <div className="col-md-8 home_top_image_warship">
                             {homepage.warship.hasOwnProperty('url') ?
@@ -302,7 +320,25 @@ export default function Home({homepage, projects, category, header_footer}) {
                                     {(homepage.why_us_content_left).map((why_us_item, index) => {
                                         return (
                                             <div className="home_why_us_inner" key={index}>
+                                                <motion.div initial="hidden" whileInView="visible"
+                                                            viewport={{once: true}} variants={{
+                                                    hidden: {
+                                                        scale: .8,
+                                                        opacity: 0,
+                                                    },
+                                                    visible: {
+                                                        scale: 1,
+                                                        opacity: 1,
+                                                        transition: {
+                                                            delay: .2,
+                                                            type: "spring",
+                                                            bounce: 0.4,
+                                                            duration: 0.8
+                                                        }
+                                                    }
+                                                }}>
                                                 <img src={why_us_item.why_us_image_left.url} alt={why_us_item.why_us_image_left.alt}/>
+                                                </motion.div>
                                                 {RichText.render(why_us_item.why_us_item_left)}
                                             </div>
 
@@ -314,7 +350,25 @@ export default function Home({homepage, projects, category, header_footer}) {
                                     {(homepage.why_us_content_center).map((why_us_item, index) => {
                                         return (
                                             <div className="home_why_us_inner" key={index}>
+                                                <motion.div initial="hidden" whileInView="visible"
+                                                            viewport={{once: true}} variants={{
+                                                    hidden: {
+                                                        scale: .8,
+                                                        opacity: 0,
+                                                    },
+                                                    visible: {
+                                                        scale: 1,
+                                                        opacity: 1,
+                                                        transition: {
+                                                            delay: .2,
+                                                            type: "spring",
+                                                            bounce: 0.4,
+                                                            duration: 0.8
+                                                        }
+                                                    }
+                                                }}>
                                                 <img src={why_us_item.why_us_image_center.url} alt={why_us_item.why_us_image_center.alt}/>
+                                                </motion.div>
                                                 <div>{RichText.render(why_us_item.why_us_item_center)}</div>
                                             </div>
 
@@ -326,7 +380,25 @@ export default function Home({homepage, projects, category, header_footer}) {
                                     {(homepage.why_us_content_right).map((why_us_item, index) => {
                                         return (
                                             <div className="home_why_us_inner" key={index}>
+                                                <motion.div initial="hidden" whileInView="visible"
+                                                            viewport={{once: true}} variants={{
+                                                    hidden: {
+                                                        scale: .8,
+                                                        opacity: 0,
+                                                    },
+                                                    visible: {
+                                                        scale: 1,
+                                                        opacity: 1,
+                                                        transition: {
+                                                            delay: .2,
+                                                            type: "spring",
+                                                            bounce: 0.4,
+                                                            duration: 0.8
+                                                        }
+                                                    }
+                                                }}>
                                                 <img src={why_us_item.why_us_image_right.url} alt={why_us_item.why_us_image_right.alt}/>
+                                                </motion.div>
                                                 {RichText.render(why_us_item.why_us_item_right)}
                                             </div>
 
@@ -432,32 +504,34 @@ export default function Home({homepage, projects, category, header_footer}) {
             <section className="home_our_clients_section">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6">
-                            <h2 className="h5">{homepage.clients_title}</h2>
+                        <div className="col-12"><h2 className="h5">{homepage.clients_title}</h2></div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-6">
                             <Slider {...settings_review}>
                             {(homepage.reviews).map((review, index) => {
                                 return (
                                     <div className="home_review" key={index}>
                                         <div className="home_review_logo">
-                                            <img src={review.review_logo.url} alt={review.review_logo.alt}/>
+                                            <div className="home_review_position">
+                                                <img src={review.review_foto.url} alt={review.review_foto.alt}/>
+                                                <div>
+                                                    <h6>{review.review_name}</h6>
+                                                    <p>{review.review_position}</p>
+                                                </div>
+                                            </div>
                                             <img src="/quotes.svg" alt="quotes" className="home_review_quotes"/>
                                         </div>
                                         <div className="home_review_content">
+                                            <img src={review.review_logo.url} alt={review.review_logo.alt}/>
                                             {RichText.render(review.review_content)}
-                                        </div>
-                                        <div className="home_review_position">
-                                            <img src={review.review_foto.url} alt={review.review_foto.alt}/>
-                                            <div>
-                                                <h6>{review.review_name}</h6>
-                                                <p>{review.review_position}</p>
-                                            </div>
                                         </div>
                                     </div>
                                 )
                             })}
                             </Slider>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6">
                             <div className="home_our_clients_white_block">
                                 {RichText.render(homepage.clients_white_section)}
                                 <div className="home_our_clients_white_block_logo">

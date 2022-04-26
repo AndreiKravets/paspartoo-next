@@ -324,20 +324,47 @@
 
 .home_our_clients_section{
   background-color: $brand-btn;
-  padding-top: 120px;
-  padding-bottom: 160px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  @include _media-md-down() {
+    padding-top: 70px;
+  }
+  @include _media-small-down() {
+    padding-top: 45px;
+    padding-bottom: 35px;
+  }
+  @include _media-xs-down() {
+    padding-top: 45px;
+    padding-bottom: 30px;
+  }
+    .col-lg-6{
+    &:first-child{
+      @include _media-md-down() {
+        order: 2;
+        margin-top: 45px;
+      }
+      @include _media-xs-down() {
+        margin-top: 30px;
+      }
+      }
+  }
   .h5{
     color: white;
     margin-bottom: 50px;
+    @include _media-xs-down() {
+      margin-bottom: 30px;
+    }
   }
   .home_review{
     padding-right: 50px;
-    margin-bottom: 100px;
-    .home_review_logo{
+    @include _media-md-down() {
+      padding-right: 0;
+    }
+      .home_review_logo{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
       margin-bottom: 30px;
       border-bottom: 1px solid $brand-primary;
      .home_review_quotes{
@@ -348,19 +375,25 @@
 
     .home_review_content{
       p{
-        font-weight: 600;
-        line-height: 1.5em;
+        font-weight: 500;
+        line-height: 1.4em;
       }
-
+img{
+  height: 28px;
+  margin-bottom: 26px;
+}
     }
     .home_review_position{
        display: flex;
       align-items: center;
-      margin-top: 30px;
+      h6{
+        font-weight: 600;
+        margin-top: 14px;
+      }
       img{
         margin-right: 20px;
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         border-radius: 80px;
       }
     }
@@ -373,9 +406,10 @@
       font-weight: 800;
       margin-bottom: 20px;
       letter-spacing: 1px;
+      max-width: 400px;
     }
     p{
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
     .home_our_clients_white_block_logo{
       display: flex;
@@ -406,12 +440,40 @@ height: 700px;
       object-fit: cover;
     }
   }
-}
+  @include _media-lg-down() {
+    height: 600px;
+    div{
+      height: 600px;
+    }
+  }
+  @include _media-md-down() {
+    height: 500px;
+    div{
+      height: 500px;
+    }
+  }
+  @include _media-small-down() {
+    height: 350px;
+    div{
+      height: 350px;
+    }
+  }
+  @include _media-xs-down() {
+    height: 250px;
+    div{
+      height: 250px;
+    }
+  }
+  }
 
 .home_about_as{
   padding-top: 80px;
   padding-bottom: 80px;
-  .col-12{
+  @include _media-md-down() {
+    padding-top: 60px;
+    padding-bottom: 0px;
+  }
+    .col-12{
     h2{
      font-weight: 500;
       text-transform:uppercase;
@@ -428,10 +490,21 @@ height: 700px;
     p{
       max-width: 470px;
       line-height: 1.5;
-    }
+      @include _media-md-down() {
+        max-width: 100%;
+      }
+      }
     .d-flex{
       margin-top: 30px;
-      a{
+      @include _media-md-down() {
+        margin-top: 15px;
+        margin-bottom: 25px;
+      }
+      @include _media-xs-down() {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+        a{
         height: 50px;
         width: 205px;
         text-transform: uppercase;
@@ -442,7 +515,11 @@ height: 700px;
         font-weight: 500;
         align-items: center;
         justify-content: center;
-        &:hover{
+          @include _media-xs-down() {
+          width: 100%;
+            margin-bottom: 15px;
+          }
+            &:hover{
           color: $brand-primary;
           background-color: $brand-hover;
         }
@@ -450,7 +527,10 @@ height: 700px;
           color: $brand-primary;
           background-color: $brand-hover;
           margin-right: 20px;
-          &:hover{
+          @include _media-xs-down() {
+            margin-right: 0;
+          }
+            &:hover{
             color: $brand-hover;
             background-color: unset;
           }
@@ -474,6 +554,14 @@ height: 700px;
       &:hover {
         background-color: #00AEA4;
       }
+      @include _media-xs-down() {
+      margin: auto;
+        margin-top: 5px;
+        margin-bottom: 15px;
+      }
+      }
+    @include _media-xs-down() {
+     text-align: center;
     }
   }
 }
