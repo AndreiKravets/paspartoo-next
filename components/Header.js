@@ -6,7 +6,7 @@ import Link from "next/link"
 import ContactForm from "./ContactForm";
 
 
-const Header = ({header})=> {
+export default function Header ({header}) {
 
     header = header
     console.log(header)
@@ -101,4 +101,3 @@ const Header = ({header})=> {
             </>
     )
 }
-export default Header

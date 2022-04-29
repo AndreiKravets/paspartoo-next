@@ -5,7 +5,10 @@ import Link from "next/link";
 import Slider from "react-slick";
 import Image from "next/image";
 import {RichText} from "prismic-reactjs";
-import ProjectForm from '../../components/OurProjectsForm'
+import ContactForm from '../../components/ContactForm'
+import {BsArrowUpRightCircle} from "react-icons/bs";
+import WeBuild from "../../components/WeBuild";
+
 
 
 export default function OurProjects ({our_projects, projects, category, header_footer}) {
@@ -20,26 +23,17 @@ export default function OurProjects ({our_projects, projects, category, header_f
     }
 
 
-    const slider_we_build = {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 500,
-        autoplay: true,
-        slidesToShow: 3,
-        slidesToScroll: 1
-    }
     return (
         <>
             <MainContainer header_footer={header_footer}>
                 <section className="container_fluid our_projects_section">
                     <div className="container">
                         <div className="col-12">
-                            <h1>{our_projects.title}</h1>
+                            <h1 className="h2">{our_projects.title}</h1>
                             <div className="row">
                                 <ul className="category_blog">
                                     <li className="active">
-                                        All
+                                        <span>All</span>
                                     </li>
                                     {
                                         (category.map((category) => {
@@ -55,9 +49,10 @@ export default function OurProjects ({our_projects, projects, category, header_f
                             {
                                 (first_projects.map((project) => {
                                     return (
-                                        <div className="row" key={project.id}>
-                                            <div className="col-md-8">
-                                                <Link href={`/our-projects/${project.data.categories[0].category.slug}/${project.uid}`} className="h3">{project.data.title}</Link>
+                                        <div className="row projects_row" key={project.id}>
+                                            <div className="col-lg-5">
+                                                <div className="projects_row_inner">
+                                                <Link href={`/our-projects/${project.data.categories[0].category.slug}/${project.uid}`}><a className="h3">{project.data.title}<BsArrowUpRightCircle/></a></Link>
                                                 {RichText.render(project.data.short_description)}
                                                 <div className="technologies_used">
                                                     {
@@ -65,23 +60,17 @@ export default function OurProjects ({our_projects, projects, category, header_f
                                                             return (
                                                                 <div key={index}>
                                                                     <img src={technologies.technologies_used_image.url} />
-                                                                    {technologies.technologies_used_name}
+                                                                    <p>{technologies.technologies_used_name}</p>
                                                                 </div>
-
                                                             )
                                                         }))
                                                     }
                                                 </div>
+                                                </div>
                                             </div>
-                                            <div className="col-md-4">
-                                                { project.data.preview_image.url  ?
-                                                <Image
-                                                    loader={myLoader}
-                                                    src={project.data.preview_image.url}
-                                                    alt={project.data.preview_image.alt}
-                                                    width={project.data.preview_image.dimensions.width}
-                                                    height={project.data.preview_image.dimensions.height}
-                                                /> : ''}
+                                            <div className="col-lg-7 projects_row_image">
+                                                <div className="projects_row_image_inner" style={{backgroundImage: "url(" + project.data.preview_image.url + ")"}}>
+                                                </div>
                                             </div>
                                         </div>
                                     )
@@ -92,46 +81,15 @@ export default function OurProjects ({our_projects, projects, category, header_f
                     </div>
 
                 </section>
-                <section className="our_project_build container-fluid">
+               <WeBuild our_projects={our_projects}/>
+                <section className="projects_form_section">
                     <div className="container">
                         <div className="row">
-                            <div className="col-12">
-                                <h2 className="h4">{our_projects.we_build_title}</h2>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-8">
-                                {RichText.render(our_projects.we_build_content)}
-                                <Slider {...slider_we_build}>
-                                {
-                                    (our_projects.clients_logo.map((logo, index) => {
-                                        return (
-                                            <div key={index}>
-                                                <img src={logo.logo.url} />
-                                            </div>
-
-                                        )
-                                    }))
-                                }
-                                </Slider>
-                            </div>
-                            <div className="col-md-4">
-                                <div className="build_count">
-                                    {our_projects.we_build_count}<span>+</span>
-                                </div>
-                                <h3>brands have trusted us</h3>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-lg-6 projects_form_section_title">
                                 <h2 className="h1">{our_projects.form_title}</h2>
                             </div>
-                            <div className="col-md-6">
-                                <ProjectForm />
+                            <div className="col-lg-6 projects_form_section_form">
+                                <ContactForm />
                             </div>
                         </div>
                     </div>

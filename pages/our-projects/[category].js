@@ -5,6 +5,9 @@ import Link from "next/link";
 import Slider from "react-slick";
 import Image from "next/image";
 import {RichText} from "prismic-reactjs";
+import {BsArrowUpRightCircle} from "react-icons/bs";
+import WeBuild from "../../components/WeBuild";
+import ContactForm from "../../components/ContactForm";
 
 
 
@@ -26,18 +29,22 @@ export default function OurProjects ({query_category, our_projects, projects, ca
                 <section className="container_fluid our_projects_section">
                     <div className="container">
                         <div className="col-12">
-                            <h1>{our_projects.title}</h1>
+                            <h1 className="h2">{our_projects.title}</h1>
                             <div className="row">
                                 <ul className="category_blog">
-                                    <li className="active">
-                                        <Link href={`/works/${category.slugs}`}> All </Link>
+                                    <li>
+                                        <Link href={`/our-projects`}> All </Link>
                                     </li>
                                     {
                                         (category.map((category) => {
                                             return (
-                                                <li key={category.id}>
-                                                    <Link href={`/our-projects/${category.slugs}`}>{category.data.name}</Link>
-                                                </li>
+                                                <>
+                                                {category.slugs == query_category ?
+                                                <li key={category.id} className="active"><span>{category.data.name}</span></li> :
+                                                    <li key={category.id}><Link href={`/our-projects/${category.slugs}`}>{category.data.name}</Link></li>
+
+                                                }
+                                                </>
                                             )
                                         }))
                                     }
@@ -46,9 +53,10 @@ export default function OurProjects ({query_category, our_projects, projects, ca
                             {
                                 (category_projects.map((project) => {
                                     return (
-                                        <div className="row" key={project.id}>
-                                            <div className="col-md-8">
-                                                <a href={`/our-projects/${project.data.categories[0].category.slug}/${project.uid}`} className="h3">{project.data.title}</a>
+                                        <div className="row projects_row" key={project.id}>
+                                            <div className="col-lg-5">
+                                                <div className="projects_row_inner">
+                                                <Link href={`/our-projects/${project.data.categories[0].category.slug}/${project.uid}`}><a className="h3">{project.data.title}<BsArrowUpRightCircle/></a></Link>
                                                 {RichText.render(project.data.short_description)}
                                                 <div className="technologies_used">
                                                     {
@@ -56,22 +64,25 @@ export default function OurProjects ({query_category, our_projects, projects, ca
                                                             return (
                                                                 <div key={index}>
                                                                     <img src={technologies.technologies_used_image.url} />
-                                                                    {technologies.technologies_used_name}
+                                                                    <p>{technologies.technologies_used_name}</p>
                                                                 </div>
-
                                                             )
                                                         }))
                                                     }
                                                 </div>
+                                                </div>
                                             </div>
-                                            <div className="col-md-4">
-                                                <Image
-                                                    loader={myLoader}
-                                                    src={project.data.slider_image.url}
-                                                    alt={project.data.slider_image.alt}
-                                                    width={project.data.slider_image.dimensions.width}
-                                                    height={project.data.slider_image.dimensions.height}
-                                                />
+                                            <div className="col-lg-7 projects_row_image">
+                                                <div className="projects_row_image_inner" style={{backgroundImage: "url(" + project.data.preview_image.url + ")"}}>
+
+                                                </div>
+                                                {/*<Image*/}
+                                                {/*    loader={myLoader}*/}
+                                                {/*    src={project.data.slider_image.url}*/}
+                                                {/*    alt={project.data.slider_image.alt}*/}
+                                                {/*    width={project.data.slider_image.dimensions.width}*/}
+                                                {/*    height={project.data.slider_image.dimensions.height}*/}
+                                                {/*/>*/}
                                             </div>
                                         </div>
                                     )
@@ -82,33 +93,16 @@ export default function OurProjects ({query_category, our_projects, projects, ca
                     </div>
 
                 </section>
-                <section className="our_project_build container-fluid">
+                <WeBuild our_projects={our_projects}/>
+                <section className="projects_form_section">
                     <div className="container">
                         <div className="row">
-                            <h2 className="h4">{our_projects.we_build_title}</h2>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-8">
-                                {RichText.render(our_projects.we_build_content)}
+                            <div className="col-lg-6 projects_form_section_title">
+                                <h2 className="h1">{our_projects.form_title}</h2>
                             </div>
-                            <div className="col-md-4">
-                                <div className="build_count">
-                                    {our_projects.we_build_count}
-                                </div>
-                                <h6>brands have trusted us</h6>
+                            <div className="col-lg-6 projects_form_section_form">
+                                <ContactForm />
                             </div>
-                        </div>
-                        <div className="row">
-                            {
-                                (our_projects.clients_logo.map((logo, index) => {
-                                    return (
-                                        <div key={index}>
-                                            <img src={logo.logo.url} />
-                                        </div>
-
-                                    )
-                                }))
-                            }
                         </div>
                     </div>
                 </section>

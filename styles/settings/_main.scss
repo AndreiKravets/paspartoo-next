@@ -158,7 +158,7 @@ hr {box-sizing: content-box;height: 1px;background: $grey60;margin: 20px 0 ;bord
 pre {overflow: auto;}
 code,kbd,pre,samp {font-family: monospace, monospace;font-size: 1em;}
 button,input,optgroup,select,textarea {color: inherit;font: inherit;margin: 0;}
-button {overflow: visible;}
+button {overflow: visible; transition:all .3s ease-in-out;}
 button,select {text-transform: none;}
 button,html input[type="button"],input[type="reset"],input[type="submit"] {-webkit-appearance: button;cursor: pointer;}
 button[disabled],html input[disabled] {cursor: default;}

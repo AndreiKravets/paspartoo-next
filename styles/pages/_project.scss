@@ -1,3 +1,96 @@
+.our_projects_section{
+  padding-top: 50px;
+  padding-bottom: 100px;
+  @include _media-lg-down() {
+    padding-bottom: 50px;
+  }
+  @include _media-small-down() {
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+  @include _media-xs-down() {
+    padding-bottom: 0px;
+    padding-top: 20px;
+  }
+    h1{
+    font-weight: 600;
+    margin-bottom: 25px;
+  }
+  .projects_row{
+    display: flex;
+    margin-bottom: 40px;
+    .projects_row_inner{
+     background-color: #F3F3F3;
+      border-radius: 10px;
+      padding: 35px 30px;
+      a{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        svg{
+          font-size: 27px;
+          color: $brand-hover;
+        }
+      }
+      .technologies_used{
+        display: flex;
+        div{
+          text-align: center;
+          padding: 20px 20px 0 0;
+          img{
+            height: 38px;
+            width: auto;
+          }
+        }
+      }
+      @include _media-md-down() {
+        border-radius: 0 0 10px 10px;
+        padding: 25px 25px;
+      }
+    }
+    .projects_row_image{
+      .projects_row_image_inner{
+        border-radius: 10px;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        }
+      @include _media-md-down() {
+        order: -1;
+        .projects_row_image_inner{
+          border-radius: 10px 10px 0 0;
+          height: 280px;
+        }
+      }
+    }
+  }
+}
+
+.projects_form_section{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @include _media-lg-down() {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @include _media-small-down() {
+    padding-bottom: 30px;
+    padding-top: 45px;
+  }
+
+  .projects_form_section_title{
+    h2{
+      font-weight: 500;
+      margin-bottom: 35px;
+    }
+  }
+  .projects_form_section_form{
+
+  }
+}
+
+
 .project_top_section{
   height: 400px;
   text-align: center;

@@ -55,29 +55,29 @@ const ContactForm = () => {
                 (e => e.stopPropagation()
                 )}>
 
-                <div className="field_form">
+                <div className="field_form w50">
                     <input value={name} onBlur={blurHandler} onChange={nameHandler} id="name" type="text" name="name" placeholder="Your Name"/>
                     <ValidationError prefix="Name" field="name" errors={state.errors}/>
                     {(nameDirty && nameError) ? <span className="active">{nameError}</span> : <span>{nameError}</span>}
                 </div>
 
-                <div className="field_form">
+                <div className="field_form w50">
                     <input value={email} onBlur={blurHandler} onChange={emailHandler} id="email" type="email" name="email" placeholder="Your Email"/>
                     <ValidationError prefix="Email" field="email" errors={state.errors}/>
                     {(emailDirty && emailError) ? <span className="active">{emailError}</span> : <span>{emailError}</span>}
                 </div>
 
-                <div className="field_form">
+                <div className="field_form w50">
                     <input id="Phone" type="phone" name="phone" placeholder="Phone"/>
                     <ValidationError prefix="Phone" field="phone" errors={state.errors}/>
                 </div>
 
-                <div className="field_form">
+                <div className="field_form w50">
                     <input id="company" type="text" name="company" placeholder="Your Company"/>
                     <ValidationError prefix="Company" field="company" errors={state.errors}/>
                 </div>
 
-                <div className="field_form">
+                <div className="field_form w100">
                     <textarea id="message" name="message" placeholder="Your Message"/>
                     <ValidationError prefix="Your message" field="message" errors={state.errors}/>
                 </div>

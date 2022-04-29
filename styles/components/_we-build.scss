@@ -1,0 +1,100 @@
+.our_project_build{
+  background-color: $brand-btn;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  @include _media-lg-down() {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  @include _media-md-down() {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  @include _media-small-down() {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  @include _media-xs-down() {
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+  .col-sm-4{
+    @include _media-xs-down() {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+    @include _media-xss-down() {
+      display: block;
+    }
+    }
+    .h4{
+    color: white;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+  }
+  h2{
+    margin-bottom: 30px;
+    font-weight: 500;
+    line-height: 1.1;
+    padding-right: 50px;
+    max-width:750px;
+    @include _media-md-down() {
+      padding-right: 0;
+    }
+    @include _media-small-down() {
+      margin-bottom: 10px;
+    }
+    }
+  .our_project_build_slider{
+    max-width: 600px;
+    padding-top: 5px;
+    img{
+      width: 100%;
+      height: auto;
+      padding-right: 20px;
+    }
+  }
+  .build_count{
+    font-size: 90px;
+    line-height: 1;
+    @include _media-md-down() {
+      font-size: 70px;
+    }
+      span{
+      color: $brand-hover;
+    }
+  }
+  h5{
+    font-weight: 600;
+    max-width: 170px;
+    text-transform: uppercase;
+  }
+  button{
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-top: 30px;
+    color: white;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 260px;
+    height: 70px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: unset;
+    &:hover{
+      border: 2px solid $brand-hover;
+      color: $brand-hover;
+    }
+    @include _media-small-down() {
+    font-size: 16px;
+      max-width: 260px;
+      height: 60px;
+    }
+    }
+}

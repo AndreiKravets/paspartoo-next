@@ -420,8 +420,8 @@ export default function Home({homepage, projects, category, header_footer}) {
                     </div>
                     <div className="row">
                         <ul className="category_blog">
-                            <li className="active">
-                                All
+                            <li>
+                                <Link href={`/our-projects`}>All</Link>
                             </li>
                             {
                                 (category.map((category) => {

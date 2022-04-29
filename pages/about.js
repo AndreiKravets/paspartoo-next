@@ -6,6 +6,7 @@ import {RichText} from "prismic-reactjs";
 import {motion} from "framer-motion";
 import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
 import Slider from "react-slick";
+import WeBuild from "../components/WeBuild";
 
 export default function About ({ about, our_projects, header_footer }) {
     header_footer = header_footer
@@ -36,15 +37,6 @@ export default function About ({ about, our_projects, header_footer }) {
         centerMode: true
     }
 
-    const slider_we_build = {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 500,
-        autoplay: true,
-        slidesToShow: 3,
-        slidesToScroll: 1
-    }
 
     const variants = {
         hidden_1: {scale: 1, y: -1000, opacity: 0.5},
@@ -182,40 +174,7 @@ export default function About ({ about, our_projects, header_footer }) {
               </Slider>
              </div>
             </section>
-
-            <section className="our_project_build container-fluid">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2 className="h4">{our_projects.we_build_title}</h2>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-8">
-                            {RichText.render(our_projects.we_build_content)}
-                            <Slider {...slider_we_build}>
-                                {
-                                    (our_projects.clients_logo.map((logo, index) => {
-                                        return (
-                                            <div key={index}>
-                                                <img src={logo.logo.url} />
-                                            </div>
-
-                                        )
-                                    }))
-                                }
-                            </Slider>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="build_count">
-                                {our_projects.we_build_count}<span>+</span>
-                            </div>
-                            <h3>brands have trusted us</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <WeBuild our_projects={our_projects}/>
         </MainContainer>
     )
 }
