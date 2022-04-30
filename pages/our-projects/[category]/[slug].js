@@ -15,31 +15,26 @@ const Post = ({project, header_footer}) => {
     return (
         <>
             <MainContainer header_footer={header_footer}>
-                <section className="container-fluid project_top_section" style={{backgroundImage: "url(" + project.banner.url + ")"}}>
+                <section className="container-fluid project_top_section">
+                <Image
+                                                                               loader={myLoader}
+                                                                               src={project.banner.url}
+                                                                               alt={project.banner.alt}
+                                                                               width={project.banner.dimensions.width}
+                                                                               height={project.banner.dimensions.height}
+                                                                           />
                    <div className="container">
                         <h1>{project.title}</h1>
-                       {project.website.link_type == "Web" ? <a href={project.website.url} target="_blank">VISIT THE WEBSITE</a> : ''}
                     </div>
                 </section>
                 <section className="project_about_section">
                   <div className="container">
                     <div className="row">
-                     <div className="col-12">
-                      <h3>#about case</h3>
-                     </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-md-7">
-                      <Image
-                                              loader={myLoader}
-                                              src={project.preview_image.url}
-                                              alt={project.preview_image.alt}
-                                              width={project.preview_image.dimensions.width}
-                                              height={project.preview_image.dimensions.height}
-                                          />
+                      <div className="col-md-6 project_about_section_left">
                                           {RichText.render(project.about_case_content)}
+                                          {project.website.link_type == "Web" ? <a href={project.website.url} target="_blank">VISIT THE WEBSITE</a> : ''}
                       </div>
-                      <div className="col-md-5">
+                      <div className="col-md-6 project_about_section_right">
                       <div>
                          <h2>Project Summary</h2>
                          {RichText.render(project.project_summary_list)}
@@ -49,13 +44,25 @@ const Post = ({project, header_footer}) => {
                   </div>
                 </section>
                 <section className="project_big_image_section">
-                 <div className="container"><Image
-                                                               loader={myLoader}
-                                                               src={project.big_image.url}
-                                                               alt={project.big_image.alt}
-                                                               width={project.big_image.dimensions.width}
-                                                               height={project.big_image.dimensions.height}
-                                                           />
+                 <div className="container">
+                   <div className="row">
+                       <div className="col-12">
+                                    <Image
+                                        loader={myLoader}
+                                        src={project.big_image_left.url}
+                                        alt={project.big_image_left.alt}
+                                        width={project.big_image_left.dimensions.width}
+                                        height={project.big_image_left.dimensions.height}
+                                    />
+                                    <Image
+                                        loader={myLoader}
+                                        src={project.big_image_right.url}
+                                        alt={project.big_image_right.alt}
+                                        width={project.big_image_right.dimensions.width}
+                                        height={project.big_image_right.dimensions.height}
+                                    />
+                        </div>
+                    </div>
                  </div>
                 </section>
                  <section className="project_paspartoo_made_section">
