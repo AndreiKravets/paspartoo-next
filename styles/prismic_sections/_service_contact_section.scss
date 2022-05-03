@@ -1,17 +1,15 @@
 .services_contact{
+  padding-top: 80px;
+  padding-bottom: 80px;
   .row{
-    background: #6E8999;
-    border-radius: 10px;
-    padding: 45px 30px;
-    margin: 0;
     display: flex;
     align-items: center;
   }
   p{
-    color: white;
+    color: $brand-primary;
   }
   h1,h2,h3,h4,h5,h6 {
-    color: white;
+    color: $brand-primary;
     font-weight: 700;
     margin-bottom: 15px;
     margin-top: 5px;

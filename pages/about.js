@@ -24,6 +24,7 @@ export default function About ({ about, our_projects, header_footer }) {
         speed: 500,
         autoplay: true,
         slidesToShow: 3,
+        swipeToSlide: true,
         slidesToScroll: 1
     }
     const slider_our_team = {
@@ -34,14 +35,66 @@ export default function About ({ about, our_projects, header_footer }) {
         // autoplay: true,
         slidesToShow: 4,
         slidesToScroll: 1,
-        centerMode: true
+        swipeToSlide: true,
+        centerMode: true,
+        responsive: [
+            {
+                breakpoint: 1700,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 4
+                }
+            },
+            {
+                breakpoint: 1500,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 1360,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 940,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: false,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false,
+                }
+            }
+        ]
     }
 
 
     const variants = {
         hidden_1: {scale: 1, y: -1000, opacity: 0.5},
         enter_1: {scale: 1, y: 0, opacity: 1, transition: {type: "spring", bounce: 0.4, duration: 0.7}},
-        hidden_2: {scale: 1, x: -1000, opacity: 0.5},
+        hidden_2: {scale: 1, x: 1000, opacity: 0.5},
         enter_2: {scale: 1, x: 0, opacity: 1, transition: {type: "spring", bounce: 0.4, duration: 0.8}}
     }
 
@@ -70,7 +123,7 @@ export default function About ({ about, our_projects, header_footer }) {
                         </div>
                         <div className="col-md-5 about_top_section_image">
                             {about.top_image.hasOwnProperty('url') ?
-                                <motion.div
+                                <motion.div className = "about_top_image"
                                     variants={variants}
                                     initial="hidden_1"
                                     animate="enter_1"
@@ -83,7 +136,7 @@ export default function About ({ about, our_projects, header_footer }) {
                                     height={about.top_image.dimensions.height}
                                 /></motion.div> : ''}
                             {about.bottom_image.hasOwnProperty('url') ?
-                                <motion.div
+                                <motion.div className = "about_left_image"
                                     variants={variants}
                                     initial="hidden_2"
                                     animate="enter_2"
@@ -102,13 +155,13 @@ export default function About ({ about, our_projects, header_footer }) {
 
             <section className='container-fluid our_postulate_section'>
                 <div className="container">
-                    <h3>{about.our_postulate_name}</h3>
-                    <h2>{about.our_postulate_title}</h2>
+                    <h5>{about.our_postulate_name}</h5>
+                    <h3>{about.our_postulate_title}</h3>
                     <div className="row">
                         {
                             (about.we_are.map((item, index) => {
                                 return (
-                                    <motion.div key={index} className='col-md-3 col-sm-6'
+                                    <motion.div key={index} className='col-lg-3 col-md-6 col-sm-6'
                                                 initial="hidden" whileInView="visible"
                                                 viewport={{once: true}} key={index} variants={{
                                         hidden: {
@@ -119,7 +172,7 @@ export default function About ({ about, our_projects, header_footer }) {
                                             y: 0,
                                             opacity: 1,
                                             transition: {
-                                                delay: .1 * index,
+                                                delay: .07 * index,
                                                 type: "spring",
                                                 bounce: 0.4,
                                                 duration: .8
@@ -127,11 +180,11 @@ export default function About ({ about, our_projects, header_footer }) {
                                         }
                                     }}>
                                         <div>
-                                          <h3>.<span>we are</span></h3>
-                                          <h3>{item.we_are_title}</h3>
+                                          <h4>.<span>we are</span></h4>
+                                          <h4>{item.we_are_title}</h4>
                                         </div>
                                         <div>
-                                           <h4>{item.we_are_content}</h4>
+                                           <p>{item.we_are_content}</p>
                                         </div>
                                     </motion.div>
                                 )

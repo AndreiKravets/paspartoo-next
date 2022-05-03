@@ -1,0 +1,59 @@
+.service_we_offer {
+  background-color: $brand-btn;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  h5 {
+    color: white;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    @include _media-lg-down() {
+      margin-bottom: 35px;
+    }
+  }
+  h3{
+    color: $brand-primary;
+    font-weight: 600;
+    margin-bottom: 55px;
+    max-width: 700px;
+  }
+
+  .col-md-4 {
+    @include _media-md-down() {
+      margin-bottom: 30px;
+    }
+
+    div {
+      margin-right: 30px;
+
+      &:first-child {
+        h4 {
+          text-transform: uppercase;
+          color: $brand-primary;
+          margin-bottom: 0;
+          line-height: 1.4;
+          font-weight: 600;
+          letter-spacing: .1em;
+          span{
+            color: white;
+            margin-right: 5px;
+          }
+        }
+
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid $white;
+        @include _media-md-down() {
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+        }
+      }
+
+      &:last-child {
+        p {
+          color: $brand-primary;
+          line-height: 1.4em;
+        }
+      }
+    }
+  }
+}

@@ -98,7 +98,10 @@
   align-items: center;
   background-color: #0E0E0E;
   position: relative;
- h1{
+  @include _media-md-down() {
+    height: 200px;
+  }
+    h1{
    color: white;
    font-weight: 600;
    text-transform: uppercase;
@@ -123,7 +126,15 @@
 .project_about_section{
   padding-top: 120px;
   padding-bottom: 100px;
-  .project_about_section_left{
+  @include _media-lg-down() {
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+  @include _media-md-down() {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+    .project_about_section_left{
     a{
       display: inline-flex;
       margin: auto;
@@ -139,11 +150,27 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #151515;
+      &:hover{
+        background: $brand-pink-hover;
+      }
+      @include _media-lg-down() {
+        width: 252px;
+        height: 50px;
+        padding-top: 3px;
+        font-size: 15px;
+      }
     }
   }
   .project_about_section_right{
     padding-left: 150px;
-    div{
+    @include _media-lg-down() {
+      padding-left: 30px;
+    }
+    @include _media-md-down() {
+      padding-left: 15px;
+      margin-top: 30px;
+    }
+      div{
       background-color: #F3F3F3;
       border-radius: 5px;
       padding: 30px;
@@ -175,32 +202,60 @@
 .project_big_image_section{
    background: $brand-btn;
   overflow: hidden;
-  background: linear-gradient(0deg, rgba(0,197,185,1) 85%, rgba(249,249,249,1) 85%);
+  background: linear-gradient(0deg, rgba(0,197,185,1) 75%, rgba(249,249,249,1) 75%);
+  padding-top: 100px;
+  margin-top: -100px;
   .container{
     margin-bottom: -4px;
   }
-  .col-12{
+  .row{
     display: flex;
-    div{
-      &:first-child{
-        width: 50%;
-        overflow: inherit !important;
-        z-index: 1;
+    padding-top: 100px;
+    margin-top: -100px;
+    @include _media-xs-down() {
+    flex-wrap: wrap;
+      display: block;
+    }
+      .big_image_left {
+     //width: 50%;
+     overflow: inherit !important;
+     z-index: 1;
+        @include _media-xs-down() {
+          width: 100%;
+          height: auto;
+        }
+     div {
+       width: 100%;
+       height: 100%;
+       overflow: inherit !important;
+     }
+
+     img {
+       max-width: 120% !important;
+       width: 120% !important;
+       right: -20% !important;
+       object-fit: cover;
+       object-position: top;
+       border-radius: 10px 10px 0 0;
+       @include _media-xs-down() {
+         max-width: 100% !important;
+         width: 100% !important;
+         right: 0 !important;
+         border-radius: 10px;
+       }
+     }
+   }
+     .big_image_right{
+        //width: 50%;
+       overflow: inherit !important;
+       z-index: 0;
+       @include _media-xs-down() {
+         //width: 100%;
+         //height: auto;
+       }
         div{
           width: 100%;
-        }
-        img{
-          max-width: 120% !important;
-          width: 120% !important;
-          right: -20% !important;
-          object-fit: cover;
-          object-position: top;
-        }
-      }
-      &:last-child{
-        width: 50%;
-        div{
-          width: auto;
+          height: 100%;
         }
         img{
           position: absolute;
@@ -219,21 +274,75 @@
           max-width: 120% !important;
           object-fit: cover;
           object-position: top;
+          border-radius: 10px;
+          @include _media-xs-down() {
+            min-width: 100% !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            left: 0 !important;
+            border-radius: 10px;
+          }
         }
       }
+
     }
-  }
 }
 
 .project_paspartoo_made_section{
   padding-top: 80px;
   padding-bottom: 80px;
-  h2{
-    margin-bottom: 30px;
+  @include _media-md-down() {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+    .project_paspartoo_made_section_left{
+    h2{
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+  }
+  .project_paspartoo_made_section_right{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 130px;
+    @include _media-lg-down() {
+      padding-left: 75px;
+    }
+    @include _media-md-down() {
+      padding-left: 15px;
+      margin-top: 10px;
+    }
+      div{
+      padding-right: 50px;
+        @include _media-lg-down() {
+          padding-right: 30px;
+        }
+        }
+    h3{
+      font-weight: 500;
+      font-size: 85px;
+      margin-bottom: 10px;
+      span{
+        color: $brand-hover;
+        margin-left: 6px;
+      }
+      @include _media-lg-down() {
+      font-size: 65px;
+      }
+      }
+    h5{
+      font-weight: 600;
+      max-width: 150px;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
   }
 }
 
 .project_last_section{
-  padding-top: 100px;
-  background-color: $brand-btn;
+  padding-top: 70px;
+  margin-bottom: 100px;
+  background: $brand-btn;
+  background: linear-gradient(0deg, rgba(249,249,249,1) 15%, rgba(0,197,185,1) 15%);
+
 }

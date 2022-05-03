@@ -208,7 +208,7 @@ body{
 }
 main{
 flex: 1;
-  @include _media-md-down() {
+  @include _media-lg-down() {
     padding-top: 70px;
   }
 }

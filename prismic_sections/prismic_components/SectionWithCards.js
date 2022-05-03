@@ -24,15 +24,6 @@ const SectionWithCards = (section) =>  {
                                     return(
                                     <div key={index} className={`${card.block} ${card.individual_class_name != null ? card.individual_class_name : ''}`}>
                                         <div className='card_inner'>
-                                            {card.image_block.url != null ?
-                                                <Image
-                                                loader={myLoader}
-                                                src={`${card.image_block.url}`}
-                                                alt={card.image_block.alt}
-                                                width={card.image_block.dimensions.width}
-                                                height={card.image_block.dimensions.height}
-                                            />
-                                            : false}
                                             <div className="card_content">
                                                 {RichText.render(card.title_block)}
                                                 {RichText.render(card.content_block)}

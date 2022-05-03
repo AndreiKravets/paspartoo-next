@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import SectionWithCards from "./prismic_components/SectionWithCards";
 import ServiceContactSection from "./prismic_components/ServiceContactSection";
 import ContentAndImage from "./prismic_components/ContentAndImage";
+import WeOffer from "./prismic_components/WeOffer";
 
 const PrismicBody = (body) => {
     body = body.body
@@ -23,6 +24,11 @@ const PrismicBody = (body) => {
                 if (section.slice_type == 'content_and_image') {
                     return (
                         <ContentAndImage section={section} index={index} key={index}/>
+                        )
+                }
+                if (section.slice_type == 'we_offer') {
+                    return (
+                        <WeOffer section={section} index={index} key={index}/>
                         )
                 }
             })}
