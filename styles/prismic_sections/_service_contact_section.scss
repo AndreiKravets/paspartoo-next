@@ -1,7 +1,14 @@
 .services_contact{
   padding-top: 80px;
   padding-bottom: 80px;
-  .row{
+  @include _media-small-down() {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @include _media-xss-down() {
+    padding-bottom: 50px;
+  }
+    .row{
     display: flex;
     align-items: center;
   }
@@ -17,6 +24,87 @@
   ul{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    @include _media-small-down() {
+    justify-content: left;
+      margin-top: 30px;
+    }
+    @include _media-xss-down() {
+      flex-wrap: wrap;
+    }
+    }
+}
+
+.pink_btn{
+  width: 50%;
+  margin-right: 15px;
+  @include _media-small-down() {
+    max-width: 225px;
+    width: 100%;
   }
+  @include _media-xss-down() {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+  }
+    a{
+    max-width: 225px;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $brand-hover;
+    border: 1px solid  $brand-hover;
+    font-weight: 500;
+    border-radius: 60px;
+    margin-left: auto;
+    &:hover{
+      background-color: $brand-pink-hover;
+      border: 1px solid  $brand-pink-hover;
+    }
+      @include _media-xss-down() {
+        max-width: 100%;
+        width: 100%;
+      }
+  }
+
+}
+.white_btn {
+  width: 50%;
+  @include _media-small-down() {
+    max-width: 225px;
+    width: 100%;
+  }
+  @include _media-xss-down() {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  a {
+    max-width: 225px;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    color: $brand-primary;
+    align-items: center;
+    justify-content: center;
+    background-color: unset;
+    color: $brand-hover;
+    border: 1px solid $brand-hover;
+    font-weight: 500;
+    border-radius: 60px;
+
+    &:hover {
+      background-color: $brand-pink-hover;
+      border: 1px solid $brand-pink-hover;
+    }
+
+    @include _media-xss-down() {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
 }

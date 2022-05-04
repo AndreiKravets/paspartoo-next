@@ -18,7 +18,7 @@ const Service = ({data, header_footer}) => {
         <>
             <MainContainer header_footer={header_footer}>
                 <section className="container service_top_section">
-                    {RichText.render(service.title)}
+                   <h1 className="h2">{service.service_title}</h1>
                     {RichText.render(service.description)}
                     <Image
                         loader={myLoader}

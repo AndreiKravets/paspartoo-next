@@ -412,7 +412,7 @@ img{
     @include _media-xs-down() {
       padding: 25px;
     }
-      h2{
+      h3{
       font-weight: 800;
       margin-bottom: 20px;
       letter-spacing: 1px;
@@ -498,7 +498,7 @@ height: 700px;
     }
   }
   .col-md-8{
-    h2{
+    h3{
       max-width: 600px;
       margin-bottom: 20px;
       font-weight: 500;

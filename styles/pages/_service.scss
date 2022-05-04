@@ -1,6 +1,12 @@
 .service_top_section{
-  text-align: center;
+  text-align: left;
   h1{
-    margin: 50px auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    max-width: 900px;
   }
+h6{
+  margin-bottom: 20px;
+}
 }

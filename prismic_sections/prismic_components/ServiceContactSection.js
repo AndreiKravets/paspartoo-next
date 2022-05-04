@@ -17,10 +17,10 @@ const ServiceContactSection = (section) =>  {
                     </div>
                     <div className="col-md-6">
                         <ul>
-                            <li className="white_btn">
+                            <li className="pink_btn">
                                 <a href={`tel:${section.primary.phone_number}`}>{section.primary.phone_number}</a>
                             </li>
-                            <li className="orange_btn">
+                            <li className="white_btn">
                                 <Link href="/contacts">Contacts</Link>
                             </li>
                         </ul>

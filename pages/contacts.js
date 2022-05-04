@@ -10,10 +10,36 @@ export default function Contacts({ data, header_footer }) {
     return (
         <MainContainer header_footer={header_footer}>
             <section>
-                <div className="container form_container">
-                    <h1>Get in touch</h1>
-                    <h5>Let's talk about how to make your business better</h5>
-                    <ContactForm />
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-4">
+                          <h1 className="h2">
+                              Ready to discuss your project?
+                          </h1>
+                            <h4>Use the form or write us an e-mail: </h4>
+                            <a href="mailto:info@paspartoo.com">info@paspartoo.com</a>
+                            <a href="tel:+17029704043">+1 702 970 4043</a>
+                        </div>
+                        <div className="col-lg-8">
+                            <ContactForm />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-4">
+                             <h3>United States</h3>
+                            <p>18851 NE 29th Ave, Suite 700 Miami, FL 33180</p>
+                        </div>
+                        <div className="col-md-4">
+                             <h3>Portugal</h3>
+                            <p>Rua dos Anjos 1F
+                                Lisboa, 1150-032</p>
+                        </div>
+                        <div className="col-md-4">
+                             <h3>Ukraine</h3>
+                            <p>Sobornyi Ave, 160
+                                Zaporizhzhia, Ukraine</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 

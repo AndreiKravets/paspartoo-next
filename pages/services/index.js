@@ -26,7 +26,7 @@ const Services = ({services, header_footer}) => {
                                         <article className="col-md-4" key={item.id} >
                                             <div className="blog_item_inner">
                                                 <img src={item.data.banner.url} alt={item.data.banner.alt}/>
-                                                <Link href={`/services/${item.uid}`}>{item.data.title[0].text}</Link>
+                                                <Link href={`/services/${item.uid}`}>{item.data.service_title}</Link>
                                            </div>
                                         </article>
                                     )

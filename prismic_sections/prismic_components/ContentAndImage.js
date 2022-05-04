@@ -10,7 +10,7 @@ const ContentAndImage = (section) => {
     }
     return (
         <section
-            className={`${section.primary.section} ${section.primary.individual_class_name != null ? section.primary.individual_class_name : ''}`}>
+            className="service_image_section">
             <div className="container">
                 {section.items.map((card, index) => {
                     if (card.block == "title_block") {
@@ -25,7 +25,7 @@ const ContentAndImage = (section) => {
                     } else {
                         return (
                             <div key={index} className={`row section_image_row ${card.block} ${card.individual_class_name != null ? card.individual_class_name : ''}`}>
-                                <div className="col-md-6 image_block">
+                                <div className="col-lg-6 image_block">
                                     <div className='section_image_inner'>
                                         {card.image.url != null ?
                                             <Image
@@ -38,7 +38,7 @@ const ContentAndImage = (section) => {
                                             : false}
                                     </div>
                                 </div>
-                                <div className="col-md-6 content_block">
+                                <div className="col-lg-6 content_block">
                                     <div className='section_image_inner'>
                                             {RichText.render(card.content)}
                                     </div>
