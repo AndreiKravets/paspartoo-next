@@ -8,10 +8,10 @@ const Index = ({blog, category, header_footer}) => {
     header_footer = header_footer
     blog = blog.results
     category = category.results
-    console.log(blog)
-    console.log(category)
+    const first_posts = blog.slice(0, 4)
 
-    const [posts, setPosts] = useState(() => blog);
+
+    const [posts, setPosts] = useState(() => first_posts);
 
     function createPagination (posts, count)  {
         let paginationLength = [];
@@ -41,7 +41,6 @@ const Index = ({blog, category, header_footer}) => {
     }
 
     function currentPosts(posts, count, current_page ) {
-        console.log(posts.slice(current_page * count - count, current_page * count))
         let newPosts = posts.slice(current_page * count - count, current_page * count)
         return (newPosts)
     }
@@ -50,44 +49,72 @@ const Index = ({blog, category, header_footer}) => {
             <MainContainer header_footer={header_footer}>
                 <section className="container blog_top_section">
                     <div>
-                    <h1>Blog</h1>
+                    <h1>Meet Insights</h1>
                     </div>
                 </section>
                 <section className="blog_section">
                     <div className="container">
-                        <ul className="category_blog">
-                            <li className="active">
-                                All
-                            </li>
-                            {
-                                (category.map((category) => {
-                                    return(
-                                        <li key={category.id}>
-                                            <Link href={`/blog/${category.slugs[0]}`}>{category.data.name}</Link>
-                                        </li>
-                                    )
-                                }))
-                            }
-                        </ul>
+                        {/*<ul className="category_blog">*/}
+                        {/*    <li className="active">*/}
+                        {/*        All*/}
+                        {/*    </li>*/}
+                        {/*    {*/}
+                        {/*        (category.map((category) => {*/}
+                        {/*            return(*/}
+                        {/*                <li key={category.id}>*/}
+                        {/*                    <Link href={`/blog/${category.slugs[0]}`}>{category.data.name}</Link>*/}
+                        {/*                </li>*/}
+                        {/*            )*/}
+                        {/*        }))*/}
+                        {/*    }*/}
+                        {/*</ul>*/}
                         <div className="row">
+                            <div className="col-md-6">
                             {
-                                (posts.map((item) => {
+                                (posts.map((item, index) => {
                                     return(
-                                        <article className="col-md-4" key={item.id} >
-                                            <div className="blog_item_inner">
-                                                <img src={item.data.background_image.url} alt={item.data.background_image.alt}/>
-                                                <a href={`/blog/all/${item.uid}`} className="h3">{item.data.title[0].text}</a>
-                                            </div>
-                                        </article>
+                                        <>
+                                        { index == 0 ?
+                                    <article className="blog_left_article" key={item.id}>
+                                        <div className="blog_item_inner">
+                                            {item.data.background_image_big ?
+                                                <img src={item.data.background_image_big.url}
+                                                 alt={item.data.background_image_big.alt}/> : ''}
+                                            <a href={`/blog/all/${item.uid}`}
+                                               className="h3">{item.data.title[0].text}</a>
+                                        </div>
+                                    </article> : false}
+                                    </>
                                     )
                                 }))
                             }
+                            </div>
+                            <div className="col-md-6">
+                                {
+                                    (posts.map((item, index) => {
+                                        return(
+                                            <>
+                                                { index >0 ?
+                                                    <article className="blog_right_article" key={item.id}>
+                                                        <div className="blog_item_inner">
+                                                            {item.data.background_image_big ?
+                                                                <img src={item.data.background_image_small.url}
+                                                                 alt={item.data.background_image_small.alt}/> :''}
+                                                            <a href={`/blog/all/${item.uid}`}
+                                                               className="h3">{item.data.title[0].text}</a>
+                                                        </div>
+                                                    </article> : false}
+                                            </>
+                                        )
+                                    }))
+                                }
+                            </div>
                         </div>
 
                     </div>
 
                 </section>
-                    {createPagination(blog,6)}
+                    {createPagination(blog,4)}
             </MainContainer>
         </>
     )
