@@ -7,18 +7,31 @@ import {RichText} from "prismic-reactjs";
 
 const Post = ({blog, header_footer}) => {
     header_footer = header_footer
-    blog = blog
+    blog = blog.results[0].data
     console.log(blog)
     return (
         <>
             <MainContainer header_footer={header_footer}>
-                <section className="container post_top_section">
-
+                <section className="post_top_section" style={{backgroundImage: "url(" + blog.banner.url + ")"}}>
+                                <div className="container">
+                                    <h1 className="h2">{blog.title[0].text}</h1>
+                                 </div>
                 </section>
-                <section className="blog_section">
+                <section className="post_section">
+                                    <div className="container-fluid">
+                                     <div className="container">
+                                       <div className="row">
+                                        <div className="col-12">
+                                          {RichText.render(blog.top_content)}
+                                        </div>
+                                     </div>
+                                     </div>
+                                    </div>
                     <div className="container">
                         <div className="row">
-                          {RichText.render(blog.results[0].data.content)}
+                        <div className="col-12">
+                          {RichText.render(blog.content)}
+                          </div>
                         </div>
                     </div>
 

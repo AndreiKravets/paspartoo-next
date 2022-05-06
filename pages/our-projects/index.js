@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MainContainer from "../../components/MainContainer";
 import Prismic from "@prismicio/client";
 import Link from "next/link";
@@ -17,7 +17,10 @@ export default function OurProjects ({our_projects, projects, category, header_f
     projects = projects.results
     category = category.results
     console.log(our_projects)
-    const first_projects = projects.slice(0, 3)
+    const [countPosts, setCountPosts] = useState(3);
+    const [first_projects, setFirst_projects] = useState(()=>projects.slice(0, countPosts));
+    // console.log(firstprojects)
+    // const first_projects = projects.slice(0, 3)
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
@@ -76,6 +79,10 @@ export default function OurProjects ({our_projects, projects, category, header_f
                                     )
                                 }))
                             }
+                            {countPosts < projects.length ? <button onClick={() => {
+                                setFirst_projects(projects.slice(0, countPosts+3))
+                                setCountPosts(countPosts+3)
+                            }} className="load_more">load more</button>: ''}
                         </div>
 
                     </div>

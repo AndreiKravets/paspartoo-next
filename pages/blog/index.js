@@ -69,7 +69,7 @@ const Index = ({blog, category, header_footer}) => {
                         {/*    }*/}
                         {/*</ul>*/}
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-7">
                             {
                                 (posts.map((item, index) => {
                                     return(
@@ -77,9 +77,10 @@ const Index = ({blog, category, header_footer}) => {
                                         { index == 0 ?
                                     <article className="blog_left_article" key={item.id}>
                                         <div className="blog_item_inner">
-                                            {item.data.background_image_big ?
-                                                <img src={item.data.background_image_big.url}
-                                                 alt={item.data.background_image_big.alt}/> : ''}
+                                            {item.data.background_image_big.url ?
+                                                <a href={`/blog/all/${item.uid}`}>
+                                                    <img src={item.data.background_image_big.url}
+                                                 alt={item.data.background_image_big.alt}/></a> : ''}
                                             <a href={`/blog/all/${item.uid}`}
                                                className="h3">{item.data.title[0].text}</a>
                                         </div>
@@ -89,7 +90,7 @@ const Index = ({blog, category, header_footer}) => {
                                 }))
                             }
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-5">
                                 {
                                     (posts.map((item, index) => {
                                         return(
@@ -97,11 +98,11 @@ const Index = ({blog, category, header_footer}) => {
                                                 { index >0 ?
                                                     <article className="blog_right_article" key={item.id}>
                                                         <div className="blog_item_inner">
-                                                            {item.data.background_image_big ?
-                                                                <img src={item.data.background_image_small.url}
-                                                                 alt={item.data.background_image_small.alt}/> :''}
+                                                            {item.data.background_image_small.url ?
+                                                                <a href={`/blog/all/${item.uid}`}>  <img src={item.data.background_image_small.url}
+                                                                 alt={item.data.background_image_small.alt}/></a> :''}
                                                             <a href={`/blog/all/${item.uid}`}
-                                                               className="h3">{item.data.title[0].text}</a>
+                                                               className="h4">{item.data.title[0].text}</a>
                                                         </div>
                                                     </article> : false}
                                             </>
