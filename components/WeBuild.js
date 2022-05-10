@@ -28,7 +28,7 @@ const slider_we_build = {
         }
     ]
 }
-export default function Header ({our_projects}) {
+export default function WeBuild ({our_projects}) {
 
     our_projects = our_projects
     const [popup, setPopup] = useState(false);
@@ -45,7 +45,7 @@ export default function Header ({our_projects}) {
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h2 className="h4">{our_projects.we_build_title}</h2>
+                        <h2 className="h5">{our_projects.we_build_title}</h2>
                     </div>
                 </div>
                 <div className="row">

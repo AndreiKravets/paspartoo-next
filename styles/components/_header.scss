@@ -5,7 +5,7 @@
 .header_fluid{
   width: 100%;
   z-index: 9999;
-  padding: 0 40px;
+  padding: 0 10px;
   @include _media-lg-down() {
     top: 0px;
     width: 100%;
@@ -24,7 +24,7 @@
     color: $brand-primary;
     display: flex;
     align-items: center;
-    font-size: 17px;
+    font-size: 14px;
     a{
       display: flex;
       align-items: center;
@@ -51,14 +51,15 @@
     a{
       font-weight: 600;
       margin-left: 10px;
-      font-size: 18px;
+      margin-bottom: -5px;
+      font-size: 14px;
       color: $brand-primary;
       cursor: pointer;
       @include _media-big-down() {
-        font-size: 18px;
+        font-size: 14px;
       }
       @include _media-lg-down() {
-        font-size: 16px;
+        font-size: 14px;
       }
       &:hover{
         color: $brand-btn;
@@ -69,8 +70,8 @@
       -webkit-border-radius: 5px;
       border-radius: 40px;
       border: 0;
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 400;
+      font-size: 14px;
       color: $brand-primary;
       display: flex;
       align-items: center;
@@ -104,7 +105,7 @@
       img,svg{
         width: 100%;
         height: 100%;
-        max-width: 230px;
+        max-width: 166px;
         object-fit: contain;
         display: block !important;
       }
@@ -159,110 +160,20 @@
           a{
             vertical-align:bottom;
             color: $brand-primary;
-            font-weight: 500;
-            font-size: 18px;
+            font-family: $family-title;
+            font-weight: 400;
+            font-size: 14px;
             text-transform: uppercase;
             height: 100%;
             display: flex;
             align-items: center;
             @include _media-big-down() {
-              font-size: 18px;
-              text-transform: capitalize;
+              font-size: 14px;
             }
             @include _media-lg-down() {
             }
             &:hover {
               color: $brand-hover;
-            }
-          }
-          &.current-menu-item,&.current_page_parent {
-            a {
-              color: $brand-hover !important;
-              position: relative;
-            }
-          }
-
-
-
-          &.menu_item_has_children{
-            position: relative;
-            .sub-menu {
-              left: -10px;
-              top: 50px;
-              opacity: 0;
-              z-index: -1;
-              position: absolute;
-              min-width: 230px;
-              display: block;
-              border-radius: 3px;
-              box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.178677);
-              transition: 0.3s ease-out;
-              transition-delay: .3s;
-              width: 0px;
-              height: 0px;
-              overflow: hidden;
-              @include _media-md-down() {
-                left: 20px;
-              }
-
-              li{
-                display: block;
-                text-align: left;
-                margin-left: 0px;
-                padding: 0;
-                border-top: 0.5px solid #6c6767;
-                transition: 0.1s ease-out;
-                transition-delay: .1s;
-                &:hover{
-                  background-color: $grey10;
-                }
-                &:first-child {
-                  border-top: 0;
-                }
-                a{
-                  display: inline-block;
-                  width: 100%;
-                  padding: 18px 30px 15px 30px;
-                  margin-bottom: 0;
-                  font-weight: 500;
-                  vertical-align:bottom;
-                  color: white;
-                  &:hover {
-                    color: $grey100;
-                  }
-                }
-                &.current-menu-item,&.current_page_parent {
-                  a {
-                    position: relative;
-                    &:before{
-                      content: " ";
-                      width: 106%;
-                      height: 2.5px;
-                      position: absolute;
-                      bottom: -1px;
-                      left:0;
-                      background-color: white;
-                    }
-                  }
-                }
-                &.current-menu-item  {
-                  a {
-                    display: inline-block;
-                    vertical-align:bottom;
-                    opacity: 1;
-                  }
-                }
-              }
-            }
-          }
-          &:hover {
-            .sub-menu {
-              top: 70px;
-              opacity: 1;
-              background-color: $brand-hover;
-              z-index: 999;
-              width: auto;
-              height: auto;
             }
           }
         }
@@ -301,7 +212,7 @@
   opacity: 1;
   top: 0;
   padding: 0;
-  padding: 0 40px;
+  padding: 0 10px;
   color: white !important;
   .header_btn{
     color: white !important;

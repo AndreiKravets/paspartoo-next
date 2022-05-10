@@ -5,11 +5,13 @@ import ContentAndImage from "./prismic_components/ContentAndImage";
 import WeOffer from "./prismic_components/WeOffer";
 
 const PrismicBody = (body) => {
-    body = body.body
-    console.log(body)
+
+    const content = body.content
+    const project_slider = body.project_slider
+
     return (
         <Fragment>
-            {body.map((section, index) => {
+            {content.map((section, index) => {
                 console.log(section.items)
                 if (section.slice_type == 'section_with_cards') {
                     return (
@@ -18,7 +20,7 @@ const PrismicBody = (body) => {
                 }
                 if (section.slice_type == 'service_contact_section') {
                     return (
-                        <ServiceContactSection section={section} index={index} key={index}/>
+                        <ServiceContactSection section={section} project_slider={project_slider} index={index} key={index}/>
                         )
                 }
                 if (section.slice_type == 'content_and_image') {

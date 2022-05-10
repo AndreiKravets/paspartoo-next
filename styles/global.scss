@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'RF Dewi Expanded';
+  src: url('/fonts/RFDewiExpanded-Regular.eot');
+  src: url('/fonts/RFDewiExpanded-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/RFDewiExpanded-Regular.woff2') format('woff2'),
+  url('/fonts/RFDewiExpanded-Regular.woff') format('woff'),
+  url('/fonts/RFDewiExpanded-Regular.ttf') format('truetype'),
+  url('/fonts/RFDewiExpanded-Regular.svg#RFDewiExpanded-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
 @import "settings";
 @import "prismic_sections";
 @import "components";

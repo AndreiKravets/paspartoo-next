@@ -93,7 +93,7 @@ export default function OurProjects ({our_projects, projects, category, header_f
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 projects_form_section_title">
-                                <h2 className="h1">{our_projects.form_title}</h2>
+                                <h2>{our_projects.form_title}</h2>
                             </div>
                             <div className="col-lg-6 projects_form_section_form">
                                 <ContactForm />

@@ -4,10 +4,14 @@ import Prismic from "@prismicio/client";
 import {RichText} from "prismic-reactjs";
 import Image from "next/image";
 import {motion} from "framer-motion";
+import RecentProjects from "../../../components/RecentProjects";
 
 
 
-const Post = ({project, header_footer}) => {
+
+const Post = ({project, header_footer, projects}) => {
+    projects = projects.results
+    console.log(projects.results)
     header_footer = header_footer
     project = project.results[0].data
     console.log(project)
@@ -145,6 +149,7 @@ const Post = ({project, header_footer}) => {
                              }
                   </div>
                  </section>
+                 <RecentProjects project_slider={projects} />
             </MainContainer>
         </>
     )
@@ -157,7 +162,9 @@ export async function getServerSideProps({ query }) {
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const project = await client.query(Prismic.Predicates.at('my.project.uid', productId))
+    const projects = await client.query(Prismic.Predicates.at('document.type', 'project'))
     return {props: {
+            projects:projects,
             header_footer:header_footer,
             productId: productId,
             project: project

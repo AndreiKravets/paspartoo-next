@@ -18,17 +18,18 @@
     padding-bottom: 40px;
   }
     .about_top_section_content{
-    padding-right: 70px;
+    //padding-right: 70px;
       @include _media-small-down() {
         padding-right: 15px;
       }
-        h1{
+        h2{
       margin-top: 25px;
       margin-bottom: 35px;
-      line-height: 0.9;
+      line-height: 1;
+          font-weight: 600;
       strong{
         color: $brand-hover;
-        font-weight: 400;
+        font-weight: 600;
         display: block;
       }
           @include _media-small-down() {
@@ -89,7 +90,6 @@
   .about_top_section_image{
     position: relative;
    .about_top_image{
-     height: 100%;
      padding-bottom: 80px;
      div{
        height: 100%;
@@ -219,10 +219,10 @@
 }
 
 .our_team_section{
-  padding-top: 100px;
+  padding-top: 70px;
   padding-bottom: 100px;
-  h3{
-    margin-bottom: 5px;
+  .h5{
+    margin-bottom: 40px;
     text-transform: uppercase;
   }
   .our_team_slider{

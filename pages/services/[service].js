@@ -6,10 +6,11 @@ import {RichText} from "prismic-reactjs";
 import PrismicBody from "../../prismic_sections/PrismicBody";
 
 
-const Service = ({data, header_footer}) => {
+const Service = ({data, header_footer, projects}) => {
+
     header_footer = header_footer
+    const project = projects.results
     const service = data.results[0].data
-    console.log(service)
 
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
@@ -29,7 +30,7 @@ const Service = ({data, header_footer}) => {
                     />
                 </section>
 
-                <PrismicBody body={service.body}/>
+                <PrismicBody project_slider = {project} content={service.body} />
 
             </MainContainer>
         </>
@@ -42,9 +43,11 @@ export async function getServerSideProps({query}) {
     const productId = query.service;
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
+    const projects = await client.query(Prismic.Predicates.at('document.type', 'project'))
     const service = await client.query(Prismic.Predicates.at('my.services.uid', productId))
     return {
         props: {
+            projects:projects,
             header_footer:header_footer,
             data: service
         }

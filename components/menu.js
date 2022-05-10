@@ -5,7 +5,7 @@ const Menu = ()=>  {
         return (
             <ul>
                 <li>
-                    <Link href="/services">Services</Link>
+                    <Link href="/services" className="menu_services">Services</Link>
                 </li>
                 <li>
                     <Link href="/about">About Us</Link>

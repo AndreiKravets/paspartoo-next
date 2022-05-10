@@ -196,7 +196,7 @@ export default function About ({ about, our_projects, header_footer }) {
 
             <section className='container-fluid our_team_section'>
                 <div className="container">
-                   <h3>{about.our_team_name}</h3>
+                   <h2 className="h5">{about.our_team_name}</h2>
                 </div>
              <div className="our_team_slider">
               <Slider {...slider_our_team}>
