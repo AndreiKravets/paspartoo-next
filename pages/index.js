@@ -5,7 +5,7 @@ import {RichText} from 'prismic-reactjs';
 import Image from "next/image";
 import Link from "next/link"
 import {motion} from "framer-motion";
-import {BsChevronCompactRight, BsChevronCompactLeft} from "react-icons/bs";
+import {BsArrowRight, BsArrowLeft} from "react-icons/bs";
 import Slider from "react-slick";
 
 
@@ -30,8 +30,8 @@ export default function Home({homepage, projects, category, header_footer}) {
         slidesToShow: 4,
         slidesToScroll: 1,
         swipeToSlide: true,
-        nextArrow: <BsChevronCompactRight/>,
-        prevArrow: <BsChevronCompactLeft/>,
+        nextArrow: <BsArrowRight/>,
+        prevArrow: <BsArrowLeft/>,
         responsive: [
             {
                 breakpoint: 1200,
@@ -73,8 +73,8 @@ export default function Home({homepage, projects, category, header_footer}) {
         slidesToShow: 4,
         slidesToScroll: 1,
         swipeToSlide: true,
-        nextArrow: <BsChevronCompactRight/>,
-        prevArrow: <BsChevronCompactLeft/>,
+        nextArrow: <BsArrowRight/>,
+        prevArrow: <BsArrowLeft/>,
         responsive: [
             {
                 breakpoint: 1200,
@@ -117,8 +117,8 @@ export default function Home({homepage, projects, category, header_footer}) {
         slidesToShow: 5,
         slidesToScroll: 1,
         swipeToSlide: true,
-        nextArrow: <BsChevronCompactRight/>,
-        prevArrow: <BsChevronCompactLeft/>,
+        nextArrow: <BsArrowRight/>,
+        prevArrow: <BsArrowLeft/>,
         responsive: [
             {
                 breakpoint: 900,
@@ -148,8 +148,8 @@ export default function Home({homepage, projects, category, header_footer}) {
         autoplay: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: <BsChevronCompactRight/>,
-        prevArrow: <BsChevronCompactLeft/>
+        nextArrow: <BsArrowRight/>,
+        prevArrow: <BsArrowLeft/>,
     }
 
     const myLoader = ({src, width, quality}) => {

@@ -347,6 +347,32 @@
     padding-top: 45px;
     padding-bottom: 30px;
   }
+  .slick-next, .slick-prev{
+    left: 0px;
+    bottom: -40px;
+    top:auto;
+    color: $white;
+    position: absolute;
+    font-size: 150px;
+    path{
+      font-size: 100px;
+      width: 100px;
+      height: 30px;
+    }
+    &:before{
+      font-size: 100px;
+    }
+    &:hover{
+      color: $brand-primary;
+    }
+  }
+  .slick-next{
+    left: 40px;
+    color: $brand-primary;
+    &:hover{
+      color: $white;
+    }
+  }
     .col-lg-6{
     &:first-child{
       @include _media-md-down() {

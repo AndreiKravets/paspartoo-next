@@ -42,6 +42,9 @@ export default function Contacts({ data, header_footer }) {
                         </div>
                     </div>
                 </div>
+                <div className="container-fluid">
+                    <img src="/map.jpg" alt="map"/>
+                </div>
             </section>
 
         </MainContainer>

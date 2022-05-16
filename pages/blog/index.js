@@ -9,7 +9,7 @@ const Index = ({blog, category, header_footer}) => {
     blog = blog.results
     category = category.results
     const first_posts = blog.slice(0, 4)
-
+    console.log(first_posts)
 
     const [posts, setPosts] = useState(() => first_posts);
 
@@ -111,11 +111,21 @@ const Index = ({blog, category, header_footer}) => {
                                 }
                             </div>
                         </div>
-
+                        {createPagination(blog,4)}
                     </div>
-
+                    <div className="container-fluid">
+                        <div className="container">
+                            <div className="row">
+                            <div className="col-sm-6">
+                                <h2>ENHANCES <span>YOUR</span> INNOVATION</h2>
+                            </div>
+                            <div className="col-sm-6">
+                                <img src="/iPhone.png" alt=""/>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </section>
-                    {createPagination(blog,4)}
             </MainContainer>
         </>
     )

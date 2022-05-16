@@ -2,6 +2,7 @@ import React from 'react';
 import MainContainer from "../../../components/MainContainer";
 import Prismic from "@prismicio/client";
 import {RichText} from "prismic-reactjs";
+import ContactForm from "../../../components/ContactForm"
 
 
 
@@ -36,6 +37,18 @@ const Post = ({blog, header_footer}) => {
                     </div>
 
                 </section>
+                  <section className="projects_form_section">
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-lg-6 projects_form_section_title">
+                                                <h2>Ready to discuss your project?</h2>
+                                            </div>
+                                            <div className="col-lg-6 projects_form_section_form">
+                                                <ContactForm />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
             </MainContainer>
         </>
     )
