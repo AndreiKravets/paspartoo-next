@@ -165,13 +165,34 @@
 .home_why_us_section{
   background-color: $brand-primary;
   padding: 100px 0 150px;
+  z-index: 1;
+  position: relative;
+  overflow: inherit;
+  .pink_arrow{
+    position: absolute;
+    top: -130px;
+    height: 300px;
+    object-fit: contain;
+    left: 50%;
+    margin-left: -60px;
+  }
   @include _media-lg-down() {
     padding: 80px 0 100px;
+    .pink_arrow{
+      height: 200px;
+      top: -80px;
+      margin-left: -40px;
+    }
   }
   @include _media-md-down() {
     padding: 60px 0 90px;
   }
-  @include _media-xs-down() {
+  @include _media-small-down() {
+    .pink_arrow {
+    display: none;
+    }
+    }
+    @include _media-xs-down() {
     padding: 45px 0 60px;
   }
     .name_section{
@@ -519,7 +540,7 @@ height: 700px;
   padding-bottom: 80px;
   @include _media-md-down() {
     padding-top: 60px;
-    padding-bottom: 0px;
+    padding-bottom: 40px;
   }
     .col-12{
     h2{

@@ -1,5 +1,5 @@
 footer{
-  color: #6E8999;
+  color: $white;
   @include _media-small-down() {
   text-align: center;
     padding-top: 20px;
@@ -15,31 +15,28 @@ footer{
       justify-content: space-between;
       align-items: center;
       position: relative;
-      @include _media-small-down() {
-      padding-top: 70px;
-        min-height: 150px;
+      @include _media-xs-down() {
+       min-height: 70px;
+        img{
+          margin: auto;
+        }
       }
         ul{
         display: flex;
         li{
           margin-right: 15px;
           a{
-            color: #6E8999;
+            color: $white;
             font-size: 22px;
             &:hover{
-              color: white;
+              color: $brand-btn;
             }
           }
         }
-      }
-      img{
-        @include _media-small-down() {
-        position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          top: 30px;
-        }
-        }
+          @include _media-xs-down() {
+                 display: none;
+          }
+          }
     }
 
   }
@@ -47,15 +44,22 @@ footer{
   .footer_block_fluid{
     background-color: #171C1F;
     padding-top: 68px;
-    .footer_block{
+    @include _media-small-down() {
+      padding-top: 55px;
+      padding-bottom: 55px;
+    }
+    @include _media-xs-down() {
+      padding-top: 40px;
+    }
+      .footer_block{
       .contacts{
         .phone a {
           font-size: 32px;
           font-weight: 700;
-          color: #6E8999;
+          color: $white;
           margin-bottom: 40px;
           &:hover{
-            color: #CEE0BE;
+            color: $brand-btn;
           }
         }
         a{
@@ -66,29 +70,85 @@ footer{
           margin-bottom: 30px;
           svg{
             margin-right: 10px;
-            color: #6E8999;
+            color: $white;
           }
         }
-      }
+        @include _media-md-down() {
+         a{ font-size: 18px;}
+          .phone a {
+            font-size:18px;
+            margin-bottom: 20px;
+          }
+        }
+          @include _media-small-down() {
+          margin-bottom: 25px;
+          .phone a {
+            font-size:27px;
+            margin-bottom: 20px;
+          }
+          a{
+            justify-content: center;
+            font-size: 16px;
+            margin-bottom: 15px;
+          }
+        }
+        }
       h6{
-        color: #6E8999;
+        color: $white;
         font-weight: 700;
         font-size: 16px;
         letter-spacing: 1px;
         margin-bottom: 18px;
       }
       a {
-        color: #6E8999;
+        color: $white;
         &:hover{
-          color: #CEE0BE;
+          color: $brand-btn;
         }
       }
       ul{
         padding-bottom: 35px;
         li{
-          padding-bottom: 7px;
+          padding-bottom: 12px;
           a{
 
+          }
+        }
+      }
+    }
+  }
+  .contacts{
+    .footer_social_sm{
+      display: none;
+      justify-content: center;
+      margin-bottom: 0;
+      padding-bottom: 0 !important;
+        li {
+          margin-right: 5px;
+          margin-left: 5px;
+
+          a {
+            color: $white;
+            font-size: 20px;
+
+            &:hover {
+              color: $brand-btn;
+            }
+          }
+        }
+        @include _media-xs-down() {
+          display: flex;
+        }
+    }
+    .phone{
+      .footer_social_sm{
+        a{
+          font-size: 18px !important;
+          padding: 15px;
+          border: 1px solid white;
+          border-radius: 50%;
+          svg{
+            margin: 0;
           }
         }
       }

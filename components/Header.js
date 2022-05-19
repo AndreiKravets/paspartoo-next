@@ -83,7 +83,7 @@ export default function Header ({header}) {
             <div className="container-fluid">
                 <div className="row head_menu valign-wrapper">
                     <div className="col-auto header_logo">
-                        {header ? <img src={header.results[0].data.light_logo.url} alt=""/> : ''}
+                        {header ? <Link href="/"><a><img src={header.results[0].data.light_logo.url} alt=""/></a></Link> : ''}
                     </div>
                     <div className="col head_menu_col">
                         <div className="menu-menu-container">
@@ -92,7 +92,9 @@ export default function Header ({header}) {
                     </div>
                     <div className="col-auto header_btn">
                         <a href="tel:7029704043"><span><FaPhoneAlt /></span> 702-970-4043</a>
-                        <button className="quote app_form">Get a Quote</button>
+                        <button className="quote app_form" onClick={() => {
+                            setPopup(true)
+                        }}>Get a Quote</button>
                     </div>
                 </div>
             </div>

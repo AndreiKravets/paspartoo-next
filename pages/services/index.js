@@ -17,17 +17,15 @@ const Services = ({services, header_footer}) => {
                         <h1>Services</h1>
                     </div>
                 </section>
-                <section className="blog_section">
+                <section className="service_section">
                     <div className="container">
                         <div className="row">
                             {
                                 (services.map((item) => {
                                     return(
-                                        <article className="col-md-4" key={item.id} >
-                                            <div className="blog_item_inner">
+                                        <article className="col-12" key={item.id} >
                                                 <img src={item.data.banner.url} alt={item.data.banner.alt}/>
-                                                <Link href={`/services/${item.uid}`}>{item.data.service_title}</Link>
-                                           </div>
+                                                <Link href={`/services/${item.uid}`} ><a className="h4">{item.data.service_title}</a></Link>
                                         </article>
                                     )
                                 }))

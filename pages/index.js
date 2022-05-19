@@ -307,6 +307,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                 </video>
             </section>
             <section className="container-fluid home_why_us_section">
+                <img src="/pink_arrow.svg" className="pink_arrow" alt=""/>
                 <div className="container">
                     <div className="row name_section">
                         <div className="col-12">
