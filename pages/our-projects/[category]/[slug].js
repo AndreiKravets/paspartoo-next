@@ -30,7 +30,7 @@ const Post = ({project, header_footer, projects}) => {
                                                                                height={project.banner.dimensions.height}
                                                                            />
                    <div className="container">
-                        <h1>{project.title}</h1>
+                        <h1 className="h2">{project.title}</h1>
                     </div>
                 </section>
                 <section className="project_about_section">
@@ -42,7 +42,7 @@ const Post = ({project, header_footer, projects}) => {
                       </div>
                       <div className="col-lg-6 project_about_section_right">
                       <div>
-                         <h2>Project Summary</h2>
+                         <h3>Project Summary</h3>
                          {RichText.render(project.project_summary_list)}
                       </div>
                       </div>

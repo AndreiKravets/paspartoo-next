@@ -1,5 +1,5 @@
 .our_projects_section{
-  padding-top: 50px;
+  padding-top: 70px;
   padding-bottom: 100px;
   @include _media-lg-down() {
     padding-bottom: 50px;
@@ -14,8 +14,11 @@
   }
     h1{
     font-weight: 600;
-    margin-bottom: 25px;
-  }
+    margin-bottom: 45px;
+      @include _media-small-down() {
+        margin-bottom: 30px;
+      }
+      }
   .projects_row{
     display: flex;
     margin-bottom: 40px;
@@ -126,7 +129,6 @@
     h1{
    color: white;
    font-weight: 600;
-   text-transform: uppercase;
  }
   div{
     &:first-child{
@@ -184,7 +186,7 @@
     }
   }
   .project_about_section_right{
-    padding-left: 150px;
+    padding-left: 130px;
     @include _media-lg-down() {
       padding-left: 30px;
     }
@@ -194,11 +196,12 @@
     }
       div{
       background-color: #F3F3F3;
-      border-radius: 5px;
+      border-radius: 10px;
       padding: 30px;
     }
-    h2{
+    h3{
       margin-bottom: 30px;
+      font-weight: 600;
     }
     ul{
       li{
@@ -318,9 +321,10 @@
     padding-bottom: 60px;
   }
     .project_paspartoo_made_section_left{
-    h2{
+    h3{
       margin-bottom: 30px;
       font-weight: 600;
+      line-height: 1.2;
     }
   }
   .project_paspartoo_made_section_right{
@@ -341,8 +345,8 @@
         }
         }
     h3{
-      font-weight: 500;
-      font-size: 85px;
+      font-weight: 600;
+      font-size: 75px;
       margin-bottom: 10px;
       span{
         color: $brand-hover;
