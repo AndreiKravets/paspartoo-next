@@ -6,8 +6,8 @@ import Link from "next/link"
 import ContactForm from "./ContactForm";
 
 
-export default function Header ({header}) {
-
+export default function Header ({header, header_class}) {
+    header_class = header_class
     header = header
     console.log(header)
     const [activeMenu, setActiveMenu] = useState(false)
@@ -34,7 +34,7 @@ export default function Header ({header}) {
                 <ContactForm />
             </div> : <div className="popup"></div>}
     <header>
-        <div className="header_fluid">
+        <div className={"header_fluid "+ header_class}>
             <div className="container-fluid">
                 <div className="row head_menu">
                     <button id="hamb_button"

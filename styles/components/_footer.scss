@@ -44,6 +44,7 @@ footer{
   .footer_block_fluid{
     background-color: #171C1F;
     padding-top: 68px;
+    padding-bottom: 65px;
     @include _media-small-down() {
       padding-top: 55px;
       padding-bottom: 55px;

@@ -168,7 +168,7 @@ export default function Home({homepage, projects, category, header_footer}) {
 
     return (
         <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
-                       description={meta.description}>
+                       description={meta.description} header_class="home_header">
 
             <section className="home_top_main_section">
                 <div className="container home_top_section">

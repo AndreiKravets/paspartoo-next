@@ -1,7 +1,16 @@
-.home_top_section{
-  padding-top: 40px;
-  padding-bottom: 60px;
+.home_top_main_section{
+  background-image: url("/bg_texture.jpg");
+  @include _media-lg-down() {
+    margin-top: -70px;
+  }
   @include _media-xs-down() {
+    padding-top: 60px;
+  }
+  }
+.home_top_section{
+  padding-top: 120px;
+  padding-bottom: 60px;
+    @include _media-xs-down() {
     padding-top: 23px;
     padding-bottom: 0;
   }

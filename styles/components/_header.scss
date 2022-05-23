@@ -9,6 +9,10 @@
   height: 80px;
   display: flex;
   align-items: center;
+  &.home_header{
+    position: absolute;
+    background-color: unset !important;
+  }
   @include _media-lg-down() {
     top: 0px;
     width: 100%;

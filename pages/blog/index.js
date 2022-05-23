@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import MainContainer from "../../components/MainContainer";
 import Prismic from "@prismicio/client";
 import Link from "next/link";
+import {BsArrowRight, BsArrowLeft} from "react-icons/bs";
+
 
 
 const Index = ({blog, category, header_footer}) => {
@@ -12,6 +14,7 @@ const Index = ({blog, category, header_footer}) => {
     console.log(first_posts)
 
     const [posts, setPosts] = useState(() => first_posts);
+    const [currentPage, setCurrentPage] = useState(1);
 
     function createPagination (posts, count)  {
         let paginationLength = [];
@@ -26,7 +29,7 @@ const Index = ({blog, category, header_footer}) => {
                             <ul>
                                 {paginationLength.map((index) => {
                                     return (
-                                        <li key={index} onClick={() => setPosts(currentPosts(posts, count, index))}>
+                                        <li key={index} onClick={() => (setPosts(currentPosts(posts, count, index)),setCurrentPage(index))}>
                                             {index}
                                         </li>
                                     )
@@ -50,6 +53,8 @@ const Index = ({blog, category, header_footer}) => {
                 <section className="container blog_top_section">
                     <div>
                     <h1>Meet Insights</h1>
+                         {currentPage == 1 ? <BsArrowLeft onClick={() => (setPosts(currentPosts(blog, 4, currentPage-1)), setCurrentPage(currentPage-1))}/> : <BsArrowLeft />}
+                        <BsArrowRight onClick={() => (setPosts(currentPosts(blog, 4, currentPage+1)), setCurrentPage(currentPage+1))}/>
                     </div>
                 </section>
                 <section className="blog_section">
@@ -78,11 +83,10 @@ const Index = ({blog, category, header_footer}) => {
                                     <article className="blog_left_article" key={item.id}>
                                         <div className="blog_item_inner">
                                             {item.data.background_image_big.url ?
-                                                <a href={`/blog/all/${item.uid}`}>
+                                                <Link href={`/blog/all/${item.uid}`}><a>
                                                     <img src={item.data.background_image_big.url}
-                                                 alt={item.data.background_image_big.alt}/></a> : ''}
-                                            <a href={`/blog/all/${item.uid}`}
-                                               className="h3">{item.data.title[0].text}</a>
+                                                 alt={item.data.background_image_big.alt}/></a></Link> : ''}
+                                            <Link href={`/blog/all/${item.uid}`}><a className="h3">{item.data.title[0].text}</a></Link>
                                         </div>
                                     </article> : false}
                                     </>
@@ -99,10 +103,9 @@ const Index = ({blog, category, header_footer}) => {
                                                     <article className="blog_right_article" key={item.id}>
                                                         <div className="blog_item_inner">
                                                             {item.data.background_image_small.url ?
-                                                                <a href={`/blog/all/${item.uid}`}>  <img src={item.data.background_image_small.url}
-                                                                 alt={item.data.background_image_small.alt}/></a> :''}
-                                                            <a href={`/blog/all/${item.uid}`}
-                                                               className="h4">{item.data.title[0].text}</a>
+                                                                <Link href={`/blog/all/${item.uid}`}><a><img src={item.data.background_image_small.url}
+                                                                 alt={item.data.background_image_small.alt}/></a></Link> :''}
+                                                            <Link href={`/blog/all/${item.uid}`}><a className="h4">{item.data.title[0].text}</a></Link>
                                                         </div>
                                                     </article> : false}
                                             </>

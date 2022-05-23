@@ -6,6 +6,7 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     <link rel="manifest" href="../manifest.json" />
+                    <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script>
                 </Head>
                 <body>
                 <Main />
