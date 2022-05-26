@@ -7,8 +7,9 @@ import Link from "next/link"
 import {motion} from "framer-motion";
 import {BsArrowRight, BsArrowLeft} from "react-icons/bs";
 import Slider from "react-slick";
-import InstagramEmbed from 'react-instagram-embed';
 import {unshiftLoader} from "next/dist/build/webpack/config/helpers";
+import InstagramFeed  from 'react-ig-feed'
+import 'react-ig-feed/dist/index.css'
 
 
 export default function Home({homepage, projects, category, header_footer}) {
@@ -640,20 +641,8 @@ export default function Home({homepage, projects, category, header_footer}) {
                     </div>
                 </div>
             </section>
-            <section>
-                <InstagramEmbed
-                    url='https://www.instagram.com/paspartooteam/'
-                    clientAccessToken='IGQVJWYmh6bllpaG1DUVhZAWHBzV283bkRrNzVMSTdMaDRWYjlCVEt4eHhMLUZALc0FlVmNaZAEswcjhrUW5HWEljeXRqa1cycHpURUplS3hJTVlMUV9uUzFoVmxsQVZANRkFldlo0SWI0ZAzZAfYTlqem9pdQZDZD'
-                    maxWidth={320}
-                    hideCaption={true}
-                    containerTagName='div'
-                    protocol=''
-                    injectScript
-                    onLoading={() => {}}
-                    onSuccess={() => {}}
-                    onAfterRender={() => {}}
-                    onFailure={() => {}}
-                />
+            <section className="instagram_section">
+                <InstagramFeed token="IGQVJWYmh6bllpaG1DUVhZAWHBzV283bkRrNzVMSTdMaDRWYjlCVEt4eHhMLUZALc0FlVmNaZAEswcjhrUW5HWEljeXRqa1cycHpURUplS3hJTVlMUV9uUzFoVmxsQVZANRkFldlo0SWI0ZAzZAfYTlqem9pdQZDZD"  counter="6"/>
             </section>
 
         </MainContainer>

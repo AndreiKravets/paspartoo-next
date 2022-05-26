@@ -126,6 +126,22 @@
   @include _media-md-down() {
     height: 200px;
   }
+  ul{
+    display: flex;
+    margin-top: 40px;
+    z-index: 3;
+    flex-wrap: wrap;
+    li{
+      a{
+        color: white;
+        margin-right: 10px;
+        padding: 10px 17px;
+        border-radius: 3px;
+        border: 1px solid white;
+        font-weight: 400;
+      }
+    }
+  }
     h1{
    color: white;
    font-weight: 600;

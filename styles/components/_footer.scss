@@ -2,7 +2,6 @@ footer{
   color: $white;
   @include _media-small-down() {
   text-align: center;
-    padding-top: 20px;
     padding-bottom: 15px;
   }
 

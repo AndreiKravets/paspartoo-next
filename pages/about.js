@@ -7,6 +7,8 @@ import {motion} from "framer-motion";
 import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
 import Slider from "react-slick";
 import WeBuild from "../components/WeBuild";
+import InstagramFeed from "react-ig-feed";
+import 'react-ig-feed/dist/index.css'
 
 export default function About ({ about, our_projects, header_footer }) {
     header_footer = header_footer
@@ -228,6 +230,9 @@ export default function About ({ about, our_projects, header_footer }) {
              </div>
             </section>
             <WeBuild our_projects={our_projects}/>
+            <section className="instagram_section about_instagram_section">
+                <InstagramFeed token="IGQVJWYmh6bllpaG1DUVhZAWHBzV283bkRrNzVMSTdMaDRWYjlCVEt4eHhMLUZALc0FlVmNaZAEswcjhrUW5HWEljeXRqa1cycHpURUplS3hJTVlMUV9uUzFoVmxsQVZANRkFldlo0SWI0ZAzZAfYTlqem9pdQZDZD"  counter="6"/>
+            </section>
         </MainContainer>
     )
 }

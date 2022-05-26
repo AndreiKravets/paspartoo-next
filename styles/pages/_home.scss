@@ -340,6 +340,7 @@
         bottom: 40px;
         left: 30px;
         display: flex;
+        flex-wrap: wrap;
         z-index: 3;
         li{
           a{
@@ -389,6 +390,7 @@
   background-color: $brand-btn;
   padding-top: 80px;
   padding-bottom: 80px;
+
   @include _media-md-down() {
     padding-top: 70px;
   }
@@ -665,4 +667,24 @@ height: 700px;
      text-align: center;
     }
   }
+}
+.instagram_section{
+  padding-bottom: 35px;
+  @include _media-small-down() {
+    padding-bottom: 0;
+  }
+    ._wPDyp{
+    margin: 0;
+    flex-basis: 16.667%;
+    @include _media-small-down() {
+      flex-basis: 33.3339%;
+    }
+    @include _media-xs-down() {
+      flex-basis: 50%;
+    }
+  }
+}
+.about_instagram_section{
+  padding-bottom: 30px;
+  background-color: $brand-btn;
 }

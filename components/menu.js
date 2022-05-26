@@ -7,7 +7,7 @@ export default function Menu () {
     return (
             <ul>
                 <li className="menu_services">
-                    <Link href="/services">Services</Link>
+                    <Link href="">Services</Link>
                     <ul className="services_submenu">
                         <li className={activeSubmenu == 1 ? 'active' : ''} onClick={() => {setActiveSubmenu(1)}}>UX/UI Design <BsCaretLeft />
                         <ul>
