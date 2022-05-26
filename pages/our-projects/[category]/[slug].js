@@ -2,6 +2,7 @@ import React from 'react';
 import MainContainer from "../../../components/MainContainer";
 import Prismic from "@prismicio/client";
 import {RichText} from "prismic-reactjs";
+import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import RecentProjects from "../../../components/RecentProjects";
@@ -9,11 +10,12 @@ import RecentProjects from "../../../components/RecentProjects";
 
 
 
-const Post = ({project, header_footer, projects}) => {
+const Post = ({project, header_footer, category, projects}) => {
     projects = projects.results
     console.log(projects.results)
     header_footer = header_footer
     project = project.results[0].data
+    category = category.results
     console.log(project)
     const myLoader = ({ src, width, quality }) => {
             return `${src}?w=${width}&q=${quality || 75}`
@@ -31,6 +33,26 @@ const Post = ({project, header_footer, projects}) => {
                                                                            />
                    <div className="container">
                         <h1 className="h2">{project.title}</h1>
+                        <ul>
+                                                                        {
+                                                                            (project.categories.map((item_category) => {
+                                                                                        return(
+                                                                                            (category.map((category) => {
+                                                                                                    return(
+                                                                                                        ( category.slugs[0] == item_category.category.slug ?
+                                                                                                            <li key={category.id}>
+                                                                                                                <Link href={`/our-projects/${category.slugs[0]}`}>{category.data.name}</Link>
+                                                                                                            </li>
+                                                                                                            : "")
+                                                                                                    )
+                                                                                                })
+                                                                                            )
+                                                                                        )
+                                                                                    }
+                                                                                )
+                                                                            )
+                                                                        }
+                                                                    </ul>
                     </div>
                 </section>
                 <section className="project_about_section">
@@ -163,10 +185,12 @@ export async function getServerSideProps({ query }) {
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const project = await client.query(Prismic.Predicates.at('my.project.uid', productId))
     const projects = await client.query(Prismic.Predicates.at('document.type', 'project'))
+    const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
     return {props: {
             projects:projects,
             header_footer:header_footer,
             productId: productId,
-            project: project
+            project: project,
+            category: category
         }}
 }

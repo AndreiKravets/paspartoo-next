@@ -51,11 +51,11 @@ const Index = ({blog, category, header_footer}) => {
         <>
             <MainContainer header_footer={header_footer}>
                 <section className="container blog_top_section">
-                    <div>
                     <h1>Meet Insights</h1>
-                         {currentPage == 1 ? <BsArrowLeft onClick={() => (setPosts(currentPosts(blog, 4, currentPage-1)), setCurrentPage(currentPage-1))}/> : <BsArrowLeft />}
-                        <BsArrowRight onClick={() => (setPosts(currentPosts(blog, 4, currentPage+1)), setCurrentPage(currentPage+1))}/>
-                    </div>
+                        <div className="blog_arrows">
+                         {currentPage >= 2 ? <BsArrowLeft onClick={() => (setPosts(currentPosts(blog, 4, currentPage-1)), setCurrentPage(currentPage-1))}/> : <BsArrowLeft className="none_page"/>}
+                            {currentPage <= blog.length / 4 ? <BsArrowRight onClick={() => (setPosts(currentPosts(blog, 4, currentPage+1)), setCurrentPage(currentPage+1))}/> : <BsArrowRight className="none_page"/>}
+                        </div>
                 </section>
                 <section className="blog_section">
                     <div className="container">
@@ -114,7 +114,7 @@ const Index = ({blog, category, header_footer}) => {
                                 }
                             </div>
                         </div>
-                        {createPagination(blog,4)}
+                        {/*{createPagination(blog,4)}*/}
                     </div>
                     <div className="container-fluid">
                         <div className="container">

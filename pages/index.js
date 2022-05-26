@@ -7,6 +7,8 @@ import Link from "next/link"
 import {motion} from "framer-motion";
 import {BsArrowRight, BsArrowLeft} from "react-icons/bs";
 import Slider from "react-slick";
+import InstagramEmbed from 'react-instagram-embed';
+import {unshiftLoader} from "next/dist/build/webpack/config/helpers";
 
 
 export default function Home({homepage, projects, category, header_footer}) {
@@ -14,9 +16,9 @@ export default function Home({homepage, projects, category, header_footer}) {
     homepage = homepage.results[0].data
     projects = projects.results
     category = category.results
-    // console.log(homepage)
+    console.log(homepage)
     console.log(projects)
-    // console.log(category)
+    console.log(category)
     const meta = homepage.body_meta[0].primary
     const top_slider = projects.slice(0, projects.length / 2)
     const bottom_slider = projects.slice(projects.length / 2, projects.length + 1)
@@ -445,7 +447,27 @@ export default function Home({homepage, projects, category, header_footer}) {
                                         <div
                                             className='projects_slider_item'
                                             style={{backgroundImage: "url(" + project.data.slider_image.url + ")"}}>
-                                            <h3>{project.data.title}</h3>
+                                            <Link href={`/our-projects/${project.data.categories[0].category.slug}/${project.uid}`}><a className="h3">{project.data.title}</a></Link>
+                                            <ul>
+                                            {
+                                                (project.data.categories.map((item_category) => {
+                                                        return(
+                                                       (category.map((category) => {
+                                                               return(
+                                                           ( category.slugs[0] == item_category.category.slug ?
+                                                               <li key={category.id}>
+                                                                   <Link href={`/our-projects/${category.slugs[0]}`}>{category.data.name}</Link>
+                                                               </li>
+                                                            : "")
+                                                           )
+                                                       })
+                                                       )
+                                                   )
+                                                }
+                                                )
+                                                )
+                                            }
+                                            </ul>
                                         </div>
                                     </div>
                                 )
@@ -462,7 +484,27 @@ export default function Home({homepage, projects, category, header_footer}) {
                                         <div
                                             className='projects_slider_item'
                                             style={{backgroundImage: "url(" + project.data.slider_image.url + ")"}}>
-                                            <h3>{project.data.title}</h3>
+                                            <Link href={`/our-projects/${project.data.categories[0].category.slug}/${project.uid}`}><a className="h3">{project.data.title}</a></Link>
+                                            <ul>
+                                                {
+                                                    (project.data.categories.map((item_category) => {
+                                                                return(
+                                                                    (category.map((category) => {
+                                                                            return(
+                                                                                ( category.slugs[0] == item_category.category.slug ?
+                                                                                    <li key={category.id}>
+                                                                                        <Link href={`/our-projects/${category.slugs[0]}`}>{category.data.name}</Link>
+                                                                                    </li>
+                                                                                    : "")
+                                                                            )
+                                                                        })
+                                                                    )
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                }
+                                            </ul>
                                         </div>
                                     </div>
                                 )
@@ -598,6 +640,22 @@ export default function Home({homepage, projects, category, header_footer}) {
                     </div>
                 </div>
             </section>
+            <section>
+                <InstagramEmbed
+                    url='https://www.instagram.com/paspartooteam/'
+                    clientAccessToken='IGQVJWYmh6bllpaG1DUVhZAWHBzV283bkRrNzVMSTdMaDRWYjlCVEt4eHhMLUZALc0FlVmNaZAEswcjhrUW5HWEljeXRqa1cycHpURUplS3hJTVlMUV9uUzFoVmxsQVZANRkFldlo0SWI0ZAzZAfYTlqem9pdQZDZD'
+                    maxWidth={320}
+                    hideCaption={true}
+                    containerTagName='div'
+                    protocol=''
+                    injectScript
+                    onLoading={() => {}}
+                    onSuccess={() => {}}
+                    onAfterRender={() => {}}
+                    onFailure={() => {}}
+                />
+            </section>
+
         </MainContainer>
     )
 }
