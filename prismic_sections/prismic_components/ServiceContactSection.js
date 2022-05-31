@@ -7,13 +7,11 @@ import RecentProjects from "../../components/RecentProjects";
 const ServiceContactSection = (section) =>  {
 
     const project_slider = section.project_slider
+    const project_category = section.project_category
     section = section.section
-    const myLoader = ({ src, width, quality }) => {
-        return `${src}?w=${width}&q=${quality || 75}`
-    }
     return (
         <>
-        <RecentProjects project_slider={project_slider} />
+        <RecentProjects project_slider={project_slider} project_category={project_category} />
         <section className={`${section.primary.section} ${section.primary.individual_class_name != null ? section.primary.individual_class_name : ''}`}>
             <div className="container services_contact">
                 <div className="row">

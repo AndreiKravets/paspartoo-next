@@ -7,14 +7,17 @@ import ContactForm from '../components/ContactForm'
 
 export default function Contacts({ data, header_footer }) {
     header_footer = header_footer
+    data = data.results[0].data
+    const meta = data.body[0].primary
     return (
-        <MainContainer header_footer={header_footer}>
+        <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+                       description={meta.description} keywords={meta.keywords}>
             <section className="contacts_section">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-5 contacts_section_content">
                           <h1 className="h2">
-                              Ready to discuss your project?
+                              {data.title}
                           </h1>
                             <h4>Use the form or write us an e-mail: </h4>
                             <a href="mailto:info@paspartoo.com">info@paspartoo.com</a>

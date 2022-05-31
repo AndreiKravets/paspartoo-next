@@ -16,12 +16,8 @@ export default function OurProjects ({our_projects, projects, category, header_f
     our_projects = our_projects.results[0].data
     projects = projects.results
     category = category.results
-    console.log(our_projects)
-    console.log(category)
     const [countPosts, setCountPosts] = useState(3);
     const [first_projects, setFirst_projects] = useState(()=>projects.slice(0, countPosts));
-    // console.log(firstprojects)
-    // const first_projects = projects.slice(0, 3)
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }

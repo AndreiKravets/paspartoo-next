@@ -17,13 +17,9 @@ export default function Home({homepage, projects, category, header_footer}) {
     homepage = homepage.results[0].data
     projects = projects.results
     category = category.results
-    console.log(homepage)
-    console.log(projects)
-    console.log(category)
     const meta = homepage.body_meta[0].primary
     const top_slider = projects.slice(0, projects.length / 2)
     const bottom_slider = projects.slice(projects.length / 2, projects.length + 1)
-    console.log(top_slider)
     const settings_top = {
         dots: false,
         arrows: true,
@@ -171,7 +167,7 @@ export default function Home({homepage, projects, category, header_footer}) {
 
     return (
         <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
-                       description={meta.description} header_class="home_header">
+                       description={meta.description} keywords={meta.keywords} header_class="home_header">
 
             <section className="home_top_main_section">
                 <div className="container home_top_section">

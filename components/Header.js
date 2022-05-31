@@ -9,7 +9,6 @@ import ContactForm from "./ContactForm";
 export default function Header ({header, header_class}) {
     header_class = header_class
     header = header
-    console.log(header)
     const [activeMenu, setActiveMenu] = useState(false)
     const [activeStickyMenu, setActiveStickyMenu] = useState(false)
     const [popup, setPopup] = useState(false);

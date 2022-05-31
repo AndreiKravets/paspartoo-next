@@ -9,7 +9,6 @@ import ContactForm from "../../../components/ContactForm"
 const Post = ({blog, header_footer}) => {
     header_footer = header_footer
     blog = blog.results[0].data
-    console.log(blog)
     return (
         <>
             <MainContainer header_footer={header_footer}>

@@ -1,0 +1,23 @@
+.service_brands_slider{
+  padding-top: 70px;
+  h4{
+    margin-bottom: 40px;
+  }
+  .slick-track{
+    display: flex !important;
+    align-items: center;
+  }
+  .slick-slide img {
+    margin: auto;
+    max-width: 80%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .brands_slider_logo_img{
+    text-align: center;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+  }
+}

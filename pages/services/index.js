@@ -7,8 +7,6 @@ import Link from "next/link";
 const Services = ({services, header_footer}) => {
     header_footer = header_footer
     services = services.results
-    console.log(services)
-
     return (
         <>
             <MainContainer header_footer={header_footer}>

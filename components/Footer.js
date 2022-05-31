@@ -7,7 +7,6 @@ import { FiMapPin, FiMail} from 'react-icons/fi'
 
 export default function Footer ({footer}) {
     footer = footer
-    console.log(footer)
     return(
         <footer>
             <div className="container-fluid footer_top_fluid">

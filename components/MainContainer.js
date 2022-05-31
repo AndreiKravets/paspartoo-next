@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 
 
-export default function MainContainer({children, header_footer = '', header_class = '', title = 'Paspartoo', isVisible = 'noindex, nofollow', description}){
+export default function MainContainer({children, header_footer = '', header_class = '', title = 'Paspartoo', isVisible = 'noindex, nofollow', description, keywords='Paspartoo' }){
     useEffect(() => {
         window.scrollTo(0, 1);
     },[])
@@ -26,7 +26,7 @@ export default function MainContainer({children, header_footer = '', header_clas
     return (
         <>
             <Head>
-                <meta keywords="shopify next"></meta>
+                <meta name="keywords" content={keywords}></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
                 <meta key="robots" name="robots" content={isVisible} />
                 <meta name="description" content={description} />

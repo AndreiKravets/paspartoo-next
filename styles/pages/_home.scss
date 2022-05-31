@@ -321,7 +321,6 @@
     .projects_slider_item{
       height: 350px;
       background-size: cover;
-      padding: 30px;
       border-radius: 10px;
       position: relative;
       z-index: 1;
@@ -333,6 +332,7 @@
           position: absolute;
           width: 100%;
           height: 100%;
+          padding: 30px;
           z-index: 1;
       }
       ul{
@@ -388,6 +388,7 @@
 
 .home_our_clients_section{
   background-color: $brand-btn;
+  background-image: url("/mint_bg.jpg");
   padding-top: 80px;
   padding-bottom: 80px;
 

@@ -13,8 +13,8 @@ import 'react-ig-feed/dist/index.css'
 export default function About ({ about, our_projects, header_footer }) {
     header_footer = header_footer
     about = about.results[0].data
+    const meta = about.body[0].primary
     our_projects = our_projects.results[0].data
-    console.log(about)
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
@@ -101,7 +101,8 @@ export default function About ({ about, our_projects, header_footer }) {
     }
 
     return (
-        <MainContainer  header_footer={header_footer}>
+        <MainContainer  header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+                        description={meta.description} keywords={meta.keywords}>
             <section className="container-fluid about_top_section">
                 <div className="container">
                     <div className="row">

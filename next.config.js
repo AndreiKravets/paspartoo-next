@@ -9,4 +9,18 @@ module.exports = withPWA({
     skipWaiting: true,
   },
   reactStrictMode: false,
+  async redirects() {
+    return [
+      {
+        source: '/services',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/servicess/:path*',
+        destination: '/services/:path*',
+        permanent: false
+      }
+    ]
+  },
 })

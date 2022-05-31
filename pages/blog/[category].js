@@ -9,8 +9,6 @@ const Index = ({blog, category, header_footer}) => {
     blog = blog.results
     category = category.results
     const first_posts = blog.slice(0, 4)
-    console.log(first_posts)
-
     const [posts, setPosts] = useState(() => first_posts);
 
     function createPagination (posts, count)  {

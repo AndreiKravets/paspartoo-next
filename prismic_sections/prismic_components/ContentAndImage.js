@@ -4,7 +4,6 @@ import {RichText} from "prismic-reactjs";
 
 const ContentAndImage = (section) => {
     section = section.section
-    console.log("SECTION", section)
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }

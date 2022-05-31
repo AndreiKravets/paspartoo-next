@@ -6,18 +6,20 @@ import {RichText} from "prismic-reactjs";
 import PrismicBody from "../../prismic_sections/PrismicBody";
 
 
-const Service = ({data, header_footer, projects}) => {
+const Service = ({data, header_footer, projects, category}) => {
 
     header_footer = header_footer
+    const categorys = category.results
     const project = projects.results
     const service = data.results[0].data
-
+    const meta = service.body1[0].primary
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
     return (
         <>
-            <MainContainer header_footer={header_footer}>
+            <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+                           description={meta.description} keywords={meta.keywords}>
                 <section className="container service_top_section">
                    <h1 className="h2">{service.service_title}</h1>
                     {RichText.render(service.description)}
@@ -30,7 +32,7 @@ const Service = ({data, header_footer, projects}) => {
                     />
                 </section>
 
-                <PrismicBody project_slider = {project} content={service.body} />
+                <PrismicBody project_slider = {project} project_category = {categorys} content={service.body} />
 
             </MainContainer>
         </>
@@ -45,11 +47,13 @@ export async function getServerSideProps({query}) {
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const projects = await client.query(Prismic.Predicates.at('document.type', 'project'))
     const service = await client.query(Prismic.Predicates.at('my.services.uid', productId))
+    const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
     return {
         props: {
             projects:projects,
             header_footer:header_footer,
-            data: service
+            data: service,
+            category: category
         }
     }
 }

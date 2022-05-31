@@ -6,7 +6,6 @@ import {motion} from "framer-motion";
 
 const WeOffer = (section) =>  {
     section = section.section
-    console.log(section)
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
