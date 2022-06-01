@@ -7,7 +7,12 @@ import { useEffect } from "react";
 
 
 
-export default function MainContainer({children, header_footer = '', header_class = '', title = 'Paspartoo', isVisible = 'noindex, nofollow', description, keywords='Paspartoo' }){
+export default function MainContainer({children, header_footer = '', header_class = '', title = 'Paspartoo',
+                                          isVisible = 'noindex, nofollow', description, keywords='Paspartoo',
+                                          og_locale = 'en_US', og_type = 'website', og_title = '', og_description = '', og_url = '',
+                                          og_site_name = '', twitter_card = '', twitter_description = '',
+                                          twitter_title = '', twitter_image = '', msapplication_tileimage = ''
+                                      }){
     useEffect(() => {
         window.scrollTo(0, 1);
     },[])
@@ -26,11 +31,22 @@ export default function MainContainer({children, header_footer = '', header_clas
     return (
         <>
             <Head>
+                <title>{title}</title>
                 <meta name="keywords" content={keywords}></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
                 <meta key="robots" name="robots" content={isVisible} />
                 <meta name="description" content={description} />
-                <title>{title}</title>
+                <meta property="og:locale" content={og_locale} />
+                <meta property="og:type" content={og_type} />
+                <meta property="og:title" content={og_title} />
+                <meta property="og:description" content={og_description} />
+                <meta property="og:url" content={og_url} />
+                <meta property="og:site_name" content={og_site_name} />
+                <meta name="twitter:card" content={twitter_card} />
+                <meta name="twitter:description" content={twitter_description} />
+                <meta name="twitter:title" content={twitter_title} />
+                <meta name="twitter:image" content={twitter_image} />
+                <meta name="msapplication-TileImage" content={msapplication_tileimage} />
             </Head>
             <div id="root">
                     <Header header = {header_footer} header_class = {header_class}/>

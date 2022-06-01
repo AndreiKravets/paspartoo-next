@@ -392,3 +392,13 @@
 .recent_projects_section{
   margin-bottom: 50px;
 }
+.project_recent_projects{
+  margin-top: 80px;
+  .col-12{
+    div{
+      padding-top: 50px;
+      border-top: 1px solid #CDCDCD;
+      margin-bottom: -50px;
+    }
+  }
+}

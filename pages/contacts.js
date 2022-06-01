@@ -11,7 +11,11 @@ export default function Contacts({ data, header_footer }) {
     const meta = data.body[0].primary
     return (
         <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
-                       description={meta.description} keywords={meta.keywords}>
+                       description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
+                       og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
+                       og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
+                       twitter_description={meta.twitter_description} twitter_title={meta.twitter_title}
+                       twitter_image={meta.twitter_image} msapplication_tileimage={meta.msapplication_tileimage}>
             <section className="contacts_section">
                 <div className="container">
                     <div className="row">

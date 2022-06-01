@@ -643,6 +643,31 @@ height: 700px;
     }
   }
   .col-md-4{
+    position: relative;
+    img{
+      position: absolute;
+      height: 250px;
+      right: 90%;
+      top: 35px;
+      @include _media-lg-down() {
+        height: 185px;
+        right: 87%;
+        top: 40px;
+        }
+      @include _media-md-down() {
+        height: 185px;
+        right: 32%;
+        top: 70px;
+        }
+      @include _media-small-down() {
+        height: 185px;
+        right: 5%;
+        top: -80px;
+        }
+      @include _media-xs-down() {
+       display: none;
+        }
+       }
     a {
       height: 39px;
       width: 213px;
@@ -674,6 +699,12 @@ height: 700px;
   @include _media-small-down() {
     padding-bottom: 0;
   }
+  ._2R-kh{
+   flex-wrap: nowrap !important;
+    @include _media-small-down() {
+    flex-wrap: wrap !important;
+    }
+    }
     ._wPDyp{
     margin: 0;
     flex-basis: 16.667%;

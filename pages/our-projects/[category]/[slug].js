@@ -139,7 +139,18 @@ const Post = ({project, header_footer, category, projects}) => {
                          )}))
                         }
                        </div>
-                       <RecentProjects project_slider={projects} project_category = {category}/>
+                   </section>
+                   <section className="project_recent_projects">
+                      <div className="container">
+                        <div className="row">
+                          <div className="col-12">
+                            <div>
+                               <h5>#RECENT PROJECTS</h5>
+                            </div>
+                           </div>
+                         </div>
+                       </div>
+                        <RecentProjects project_slider={projects} project_category = {category}/>
                    </section>
             </MainContainer>
         </>

@@ -167,7 +167,12 @@ export default function Home({homepage, projects, category, header_footer}) {
 
     return (
         <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
-                       description={meta.description} keywords={meta.keywords} header_class="home_header">
+                       description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
+                       og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
+                       og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
+                       twitter_description={meta.twitter_description} twitter_title={meta.twitter_title}
+                       twitter_image={meta.twitter_image} msapplication_tileimage={meta.msapplication_tileimage}
+                       header_class="home_header">
 
             <section className="home_top_main_section">
                 <div className="container home_top_section">
@@ -633,6 +638,7 @@ export default function Home({homepage, projects, category, header_footer}) {
                         <div className="col-md-4">
                             <a href="https://www.instagram.com/paspartooteam/">@paspartooteam</a>
                             <h5>+ Follow us on Instagram</h5>
+                            <img src="/pink_arrow.svg" className="pink_arrow" alt=""/>
                         </div>
                     </div>
                 </div>
