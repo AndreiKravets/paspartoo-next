@@ -5,8 +5,8 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link rel="manifest" href="../manifest.json" />
-                    <link rel="shortcut icon" href="../favicon.jpg" />
+                    <link rel="manifest" href="/manifest.json" />
+                    <link rel="shortcut icon" href="/favicon.jpg" />
                     <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script>
                 </Head>
                 <body>
