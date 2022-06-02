@@ -3,13 +3,17 @@ import MainContainer from "../../components/MainContainer";
 import Prismic from "@prismicio/client";
 import Link from "next/link";
 import {BsArrowRight, BsArrowLeft} from "react-icons/bs";
+import {RichText} from "prismic-reactjs";
 
 
 
-const Index = ({blog, category, header_footer}) => {
+const Index = ({blog, blog_page, category, header_footer}) => {
     header_footer = header_footer
     blog = blog.results
+    blog_page = blog_page.results[0].data
+    const meta = blog_page.body[0].primary
     category = category.results
+    console.log(blog_page)
     const first_posts = blog.slice(0, 4)
     const [posts, setPosts] = useState(() => first_posts);
     const [currentPage, setCurrentPage] = useState(1);
@@ -47,7 +51,12 @@ const Index = ({blog, category, header_footer}) => {
     }
     return (
         <>
-            <MainContainer header_footer={header_footer}>
+            <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+                           description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
+                           og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
+                           og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
+                           twitter_description={meta.twitter_description} twitter_title={meta.twitter_title}
+                           twitter_image={meta.twitter_image} msapplication_tileimage={meta.msapplication_tileimage}>
                 <section className="container blog_top_section">
                     <h1>Meet Insights</h1>
                         <div className="blog_arrows">
@@ -118,10 +127,10 @@ const Index = ({blog, category, header_footer}) => {
                         <div className="container">
                             <div className="row">
                             <div className="col-sm-6">
-                                <h2>ENHANCES <span>YOUR</span> INNOVATION</h2>
+                                {RichText.render(blog_page.blog_page_title)}
                             </div>
                             <div className="col-sm-6">
-                                <img src="/iPhone.png" alt=""/>
+                                <img src={blog_page.blog_page_image.url} alt=""/>
                             </div>
                         </div>
                         </div>
@@ -138,10 +147,12 @@ export async function getServerSideProps() {
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const blog = await client.query(Prismic.Predicates.at('document.type', 'blog_post'))
+    const blog_page = await client.query(Prismic.Predicates.at('document.type', 'posts'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'category_blog'))
     return {props: {
             header_footer:header_footer,
             blog: blog,
+            blog_page: blog_page,
             category: category
     }}
 }

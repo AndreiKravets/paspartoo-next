@@ -156,9 +156,19 @@
     @include _media-md-down() {
       margin-top: 100px;
     }
+    @include _media-xs-down() {
+      background: linear-gradient(90deg, $brand-btn 59%, $white 59%);
+    }
       .col-sm-6{
       display: flex;
       align-items: center;
+        h2{
+          line-height: 1.1;
+          strong{
+            color: white;
+            display: block;
+          }
+        }
       img{
         margin-top: -50px;
       }

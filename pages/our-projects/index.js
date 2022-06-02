@@ -16,6 +16,7 @@ export default function OurProjects ({our_projects, projects, category, header_f
     our_projects = our_projects.results[0].data
     projects = projects.results
     category = category.results
+    const meta = our_projects.body[0].primary
     const [countPosts, setCountPosts] = useState(3);
     const [first_projects, setFirst_projects] = useState(()=>projects.slice(0, countPosts));
     const myLoader = ({src, width, quality}) => {
@@ -25,7 +26,12 @@ export default function OurProjects ({our_projects, projects, category, header_f
 
     return (
         <>
-            <MainContainer header_footer={header_footer}>
+            <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+                           description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
+                           og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
+                           og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
+                           twitter_description={meta.twitter_description} twitter_title={meta.twitter_title}
+                           twitter_image={meta.twitter_image} msapplication_tileimage={meta.msapplication_tileimage}>
                 <section className="container_fluid our_projects_section">
                     <div className="container">
                         <div className="col-12">

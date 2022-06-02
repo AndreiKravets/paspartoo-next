@@ -42,15 +42,15 @@ export default function Footer ({footer}) {
                         </div>
                          <a href="https://goo.gl/maps/a3i14CZ7G4v" target="_blank">18851 NE 29th Ave, Suite 700, Miami, FL 33180</a>
                          <a href="mailto:info@paspartoo.com">info@paspartoo.com</a>
-                        <div className="clutch-widget" data-nofollow="true" data-url="https://widget.clutch.co"
-                             data-widget-type="1" data-darkbg="true" data-height="40"
-                             data-clutchcompany-id="509185"></div>
                         <ul className="footer_social_sm">
                             <li><a href="https://www.facebook.com/paspartooteam" target="_blank"><FaFacebookF/></a></li>
                             <li><a href="https://www.instagram.com/paspartooteam/" target="_blank"><FaInstagram/></a></li>
                             <li><a href="https://www.behance.net/Paspartoo" target="_blank"><FaBehance/></a></li>
                             <li><a href="https://www.linkedin.com/company/paspartoo/" target="_blank"><FaLinkedinIn/></a></li>
                         </ul>
+                        <div className="clutch-widget" data-nofollow="true" data-url="https://widget.clutch.co"
+                             data-widget-type="1" data-darkbg="true" data-height="40"
+                             data-clutchcompany-id="509185"></div>
                     </div>
                 <div className="col-md-2 col-sm-4">
                     <h6>Company</h6>

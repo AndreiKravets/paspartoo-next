@@ -7,7 +7,8 @@ footer{
 
 
   .footer_top_fluid{
-    background-color: #22292E;
+    background-color: #0E0E0E;
+    border-bottom: 1px solid #898989;
     .container{
       min-height: 110px;
       display: flex;
@@ -41,7 +42,7 @@ footer{
   }
 
   .footer_block_fluid{
-    background-color: #171C1F;
+    background-color: #0E0E0E;
     padding-top: 68px;
     padding-bottom: 65px;
     @include _media-small-down() {
@@ -55,19 +56,19 @@ footer{
       .contacts{
         .phone a {
           font-size: 32px;
-          font-weight: 700;
+          font-weight: 600;
           color: $white;
-          margin-bottom: 40px;
+          margin-bottom: 20px;
           &:hover{
             color: $brand-btn;
           }
         }
         a{
-          color: #12A9EA;
+          color: white;
           display: flex;
           align-items: flex-start;
-          font-size: 20px;
-          margin-bottom: 30px;
+          font-size: 17px;
+          margin-bottom: 10px;
           svg{
             margin-right: 10px;
             color: $white;
@@ -96,9 +97,10 @@ footer{
       h6{
         color: $white;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 18px;
+        text-transform: uppercase;
         letter-spacing: 1px;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
       }
       a {
         color: $white;
@@ -155,3 +157,15 @@ footer{
     }
   }
 }
+.clutch-widget{
+  margin-top: 30px;
+  @include _media-small-down() {
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+    width: 135px;
+  }
+  @include _media-xs-down() {
+    margin-top: 10px;
+  }
+  }

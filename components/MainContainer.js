@@ -7,10 +7,11 @@ import { useEffect } from "react";
 
 
 
-export default function MainContainer({children, header_footer = '', header_class = '', title = 'Paspartoo',
+export default function MainContainer({children, header_footer = '', header_class = '', title = 'Web development agency in Miami | Paspartoo',
                                           isVisible = 'noindex, nofollow', description, keywords='Paspartoo',
-                                          og_locale = 'en_US', og_type = 'website', og_title = '', og_description = '', og_url = '',
-                                          og_site_name = '', twitter_card = '', twitter_description = '',
+                                          og_locale = 'en_US', og_type = 'website', og_title = '', og_url = 'https://paspartoo.com/',
+                                          og_description = 'Paspartoo is an e-commerce agency specializing in Magento 2, Shopify, and WooCommerce. Based in Miami, USA. ☎️ +1 (702) 970-4043, 📩 info@paspartoo.com',
+                                          og_site_name = 'Paspartoo.com', twitter_card = '', twitter_description = '',
                                           twitter_title = '', twitter_image = '', msapplication_tileimage = ''
                                       }){
     useEffect(() => {
