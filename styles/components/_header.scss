@@ -12,6 +12,9 @@
   &.home_header{
     position: absolute;
     background-color: unset !important;
+    .mobile_menu{
+      background-image: url("/bg_texture.jpg");
+    }
   }
   @include _media-lg-down() {
     top: 0px;
