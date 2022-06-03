@@ -1,10 +1,13 @@
 .our_project_build{
   background-color: $brand-btn;
-  padding-top: 100px;
-  padding-bottom: 80px;
+  padding-top: 110px;
+  padding-bottom: 110px;
+  z-index: 999;
+  position: relative;
+  overflow: unset;
   @include _media-lg-down() {
-    padding-top: 80px;
-    padding-bottom: 60px;
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
   @include _media-md-down() {
     padding-top: 80px;
@@ -28,6 +31,21 @@
     @include _media-xss-down() {
       display: block;
     }
+    .pink_arrow{
+      position: absolute;
+      z-index: 9;
+      left: -60%;
+      bottom: -210px;
+      height: 280px;
+      @include _media-lg-down() {
+        left: -59%;
+        bottom: -187px;
+        height: 250px;
+      }
+      @include _media-md-down() {
+        display: none;
+      }
+      }
     }
     .h5{
     color: white;
@@ -98,3 +116,8 @@
     }
     }
 }
+.about_we_build{
+  .pink_arrow {
+  display: none;
+  }
+  }

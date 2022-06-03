@@ -28,7 +28,7 @@ const slider_we_build = {
         }
     ]
 }
-export default function WeBuild ({our_projects}) {
+export default function WeBuild ({our_projects, class_name=''}) {
 
     our_projects = our_projects
     const [popup, setPopup] = useState(false);
@@ -41,7 +41,7 @@ export default function WeBuild ({our_projects}) {
                 <div onClick={() => {setPopup(false)}}  className="product_popup_close"><AiOutlineCloseSquare/></div>
                 <ContactForm />
             </div> : <div className="popup"></div>}
-        <section className="our_project_build container-fluid">
+        <section className={`our_project_build container-fluid ${class_name}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-12">
@@ -77,6 +77,7 @@ export default function WeBuild ({our_projects}) {
                         <button onClick={() => {
                             setPopup(true)
                         }}>Want to be here?</button>
+                        <img src="/pink_arrow.svg" className="pink_arrow" alt=""/>
                     </div>
                 </div>
             </div>

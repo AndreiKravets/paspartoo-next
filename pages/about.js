@@ -234,7 +234,7 @@ export default function About ({ about, our_projects, header_footer }) {
               </Slider>
              </div>
             </section>
-            <WeBuild our_projects={our_projects}/>
+            <WeBuild our_projects={our_projects} class_name='about_we_build'/>
             <section className="instagram_section about_instagram_section">
                 <InstagramFeed token="IGQVJWYmh6bllpaG1DUVhZAWHBzV283bkRrNzVMSTdMaDRWYjlCVEt4eHhMLUZALc0FlVmNaZAEswcjhrUW5HWEljeXRqa1cycHpURUplS3hJTVlMUV9uUzFoVmxsQVZANRkFldlo0SWI0ZAzZAfYTlqem9pdQZDZD"  counter="6"/>
             </section>
