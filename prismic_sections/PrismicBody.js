@@ -1,45 +1,46 @@
 import React, {Fragment} from 'react'
-import SectionWithCards from "./prismic_components/SectionWithCards";
+import SectionTitleDescription from "./prismic_components/SectionTitleDescription";
 import ServiceContactSection from "./prismic_components/ServiceContactSection";
-import ContentAndImage from "./prismic_components/ContentAndImage";
-import WeOffer from "./prismic_components/WeOffer";
-import BrandsSlider from "./prismic_components/BrandsSlider";
+import Content from "./prismic_components/Content";
+import ImageBlock from "./prismic_components/ImageBlock";
+import KeyPoints from "./prismic_components/KeyPoints";
+import ImagesSection from "./prismic_components/ImagesSection";
 
-const PrismicBody = (body) => {
-
-    const content = body.content
-    const project_slider = body.project_slider
-    const project_category = body.project_category
+const PrismicBody = (data) => {
+    const content = data.content
+    const project_slider = data.project_slider
+    const project_category = data.project_category
+    console.log(content)
     return (
-        <Fragment>
-            {content.map((section, index) => {
+        <div className='col-sm-9'>
+            {content ? content.map((section, index) => {
                 if (section.slice_type == 'section_with_cards') {
                     return (
-                        <SectionWithCards section={section} index={index} key={index}/>
-                        )
-                }
-                if (section.slice_type == 'service_contact_section') {
-                    return (
-                        <ServiceContactSection section={section} project_slider={project_slider} project_category={project_category} index={index} key={index}/>
+                        <SectionTitleDescription section={section} index={index} key={index}/>
                         )
                 }
                 if (section.slice_type == 'content_and_image') {
                     return (
-                        <ContentAndImage section={section} index={index} key={index}/>
+                        <Content section={section} index={index} key={index}/>
                         )
                 }
-                if (section.slice_type == 'we_offer') {
+                if (section.slice_type == 'image_block') {
                     return (
-                        <WeOffer section={section} index={index} key={index}/>
+                        <ImageBlock section={section} index={index} key={index}/>
                         )
                 }
                 if (section.slice_type == 'brands_slider') {
                     return (
-                        <BrandsSlider section={section} index={index} key={index}/>
+                        <ImagesSection section={section} index={index} key={index}/>
                         )
                 }
-            })}
-        </Fragment>
+                if (section.slice_type == 'price_section') {
+                    return (
+                        <KeyPoints section={section} index={index} key={index}/>
+                        )
+                }
+            }) : ''}
+        </div>
     )
 }
 

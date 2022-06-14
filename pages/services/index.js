@@ -22,7 +22,6 @@ const Services = ({services, header_footer}) => {
                                 (services.map((item) => {
                                     return(
                                         <article className="col-12" key={item.id} >
-                                                <img src={item.data.banner.url} alt={item.data.banner.alt}/>
                                                 <Link href={`/services/${item.uid}`} ><a className="h4">{item.data.service_title}</a></Link>
                                         </article>
                                     )

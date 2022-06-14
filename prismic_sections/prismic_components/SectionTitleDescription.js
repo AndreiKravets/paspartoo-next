@@ -1,25 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
 import {RichText} from "prismic-reactjs";
-import Link from "next/link";
 import {motion} from "framer-motion";
+import MainContainer from "../../components/MainContainer";
 
-const WeOffer = (section) =>  {
+const SectionTitleDescription = (section) =>  {
     section = section.section
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
     }
     return (
-        <section className= "service_we_offer">
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <h5>#We Offer</h5>
-                        <h3>{section.primary.we_offer_title}</h3>
-                    </div>
-                    {section.items.map((item, index) => {
-                        return(
-                            <motion.div key={index} className='col-md-4 col-sm-12'
+    <section className={`services_title_description ${section.primary.individual_class_name != null ? section.primary.individual_class_name : ''}`}>
+        <div className="container">
+            <div className="row">
+                {
+                    (section.items.map((card, index) => {
+                        return (
+                            <motion.div key={index} className={`${card.block} ${card.individual_class_name != null ? card.individual_class_name : ''}`}
                                         initial="hidden" whileInView="visible"
                                         viewport={{once: true}} key={index} variants={{
                                 hidden: {
@@ -37,16 +34,20 @@ const WeOffer = (section) =>  {
                                     }
                                 }
                             }}>
-                            <div><h4><span>.</span>{item.we_offer_item_title}</h4></div>
-                            <div>{RichText.render(item.we_offer_item_content)}</div>
+                                <div>
+                                    <h4><span>.</span>{RichText.render(card.title_block)}</h4>
+                                </div>
+                                <div>
+                                    {RichText.render(card.content_block)}
+                                </div>
                             </motion.div>
                         )
-                    })
-                    }
-                </div>
+                    }))
+                }
             </div>
-        </section>
+        </div>
+    </section>
     )
 }
 
-export default WeOffer
+export default SectionTitleDescription

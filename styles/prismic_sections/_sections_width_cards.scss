@@ -1,24 +1,41 @@
-.title_block {
-  text-align: center;
-  color: $brand-primary;
-  margin-bottom: 35px;
-  h1,h2,h3,h4,h5,h6{
-    font-weight: 700;
-    color: $brand-primary;
-    margin-bottom: 25px;
-  }
-}
-.horizontal_grey_block{
-  margin-bottom: 30px;
-  .card_inner{
-    background-color: #F3F3F3;
-    height: 100%;
-    padding: 35px;
-    border-radius: 10px;
-    h5{
-      margin-bottom: 25px;
-      font-weight: 500;
-      text-transform: uppercase;
+.services_title_description{
+padding: 15px 0;
+  .col-md-6, .col-12{
+    @include _media-md-down() {
+      margin-bottom: 30px;
+    }
+    div{
+      margin-right: 30px;
+      padding: 15px 0;
+      &:first-child{
+        h4{
+          text-transform: uppercase;
+          color: $brand-primary;
+          margin-bottom: 0;
+          line-height: 1.4;
+          font-weight: 600;
+          display: flex;
+          span{
+            color: $brand-btn;
+          }
+          @include _media-lg-down() {
+            font-size: 19px;
+          }
+        }
+        padding-bottom: 17px;
+        margin-bottom: 17px;
+        border-bottom: 1px solid $brand-btn;
+        @include _media-md-down() {
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+        }
+      }
+      &:last-child{
+        p{
+          color: $brand-primary;
+          line-height: 1.6em;
+        }
+      }
     }
   }
 }

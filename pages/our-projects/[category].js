@@ -17,6 +17,7 @@ export default function OurProjects ({query_category, our_projects, projects, ca
     our_projects = our_projects.results[0].data
     projects = projects.results
     category = category.results
+    console.log(category)
     const meta = our_projects.body[0].primary
     const category_projects = projects.filter((item) => item.data.categories[0].category.slug == query_category)
     const myLoader = ({src, width, quality}) => {

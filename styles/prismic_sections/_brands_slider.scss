@@ -1,23 +1,28 @@
-.service_brands_slider{
-  padding-top: 70px;
+.service_images_section{
+  padding: 20px 0;
   h4{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
-  .slick-track{
-    display: flex !important;
-    align-items: center;
-  }
-  .slick-slide img {
-    margin: auto;
-    max-width: 80%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .brands_slider_logo_img{
-    text-align: center;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
+  .service_images_block{
+    display: flex;
+    flex-wrap: wrap;
+    .service_images_block_img{
+      width: 20%;
+      padding: 5px;
+      height: 80px;
+      div {
+        background-color: white;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,16 @@
+.key_points_section{
+  padding: 20px 0;
+  .card_inner{
+    border: 1px solid $brand-primary;
+    text-align: center;
+    height: 100%;
+    .card_title_content{
+     border-bottom: 1px solid $brand-primary;
+      padding: 20px;
+      text-transform: uppercase;
+    }
+    .card_content{
+      padding: 20px;
+    }
+  }
+}
