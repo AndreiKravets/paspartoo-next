@@ -8,9 +8,51 @@
      border-bottom: 1px solid $brand-primary;
       padding: 20px;
       text-transform: uppercase;
+      h4{
+        max-width: 130px;
+        margin: auto;
+        line-height: 1.1em;
+      }
     }
     .card_content{
       padding: 20px;
+      padding-bottom: 110px;
+      p{
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      h3{
+        color: $brand-hover;
+        margin-bottom: 15px;
+        font-weight: 800;
+      }
+
+      ul{
+        margin-top: 15px;
+        li{
+          margin-bottom: 5px;
+        }
+      }
+      .key_points_btn{
+          background: $brand-hover;
+          -webkit-border-radius: 5px;
+          border-radius: 40px;
+          border: 0;
+          font-weight: 400;
+          font-size: 14px;
+          color: $brand-primary;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 80%;
+          height: 50px;
+          text-transform: uppercase;
+          margin-left: 15px;
+          position: absolute;
+          left: 50%;
+        transform: translateX(-55%);
+        bottom:45px;
+      }
     }
   }
 }

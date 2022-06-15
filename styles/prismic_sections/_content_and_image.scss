@@ -13,3 +13,21 @@
     }
   }
 }
+
+.service_image_section{
+  padding: 10px 0;
+  .service_image_big{
+    display: block;
+    padding: 20px 0;
+    @include _media-small-down() {
+    display: none;
+    }
+    }
+  .service_image_big{
+    display: none;
+    padding: 20px 0;
+    @include _media-small-down() {
+      display: block;
+    }
+  }
+}

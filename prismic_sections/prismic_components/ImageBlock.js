@@ -10,7 +10,7 @@ const ImageBlock = (section) =>  {
         return `${src}?w=${width}&q=${quality || 75}`
     }
     return (
-        <section className= "service_we_offer">
+        <section className= "service_image_section">
             <div className="container">
                 <div className="row">
                     <div className="col-12">
@@ -18,7 +18,7 @@ const ImageBlock = (section) =>  {
                     </div>
                     {section.items.map((item, index) => {
                         return(
-                            <motion.div key={index} className='col-md-4 col-sm-12'
+                            <motion.div key={index} className='col-sm-12'
                                         initial="hidden" whileInView="visible"
                                         viewport={{once: true}} key={index} variants={{
                                 hidden: {
@@ -36,8 +36,26 @@ const ImageBlock = (section) =>  {
                                     }
                                 }
                             }}>
-                            <div><h4><span>.</span>{item.we_offer_item_title}</h4></div>
-                            <div>{RichText.render(item.we_offer_item_content)}</div>
+                                {console.log(item)}
+                                <div className='service_image_big'>
+                                    <Image
+                                        loader={myLoader}
+                                        src={item.image_block_big_image.url}
+                                        alt={item.image_block_big_image.alt}
+                                        width={item.image_block_big_image.dimensions.width}
+                                        height={item.image_block_big_image.dimensions.height}
+                                    />
+                                </div>
+                                <div className='service_image_small'>
+                                    <Image
+                                        loader={myLoader}
+                                        src={item.image_block_small_image.url}
+                                        alt={item.image_block_small_image.alt}
+                                        width={item.image_block_small_image.dimensions.width}
+                                        height={item.image_block_small_image.dimensions.height}
+                                    />
+                                </div>
+
                             </motion.div>
                         )
                     })

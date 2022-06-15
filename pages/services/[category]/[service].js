@@ -43,7 +43,8 @@ const Service = ({services, service, services_category, header_footer, projects,
                                     {category.slugs == service.categories[0].category.slug ?
                                         <section className="service_top_section" style={{backgroundColor: category.data.background_top_section}} key={category.id}>
                                             <div className="container">
-                                                {category.data.title}
+                                                <h6>Home | Services | Magento</h6>
+                                                <h1 className='h2'>{category.data.title}</h1>
                                             </div>
                                         </section>
                                         : ""
@@ -63,7 +64,7 @@ const Service = ({services, service, services_category, header_footer, projects,
                                                      <>
                                                          {
                                                              service.categories[0].category.slug == item.data.categories[0].category.slug ?
-                                                             <li key={index}>
+                                                             <li key={index} className='h5'>
                                                                  <Link rel="stylesheet" href={`/services/${item.data.categories[0].category.slug}/${item.uid}`}>{item.uid}</Link>
                                                              </li>
                                                              : ""

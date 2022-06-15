@@ -24,7 +24,7 @@ const PrismicBody = (data) => {
                         <Content section={section} index={index} key={index}/>
                         )
                 }
-                if (section.slice_type == 'image_block') {
+                if (section.slice_type == 'we_offer') {
                     return (
                         <ImageBlock section={section} index={index} key={index}/>
                         )
