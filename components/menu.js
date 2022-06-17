@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Link from "next/link"
 import { BsCaretLeft } from "react-icons/bs"
-import MainContainer from "./MainContainer";
 
 export default function Menu (data) {
     console.log(data)
@@ -19,7 +18,6 @@ export default function Menu (data) {
 
     const [loaded, setLoaded] = useState(true)
 
-
     return (
         <>
             <ul>
@@ -27,10 +25,12 @@ export default function Menu (data) {
                     <Link href="">Services</Link>
                     <ul className="services_submenu">
                         {
-                            (sort_category ? sort_category.map((item)=>{
-                            console.log(item)
+                            (sort_category ? sort_category.map((category)=>{
                             return(
-                               <h1>{item.data.name}</h1>
+                                <>
+                                  {console.log(category)}
+                                  <li key={category.id}>{category.data.name}</li>
+                                </>
                             )
                           }) :'')
                         }
