@@ -36,7 +36,6 @@ const ImageBlock = (section) =>  {
                                     }
                                 }
                             }}>
-                                {console.log(item)}
                                 <div className='service_image_big'>
                                     <Image
                                         loader={myLoader}

@@ -7,7 +7,8 @@ import { useEffect } from "react";
 
 
 
-export default function MainContainer({children, header_footer = '', header_class = '', title = 'Web development agency in Miami | Paspartoo',
+export default function MainContainer({children, header_footer = '', services_category= '', services= '',
+                                          header_class = '', title = 'Web development agency in Miami | Paspartoo',
                                           isVisible = 'noindex, nofollow', description, keywords='Paspartoo',
                                           og_locale = 'en_US', og_type = 'website', og_title = '', og_url = 'https://paspartoo.com/',
                                           og_description = 'Paspartoo is an e-commerce agency specializing in Magento 2, Shopify, and WooCommerce. Based in Miami, USA. ☎️ +1 (702) 970-4043, 📩 info@paspartoo.com',
@@ -17,7 +18,6 @@ export default function MainContainer({children, header_footer = '', header_clas
     useEffect(() => {
         window.scrollTo(0, 1);
     },[])
-
        const variants = {
             hidden: {scale: 1, x: 0, opacity: 0.5},
             enter: {scale: 1, x: 0, opacity: 1, transition: {duration: 0.15, ease: [0.48, 0.15, 0.25, 0.96]}},
@@ -50,7 +50,8 @@ export default function MainContainer({children, header_footer = '', header_clas
                 <meta name="msapplication-TileImage" content={msapplication_tileimage} />
             </Head>
             <div id="root">
-                    <Header header = {header_footer} header_class = {header_class}/>
+                    <Header header = {header_footer} header_class = {header_class}
+                            services_category={services_category} services={services}/>
                           <motion.main
                               variants={variants}
                               initial="hidden"

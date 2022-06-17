@@ -4,15 +4,15 @@ import { AiOutlineCloseSquare } from "react-icons/ai";
 import Menu from "./menu";
 import Link from "next/link"
 import ContactForm from "./ContactForm";
+import MainContainer from "./MainContainer";
 
 
-export default function Header ({header, header_class}) {
+export default function Header ({header, header_class, services_category, services}) {
     header_class = header_class
     header = header
     const [activeMenu, setActiveMenu] = useState(false)
     const [activeStickyMenu, setActiveStickyMenu] = useState(false)
     const [popup, setPopup] = useState(false);
-
     const menuScroll = () => {
         if(window.scrollY > 90){
             setActiveStickyMenu(true)
@@ -86,7 +86,7 @@ export default function Header ({header, header_class}) {
                     </div>
                     <div className="col head_menu_col">
                         <div className="menu-menu-container">
-                            <Menu/>
+                            <Menu services_category={services_category} services={services}/>
                         </div>
                     </div>
                     <div className="col-auto header_btn">

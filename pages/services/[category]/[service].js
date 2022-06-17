@@ -19,6 +19,8 @@ const Service = ({services, service, services_category, header_footer, projects,
     service = service.results[0].data
     const meta = service.body1[0].primary
     const sort_services = []
+    console.log(services_category)
+    console.log(services)
     services.map((item, index) => {
         sort_services[item.data.order - 1] = item
     })
@@ -28,7 +30,7 @@ const Service = ({services, service, services_category, header_footer, projects,
     }
     return (
         <>
-            <MainContainer header_footer={header_footer}
+            <MainContainer header_footer={header_footer} services_category={services_category} services={services}
                            title={meta.title} isVisible={meta.is_visible}
                            description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
                            og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
@@ -59,7 +61,7 @@ const Service = ({services, service, services_category, header_footer, projects,
                                  <div className="col-sm-3">
                                      <ul>
                                          {
-                                             (services.map((item, index) => {
+                                             (sort_services.map((item, index) => {
                                                  return (
                                                      <>
                                                          {

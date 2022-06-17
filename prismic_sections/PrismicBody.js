@@ -10,7 +10,6 @@ const PrismicBody = (data) => {
     const content = data.content
     const project_slider = data.project_slider
     const project_category = data.project_category
-    console.log(content)
     return (
         <div className='col-sm-9'>
             {content ? content.map((section, index) => {
