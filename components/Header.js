@@ -4,7 +4,6 @@ import { AiOutlineCloseSquare } from "react-icons/ai";
 import Menu from "./menu";
 import Link from "next/link"
 import ContactForm from "./ContactForm";
-import MainContainer from "./MainContainer";
 
 
 export default function Header ({header, header_class, services_category, services}) {
@@ -48,7 +47,7 @@ export default function Header ({header, header_class, services_category, servic
                     </div>
                     <div className="col head_menu_col">
                         <div className="menu-menu-container">
-                           <Menu/>
+                            <Menu services_category={services_category} services={services}/>
                         </div>
                     </div>
                     <div className="col-auto header_btn">
@@ -63,7 +62,7 @@ export default function Header ({header, header_class, services_category, servic
             <div
                 className={activeMenu ? "mobile_menu mobile_menu_top active" : "mobile_menu mobile_menu_top"}>
                 <div className="menu_mobile">
-                    <Menu/>
+                    <Menu services_category={services_category} services={services}/>
                     <div className="mob_menu_social">
                         <ul id="menu-social-link" className="footer_social">
                             <li><a href="#"><FaFacebookF/></a></li>

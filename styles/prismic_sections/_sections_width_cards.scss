@@ -1,5 +1,6 @@
 .services_title_description{
 padding: 15px 0;
+
   .col-md-6, .col-12{
     @include _media-md-down() {
       margin-bottom: 30px;
@@ -38,6 +39,24 @@ padding: 15px 0;
       }
     }
   }
+
+  .col-md-6{
+    flex: 1 0 0% !important;
+    display: flex;
+    flex-direction: column;
+    .services_card_top_block{
+      height: 100%!important;
+      display: flex!important;
+    }
+    .services_card_content_block{
+      height: auto;
+    }
+    .services_card_bottom_block{
+      flex: 1 1 auto;
+      min-height: 1px;
+    }
+  }
+
 }
 
 

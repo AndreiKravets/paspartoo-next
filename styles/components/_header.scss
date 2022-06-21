@@ -196,17 +196,19 @@
             .services_submenu{
               display: block;
               ul{
-                display: none;
+                //display: none;
               }
             }
           }
           a{
             border: 1px solid $brand-btn;
             height: 36px;
-            padding: 0 22px;
+            padding: 0 42px;
             border-radius: 45px;
+            background-color: $brand-btn;
+            color: $white;
+            font-weight: 600;
             &:hover {
-                background-color: $brand-btn;
               color: $brand-primary;
             }
           }
@@ -218,9 +220,10 @@
             height: auto;
             flex-wrap: wrap;
             width: max-content;
-            background-color: #F3F3F3;
+            background-color: $brand-btn;
             padding-top: 25px;
             padding-bottom: 25px;
+            border-radius: 20px 0 0 20px;
             svg{
               display: none;
             }
@@ -228,33 +231,42 @@
               display: block;
               height: auto;
               margin-left: 0;
-              padding: 15px 30px;
+              padding: 13px 30px;
+              color: white;
               ul{
-                display: none;
+                //display: none;
                 position: absolute;
+                z-index: 1;
                 padding-top: 25px;
                 padding-bottom: 25px;
+                padding-left: 20px;
                 left: 100%;
                 top: 0;
-                background-color: $brand-primary;
-                width: 700px;
+                background-color: $white;
+                width: 310px;
+                border-radius: 0 20px 20px 0;
                 li{
                   padding: 0;
                   a{
                     border: none;
                     border-radius: 0;
                     height: auto;
-                    color: white;
+                    padding: 12px 0;
+                    color: $brand-primary;
                     text-transform: unset;
+                    background-color: unset;
+                    &:hover{
+                      color: $brand-btn;
+                    }
                   }
                 }
 
               }
               &:hover{
-                background-color: $brand-primary;
-                  color: white;
+                  color: #5BEAE1;
                 ul {
-                  display: block;
+                  //display: block;
+                  z-index: 2;
                 }
               }
             }
