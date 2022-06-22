@@ -17,8 +17,8 @@ module.exports = withPWA({
         permanent: true,
       },
       {
-        source: '/servicess/:path*',
-        destination: '/services/:path*',
+        source: '/servicess/:path',
+        destination: '/',
         permanent: false
       }
     ]

@@ -4,8 +4,10 @@ import Prismic from "@prismicio/client";
 import Link from "next/link";
 
 
-const Index = ({blog, category, header_footer}) => {
+const Index = ({services, services_category, blog, category, header_footer}) => {
     header_footer = header_footer
+    services = services.results
+    services_category = services_category.results
     blog = blog.results
     category = category.results
     const first_posts = blog.slice(0, 4)
@@ -44,7 +46,7 @@ const Index = ({blog, category, header_footer}) => {
     }
     return (
         <>
-            <MainContainer header_footer={header_footer}>
+            <MainContainer header_footer={header_footer} services_category={services_category} services={services}>
                 <section className="container blog_top_section">
                     <div>
                         <h1>Meet Insights</h1>

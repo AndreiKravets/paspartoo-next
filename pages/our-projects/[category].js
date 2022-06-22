@@ -11,8 +11,10 @@ import ContactForm from "../../components/ContactForm";
 
 
 
-export default function OurProjects ({query_category, our_projects, projects, category, header_footer}) {
+export default function OurProjects ({services,services_category, query_category, our_projects, projects, category, header_footer}) {
     header_footer = header_footer
+    services = services.results
+    services_category = services_category.results
     query_category = query_category
     our_projects = our_projects.results[0].data
     projects = projects.results
@@ -25,7 +27,8 @@ export default function OurProjects ({query_category, our_projects, projects, ca
     }
     return (
         <>
-            <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+            <MainContainer header_footer={header_footer} services_category={services_category} services={services}
+                           title={meta.title} isVisible={meta.is_visible}
                            description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
                            og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
                            og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
@@ -125,8 +128,12 @@ export async function getServerSideProps({ query }) {
     const our_projects = await client.query(Prismic.Predicates.at('document.type', 'our_projects'))
     const project = await client.query(Prismic.Predicates.at('document.type', 'project'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
+    const services = await client.query(Prismic.Predicates.at('document.type', 'services'))
+    const services_category = await client.query(Prismic.Predicates.at('document.type', 'services_category'))
     return {
         props: {
+            services_category:services_category,
+            services:services,
             header_footer:header_footer,
             query_category:query_category,
             our_projects:our_projects,

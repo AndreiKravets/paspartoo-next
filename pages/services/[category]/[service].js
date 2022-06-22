@@ -9,7 +9,7 @@ import {loadGetInitialProps} from "next/dist/shared/lib/utils";
 import ServiceContactSection from "../../../prismic_sections/prismic_components/ServiceContactSection";
 
 
-const Service = ({services, service, services_category, header_footer, projects, category}) => {
+const Service = ({services,services_category, service,  header_footer, projects, category}) => {
 
     header_footer = header_footer
     services = services.results
@@ -77,14 +77,11 @@ const Service = ({services, service, services_category, header_footer, projects,
                                          }
                                      </ul>
                                  </div>
-                                 {/*<div className="col-sm-9">*/}
                                     <PrismicBody project_slider = {project} project_category = {categorys} content={service.body} />
-                                 {/*</div>*/}
                              </div>
                         </div>
                     </section>
                 <ServiceContactSection project_slider = {project} project_category = {categorys} content={service.body} />
-                {/*<PrismicBody project_slider = {project} project_category = {categorys} content={service.body} />*/}
             </MainContainer>
         </>
     )

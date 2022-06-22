@@ -10,7 +10,9 @@ import RecentProjects from "../../../components/RecentProjects";
 
 
 
-const Post = ({project, header_footer, category, projects}) => {
+const Post = ({services,services_category, project, header_footer, category, projects}) => {
+    services = services.results
+    services_category = services_category.results
     projects = projects.results
     console.log(projects)
     header_footer = header_footer
@@ -22,7 +24,8 @@ const Post = ({project, header_footer, category, projects}) => {
         }
     return (
         <>
-            <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+            <MainContainer header_footer={header_footer} services_category={services_category} services={services}
+                           title={meta.title} isVisible={meta.is_visible}
                            description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
                            og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
                            og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
@@ -172,7 +175,11 @@ export async function getServerSideProps({ query }) {
     const project = await client.query(Prismic.Predicates.at('my.project.uid', productId))
     const projects = await client.query(Prismic.Predicates.at('document.type', 'project'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
+    const services = await client.query(Prismic.Predicates.at('document.type', 'services'))
+    const services_category = await client.query(Prismic.Predicates.at('document.type', 'services_category'))
     return {props: {
+            services_category:services_category,
+            services:services,
             projects:projects,
             header_footer:header_footer,
             productId: productId,

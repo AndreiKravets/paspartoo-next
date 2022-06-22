@@ -7,8 +7,10 @@ import {RichText} from "prismic-reactjs";
 
 
 
-const Index = ({blog, blog_page, category, header_footer}) => {
+const Index = ({services,services_category, blog, blog_page, category, header_footer}) => {
     header_footer = header_footer
+    services = services.results
+    services_category = services_category.results
     blog = blog.results
     blog_page = blog_page.results[0].data
     const meta = blog_page.body[0].primary
@@ -51,7 +53,8 @@ const Index = ({blog, blog_page, category, header_footer}) => {
     }
     return (
         <>
-            <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+            <MainContainer header_footer={header_footer} services_category={services_category} services={services}
+                           title={meta.title} isVisible={meta.is_visible}
                            description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
                            og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
                            og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
@@ -149,8 +152,12 @@ export async function getServerSideProps() {
     const blog = await client.query(Prismic.Predicates.at('document.type', 'blog_post'))
     const blog_page = await client.query(Prismic.Predicates.at('document.type', 'posts'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'category_blog'))
+    const services = await client.query(Prismic.Predicates.at('document.type', 'services'))
+    const services_category = await client.query(Prismic.Predicates.at('document.type', 'services_category'))
     return {props: {
             header_footer:header_footer,
+            services_category:services_category,
+            services:services,
             blog: blog,
             blog_page: blog_page,
             category: category

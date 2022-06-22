@@ -6,13 +6,16 @@ import ContactForm from "../../../components/ContactForm"
 
 
 
-const Post = ({blog, header_footer}) => {
+const Post = ({services,services_category, blog, header_footer}) => {
     header_footer = header_footer
+    services = services.results
+    services_category = services_category.results
     blog = blog.results[0].data
     const meta = blog.body[0].primary
     return (
         <>
-            <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+            <MainContainer header_footer={header_footer} services_category={services_category} services={services}
+                           title={meta.title} isVisible={meta.is_visible}
                            description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
                            og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
                            og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
@@ -66,7 +69,11 @@ export async function getServerSideProps({ query }) {
     const client = Prismic.client("https://alex-paspartoo.prismic.io/api/v2", {})
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
     const blog = await client.query(Prismic.Predicates.at('my.blog_post.uid', productId))
+    const services = await client.query(Prismic.Predicates.at('document.type', 'services'))
+    const services_category = await client.query(Prismic.Predicates.at('document.type', 'services_category'))
     return {props: {
+            services_category:services_category,
+            services:services,
             header_footer:header_footer,
             productId: productId,
             blog: blog

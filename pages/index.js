@@ -12,8 +12,10 @@ import InstagramFeed  from 'react-ig-feed'
 import 'react-ig-feed/dist/index.css'
 
 
-export default function Home({homepage, projects, category, header_footer}) {
+export default function Home({services,services_category, homepage, projects, category, header_footer}) {
     header_footer = header_footer
+    services = services.results
+    services_category = services_category.results
     homepage = homepage.results[0].data
     projects = projects.results
     category = category.results
@@ -166,7 +168,8 @@ export default function Home({homepage, projects, category, header_footer}) {
     }
 
     return (
-        <MainContainer header_footer={header_footer} title={meta.title} isVisible={meta.is_visible}
+        <MainContainer header_footer={header_footer} services_category={services_category} services={services}
+                       title={meta.title} isVisible={meta.is_visible}
                        description={meta.description} keywords={meta.keywords} og_locale={meta.og_locale}
                        og_type={meta.og_type} og_title={meta.og_title} og_description={meta.og_description}
                        og_url={meta.og_url} og_site_name={meta.og_site_name} twitter_card={meta.twitter_card}
@@ -657,8 +660,12 @@ export async function getServerSideProps() {
     const project = await client.query(Prismic.Predicates.at('document.type', 'project'))
     const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
     const header_footer = await client.query(Prismic.Predicates.at('document.type', 'header_footer'))
+    const services = await client.query(Prismic.Predicates.at('document.type', 'services'))
+    const services_category = await client.query(Prismic.Predicates.at('document.type', 'services_category'))
     return {
         props: {
+            services_category:services_category,
+            services:services,
             header_footer: header_footer,
             homepage: homepage,
             projects: project,

@@ -1,8 +1,8 @@
 import React, {useState,useEffect} from 'react'
 import Link from "next/link"
+import { useRouter } from "next/router";
 
 export default function Menu (data) {
-    console.log(data)
     const services = data.services
     const category = data.services_category
     const sort_services = []
@@ -14,6 +14,8 @@ export default function Menu (data) {
     category ? category.map((item, index) => {
         sort_category[item.data.order - 1] = item
     }) : '';
+
+    const router = useRouter();
 
     console.log(services)
     const [loaded, setLoaded] = useState(true)
@@ -35,13 +37,12 @@ export default function Menu (data) {
                                     <ul>
                                         {
                                             (services.map((service)=>{
-                                                console.log(category)
-                                                console.log(service)
                                                 return(
                                                     <>
-                                                        {service.data.categories[0].category.slug == category.slugs[0] ? <li key={service.id}>
-                                                            <Link href={`/services/${category.slugs[0]}/${service.uid}`}>{service.data.name}</Link>
-                                                        </li>:''}
+                                                        {service.data.categories[0].category.slug == category.slugs[0] ?
+                                                            <li className={router.pathname == `/services/${category.slugs[0]}/${service.uid}` ? "active" : ""} key={service.id}>
+                                                               <Link href={`/services/${category.slugs[0]}/${service.uid}`}>{service.data.name}</Link>
+                                                            </li>:''}
                                                     </>
                                                 )
                                             }))
@@ -54,16 +55,16 @@ export default function Menu (data) {
                         }
                     </ul>
                 </li>
-                <li>
+                <li className={router.pathname == "/about" ? "active" : ""}>
                     <Link href="/about">About Us</Link>
                 </li>
-                <li>
+                <li className={router.pathname == "/our-projects" ? "active" : ""}>
                     <Link href="/our-projects">Our Projects</Link>
                 </li>
-                <li>
+                <li className={router.pathname == "/blog" ? "active" : ""}>
                     <Link href="/blog">Blog</Link>
                 </li>
-                <li>
+                <li className={router.pathname == "/contacts" ? "active" : ""}>
                     <Link href="/contacts">Contacts</Link>
                 </li>
             </ul>
