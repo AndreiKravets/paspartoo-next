@@ -5,15 +5,23 @@ import { useRouter } from "next/router";
 export default function Menu (data) {
     const services = data.services
     const category = data.services_category
-    const sort_services = []
-    const sort_category = []
+    const sort_services = services ? services.slice().sort((item1, item2) =>{
+        if(item1.data.order > item2.data.order){
+            return 1;
+        } else if(item1.data.order < item2.data.order){
+            return -1;
+        }
+        return 0;
+    }) : [];
+    const sort_category = category ? category.slice().sort((item1, item2) =>{
+        if(item1.data.order > item2.data.order){
+            return 1;
+        } else if(item1.data.order < item2.data.order){
+            return -1;
+        }
+        return 0;
+    }) : [];
     const [activeSubmenu, setActiveSubmenu] = useState('');
-    // services ? services.map((item, index) => {
-    //     sort_services[item.data.order - 1] = item
-    // }) : '';
-    category ? category.map((item, index) => {
-        sort_category[item.data.order - 1] = item
-    }) : '';
 
     const router = useRouter();
 
@@ -36,7 +44,7 @@ export default function Menu (data) {
                                   >{category.data.name}
                                     <ul>
                                         {
-                                            (services.map((service)=>{
+                                            (sort_services.map((service)=>{
                                                 return(
                                                     <>
                                                         {service.data.categories[0].category.slug == category.slugs[0] ?

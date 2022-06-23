@@ -9,8 +9,8 @@ import {loadGetInitialProps} from "next/dist/shared/lib/utils";
 import ServiceContactSection from "../../../prismic_sections/prismic_components/ServiceContactSection";
 
 
-const Service = ({services,services_category, service,  header_footer, projects, category}) => {
-
+const Service = ({productId, services, services_category, service,  header_footer, projects, category}) => {
+    productId=productId
     header_footer = header_footer
     services = services.results
     services_category = services_category.results
@@ -18,12 +18,22 @@ const Service = ({services,services_category, service,  header_footer, projects,
     const project = projects.results
     service = service.results[0].data
     const meta = service.body1[0].primary
-    const sort_services = []
-    console.log(services_category)
-    console.log(services)
-    services.map((item, index) => {
-        sort_services[item.data.order - 1] = item
-    })
+    const sort_services = services ? services.slice().sort((item1, item2) =>{
+        if(item1.data.order > item2.data.order){
+            return 1;
+        } else if(item1.data.order < item2.data.order){
+            return -1;
+        }
+        return 0;
+    }) : [];
+    const sort_category = categorys ? categorys.slice().sort((item1, item2) =>{
+        if(item1.data.order > item2.data.order){
+            return 1;
+        } else if(item1.data.order < item2.data.order){
+            return -1;
+        }
+        return 0;
+    }) : [];
 
     const myLoader = ({src, width, quality}) => {
         return `${src}?w=${width}&q=${quality || 75}`
@@ -66,7 +76,7 @@ const Service = ({services,services_category, service,  header_footer, projects,
                                                      <>
                                                          {
                                                              service.categories[0].category.slug == item.data.categories[0].category.slug ?
-                                                             <li key={index} className='h5'>
+                                                             <li key={index} className={productId == item.uid ? "active h5" : "h5"}>
                                                                  <Link rel="stylesheet" href={`/services/${item.data.categories[0].category.slug}/${item.uid}`}>{item.uid}</Link>
                                                              </li>
                                                              : ""
@@ -100,6 +110,7 @@ export async function getServerSideProps({query}) {
     const category = await client.query(Prismic.Predicates.at('document.type', 'projects_category'))
     return {
         props: {
+            productId:productId,
             services_category:services_category,
             services:services,
             service:service,

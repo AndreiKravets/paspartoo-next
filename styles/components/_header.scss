@@ -186,6 +186,11 @@
               color: $brand-hover;
             }
           }
+          &.active{
+            a{
+              color: $brand-hover !important;
+            }
+          }
         }
         .menu_services{
           position: relative;
@@ -378,6 +383,7 @@
         top: 40px !important;
       }
     }
+
   }
   .sub-menu{
     li{
