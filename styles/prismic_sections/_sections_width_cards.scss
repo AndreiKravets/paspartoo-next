@@ -1,9 +1,9 @@
 .services_title_description{
 padding: 15px 0;
 
-  .col-md-6, .col-12{
+  .col-md-6, .col-12, .col-lg-6{
     @include _media-md-down() {
-      margin-bottom: 30px;
+      margin-bottom: 0px;
     }
     div{
       margin-right: 30px;
@@ -40,13 +40,13 @@ padding: 15px 0;
     }
   }
 
-  .col-md-6{
-    flex: 1 0 0% !important;
+  .col-md-6, .col-lg-6{
+    //flex: 1 0 0% !important;
     display: flex;
     flex-direction: column;
     .services_card_top_block{
-      height: 100%!important;
       display: flex!important;
+      height: 100% !important;
     }
     .services_card_content_block{
       height: auto;

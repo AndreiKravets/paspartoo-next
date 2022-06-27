@@ -11,7 +11,7 @@ const SectionTitleDescription = (section) =>  {
     }
     return (
     <section className={`services_title_description ${section.primary.individual_class_name != null ? section.primary.individual_class_name : ''}`}>
-        <div className="container">
+        <div>
             <div className="row">
                 {
                     (section.items.map((card, index) => {
@@ -34,13 +34,12 @@ const SectionTitleDescription = (section) =>  {
                                     }
                                 }
                             }}>
-                                <div className="h-100 d-flex services_card_top_block">
+                                <div className="d-flex services_card_top_block">
                                     <h4><span>.</span>{RichText.render(card.title_block)}</h4>
                                 </div>
                                 <div className="services_card_content_block">
                                     {RichText.render(card.content_block)}
                                 </div>
-                                <div className="services_card_bottom_block"></div>
                             </motion.div>
                         )
                     }))

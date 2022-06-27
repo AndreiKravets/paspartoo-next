@@ -385,6 +385,21 @@
     }
 
   }
+  .services_submenu{
+    a{
+      color: $brand-primary !important;
+      &:hover{
+        color: $brand-btn !important;
+      }
+    }
+    li{
+      ul{
+        li{
+          padding: 0 !important;
+        }
+      }
+    }
+  }
   .sub-menu{
     li{
       padding: 0 !important;
